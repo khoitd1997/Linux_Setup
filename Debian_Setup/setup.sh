@@ -6,7 +6,7 @@
 SOFTWARE_GENERAL_REPO= checkinstall lm-sensors psensor cmake \
                         gufw valgrind gcc clang llvm terminator\
                         emacs synaptic build-essential gitg htop\
-                        net-tools evince 
+                        net-tools evince gksudo guake
                         #list of general utilities
 
 ARM_TOOLCHAIN= gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi
@@ -18,10 +18,22 @@ SOFTWARE_GENERAL_NONREPO=\nFoxit_Reader Visual_Studio_Code\nSophos Veeam
 #Execution commands starts here
 #Always execute these
 printf  "starting %s" "$(basename $0)" #extract base name from $0
+cd #back to home directory 
 sudo ufw enable #enable firewall 
-sudo apt-get update #update the system 
+
+#update the system 
+sudo apt-get update 
 sudo apt-get dist-upgrade
 sudo apt-get install $SOFTWARE_GENERAL_REPO
+
+#create directory
+mkdir /Documents/workspace
+
+#customizing the shell prompt
+sed -i '/force_color_prompt/s/#//' ~/.bashrc #enable color prompt, -i for in place manipulations 
+
+#customize the terminal 
+cp ~/Linux_Setup/Debian_Setup/terminator_config ~/.config/terminator/config #replace config files of terminator over the old one. 
 
 printf "/n Basic Install is done, please select additional install options:"
 
