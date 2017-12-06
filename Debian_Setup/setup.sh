@@ -32,6 +32,7 @@ CYAN='\033[38;5;087m' #for marking the being of a new sections
 YELLOW='\033[38;5;226m' #for error 
 GREEN='\033[38;5;154m' #for general messages 
 RESET='\033[0m' #for resetting the color 
+DEBUG= 0 #set 1 to enable debug
 #Configuration Parameters
 WSL=1 #0 for installing on Window Subsystem for Linux, 1 for not WSL by default
 
@@ -46,12 +47,14 @@ do
         -wsl is for selecting wsl options \
         -h prints help\n ${RESET}";;
         -wsl) WSL=0;; 
+        -debug) DEBUG=1;;
         *) printf  "${GREEN}Not a valid option ${RESET}";;
     esac
     shift 
 done 
-
-#set -e #exit when there is an error, replaced with specific error handling  
+if [[ DEBUG = 1 ]]; then
+set -e #exit when there is an error, replaced with specific error handling  
+fi
 printf "\n ${CYAN} ---------BASIC-----------\n ${RESET}"
 printf  "${GREEN}Starting $(basename $0)\n ${RESET}" #extract base name from $0
 cd #back to home directory 
@@ -62,7 +65,7 @@ fi
 
 #update the system, only proceed if the previous command is successful  
 if [ $WSL -eq 1 ] ; then
-    SOFTWARE_GENERAL_REPO=" ${SOFTWARE_GENERAL_REPO_NON_GUI} ${SOFTWARE_WITH_GUI} "
+    SOFTWARE_GENERAL_REPO= ${SOFTWARE_GENERAL_REPO_NON_GUI} ${SOFTWARE_WITH_GUI}
 else 
     SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}"
 fi
