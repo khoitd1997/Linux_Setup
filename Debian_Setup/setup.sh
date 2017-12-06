@@ -11,7 +11,7 @@
 SOFTWARE_GENERAL_REPO_NON_GUI=" checkinstall lm-sensors cmake valgrind gcc clang llvm  emacs build-essential htop net-tools "
 
 #list of software with GUI                        
-SOFTWARE_WITH_GUI= " gksu terminator gitg guake ddd evince synaptic psensor gufw "
+SOFTWARE_WITH_GUI=" gksu terminator gitg guake ddd evince synaptic psensor gufw "
 
 #all tool chains and utilities
 ARM_TOOLCHAIN="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
