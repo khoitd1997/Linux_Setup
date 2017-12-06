@@ -14,7 +14,7 @@ SOFTWARE_GENERAL_REPO_NON_GUI="checkinstall lm-sensors cmake \
                         net-tools"
 
 #list of software with GUI                        
-SOFTWARE_WITH_GUI= "gksu terminator gitg guake ddd evince synaptic psensor"
+SOFTWARE_WITH_GUI= " gksu terminator gitg guake ddd evince synaptic psensor"
 
 #all tool chains and utilities
 ARM_TOOLCHAIN="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
@@ -32,7 +32,7 @@ CYAN='\033[38;5;087m' #for marking the being of a new sections
 YELLOW='\033[38;5;226m' #for error 
 GREEN='\033[38;5;154m' #for general messages 
 RESET='\033[0m' #for resetting the color 
-DEBUG= 0 #set 1 to enable debug
+DEBUG= 0 #set 0 to enable debug
 #Configuration Parameters
 WSL=1 #0 for installing on Window Subsystem for Linux, 1 for not WSL by default
 
@@ -47,12 +47,12 @@ do
         -wsl is for selecting wsl options \
         -h prints help\n ${RESET}";;
         -wsl) WSL=0;; 
-        -debug) DEBUG=1;;
+        -debug) DEBUG=0;;
         *) printf  "${GREEN}Not a valid option ${RESET}";;
     esac
     shift 
 done 
-if [[ DEBUG = 1 ]]; then
+if [[ DEBUG = 0 ]]; then
 set -e #exit when there is an error, replaced with specific error handling  
 fi
 printf "\n ${CYAN} ---------BASIC-----------\n ${RESET}"
@@ -65,7 +65,7 @@ fi
 
 #update the system, only proceed if the previous command is successful  
 if [ $WSL -eq 1 ] ; then
-    SOFTWARE_GENERAL_REPO= ${SOFTWARE_GENERAL_REPO_NON_GUI} ${SOFTWARE_WITH_GUI}
+    SOFTWARE_GENERAL_REPO= ${SOFTWARE_GENERAL_REPO_NON_GUI}${SOFTWARE_WITH_GUI}
 else 
     SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}"
 fi
