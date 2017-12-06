@@ -42,13 +42,11 @@ WSL=1 #0 for installing on Window Subsystem for Linux, 1 for not WSL by default
 while [-n "$1"]
 do 
     case "$1" in
-        -h)printf  "${GREEN} program used for setting up new Debian based system \
+        -h) printf "${GREEN} program used for setting up new Debian based system \
         -wsl is for selecting wsl options \
         -h prints help\n";;
-        
-        -wsl)WSL=0;; 
-        
-        *)printf  "${GREEN}Not a valid option";;
+        -wsl) WSL=0;; 
+        *) printf  "${GREEN}Not a valid option";;
     esac
     shift 
 done 
