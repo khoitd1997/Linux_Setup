@@ -6,58 +6,94 @@
 #Variables start here 
 #Modify software lists here
 #NO SPACE AROUND '=' for variable assignment
-SOFTWARE_GENERAL_REPO="checkinstall lm-sensors psensor cmake \
-                        gufw valgrind gcc clang llvm terminator\
-                        emacs synaptic build-essential gitg htop\
-                        net-tools evince gksu guake ddd"
-                        #list of general utilities
 
+#list of general utilities without GUI
+SOFTWARE_GENERAL_REPO_NON_GUI="checkinstall lm-sensors cmake \
+                        gufw valgrind gcc clang llvm \
+                        emacs build-essential htop\
+                        net-tools"
+
+#list of software with GUI                        
+SOFTWARE_WITH_GUI= "gksu terminator gitg guake ddd evince synaptic psensor"
+
+#all tool chains and utilities
 ARM_TOOLCHAIN="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
 AVR_ARDUINO_TOOLCHAIN="arduino avrdude avr-libc simulavr"
-FULL="$ARM_TOOLCHAIN $AVR_ARDUINO_TOOLCHAIN" #all tool chains and utilities
+FULL="$ARM_TOOLCHAIN $AVR_ARDUINO_TOOLCHAIN" 
 
+#software not in current Ubuntu 16.04 repos
 SOFTWARE_GENERAL_NONREPO="\nFoxit_Reader Visual_Studio_Code\nSophos Veeam\n"
 
 #Color Variables for output, chosen for best visibility
 #Consult the Xterm 256 color charts for more code 
-#format is \33 then <fg_bg_code>;5;<color code>m 38 for foreground, 48 for background
+#format is \33 then <fg_bg_code>;5;<color code>m, 38 for foreground, 48 for background
 RED='\33[38;5;0196m'
 CYAN='\033[38;5;87m' #for marking the being of a new sections
 YELLOW='\033[38;5;226m' #for error 
 GREEN='\033[38;5;154m' #for general messages
 
+#Configuration Parameters
+WSL=1 #0 for installing on Window Subsystem for Linux, 1 for not WSL by default
+
 #----------------------------------------------------------------------------------------------------
-#Execution commands starts here
-#Always execute these
+#Default execution commands starts here
+
+#Handling input options
+while [-n "$1"]
+do 
+    case "$1" in
+        -h)printf  "${GREEN} program used for setting up new Debian based system \
+        -wsl is for selecting wsl options \
+        -h prints help\n";;
+        
+        -wsl)WSL=0;; 
+        
+        *)printf  "${GREEN}Not a valid option";;
+    esac
+    shift 
+done 
+
 #set -e #exit when there is an error, replaced with specific error handling  
-echo "\n{CYAN}---------BASIC-----------"
-printf  "starting %s" "$(basename $0)" #extract base name from $0
+echo "\n${CYAN}---------BASIC-----------\n"
+printf  "${GREEN}Starting $(basename $0)\n" #extract base name from $0
 cd #back to home directory 
+
+f ["$WSL" -eq "1"] ; then
 sudo ufw enable #enable firewall 
+fi
 
 #update the system, only proceed if the previous command is successful  
+f ["$WSL" -eq "1"] ; then
+    SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI} ${SOFTWARE_WITH_GUI}"
+else 
+    SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}"
+fi
+
 if [(sudo apt-get update\
 && sudo apt-get dist-upgrade\
-&& sudo apt-get install $SOFTWARE_GENERAL_REPO) -ne 0]; then
+&& sudo apt-get install ${SOFTWARE_GENERAL_REPO}) -ne 0]; then
 printf "\n${YELLOW}Failed in Basic update and install\n"
 exit 1 
 fi 
 
 #----------------------------------------------------------------------------------------------------
 #Auxilarry customizations start here
-echo "\n{CYAN}--------AUXILLARY------------"
-mkdir ~/Workspace #create workspace dir for Visual Studio Code at home dir
+echo "\n${CYAN}--------AUXILLARY------------\n"
 
-#used for non-WSL install 
+
+if ["$WSL" -eq "1"] ; then
 #customizing the shell prompt
-#sed -i '/force_color_prompt/s/#//' ~/.bashrc #enable color prompt, -i for in place manipulations 
+sed -i '/force_color_prompt/s/#//' ~/.bashrc #force color prompt, -i for in place manipulations 
+
+mkdir ~/Workspace #create workspace dir for Visual Studio Code at home dir 
 
 #customize the terminal 
 #cp ~/Linux_Setup/Debian_Setup/terminator_config ~/.config/terminator/config #replace config files of terminator over the old one. 
+fi 
 
 #----------------------------------------------------------------------------------------------------
 #Dev tools installations start here
-echo "\n{CYAN}--------DEV-TOOLS-----------"
+echo "\n${CYAN}--------DEV-TOOLS-----------"
 printf "\n${CYAN}Basic Install is done, please select additional install options:\n"
 printf  "${CYAN}1/Full 2/ARM 3/AVR " 
 read option
@@ -83,6 +119,6 @@ esac
 
 #----------------------------------------------------------------------------------------------------
 #Post installtion messages start here 
-echo "\n{CYAN}--------POST-INST-----------"
-printf  "${GREEN}\nScript execution is done \n Please install these additional software if needed ${SOFTWARE_GENERAL_NONREPO}" 
+echo "\n${CYAN}--------POST-INST-----------\n"
+printf  "${GREEN}Script execution is done \n Please install these additional software if needed ${SOFTWARE_GENERAL_NONREPO}" 
 exit 0
