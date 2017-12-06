@@ -58,12 +58,12 @@ echo "\n${CYAN}---------BASIC-----------\n"
 printf  "${GREEN}Starting $(basename $0)\n" #extract base name from $0
 cd #back to home directory 
 
-f ["$WSL" -eq "1"] ; then
+if ["$WSL" -eq "1"] ; then
 sudo ufw enable #enable firewall 
 fi
 
 #update the system, only proceed if the previous command is successful  
-f ["$WSL" -eq "1"] ; then
+if ["$WSL" -eq "1"] ; then
     SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI} ${SOFTWARE_WITH_GUI}"
 else 
     SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}"
@@ -114,11 +114,12 @@ case $option in #handle options
     printf "\n${YELLOW}Failed to install AVR toolchain\n"
     exit 1
     fi ;;
-    *) printf  "${YELLOW}\nInvalid options\n";;
+    *) printf  "${YELLOW}\nInvalid options\n"
+        exit 1;;
 esac
 
 #----------------------------------------------------------------------------------------------------
 #Post installtion messages start here 
 echo "\n${CYAN}--------POST-INST-----------\n"
-printf  "${GREEN}Script execution is done \n Please install these additional software if needed ${SOFTWARE_GENERAL_NONREPO}" 
+printf  "${GREEN}Script successfully executed \nPlease install these additional software if needed ${SOFTWARE_GENERAL_NONREPO}" 
 exit 0
