@@ -27,11 +27,11 @@ SOFTWARE_GENERAL_NONREPO="\nFoxit_Reader Visual_Studio_Code\nSophos Veeam\n"
 #Color Variables for output, chosen for best visibility
 #Consult the Xterm 256 color charts for more code 
 #format is \33 then <fg_bg_code>;5;<color code>m, 38 for foreground, 48 for background
-RED='\33[38;5;0196m'
-CYAN='\033[38;5;87m' #for marking the being of a new sections
+RED='\33[38;5;0196m' 
+CYAN='\033[38;5;087m' #for marking the being of a new sections 
 YELLOW='\033[38;5;226m' #for error 
-GREEN='\033[38;5;154m' #for general messages
-
+GREEN='\033[38;5;154m' #for general messages 
+RESET='\033[0m' #for resetting the color 
 #Configuration Parameters
 WSL=1 #0 for installing on Window Subsystem for Linux, 1 for not WSL by default
 
@@ -44,42 +44,42 @@ do
     case "$1" in
         -h) printf "${GREEN} program used for setting up new Debian based system \
         -wsl is for selecting wsl options \
-        -h prints help\n";;
+        -h prints help\n ${RESET}";;
         -wsl) WSL=0;; 
-        *) printf  "${GREEN}Not a valid option";;
+        *) printf  "${GREEN}Not a valid option ${RESET}";;
     esac
     shift 
 done 
 
 #set -e #exit when there is an error, replaced with specific error handling  
-echo "\n${CYAN}---------BASIC-----------\n"
-printf  "${GREEN}Starting $(basename $0)\n" #extract base name from $0
+echo "\n ${CYAN} ---------BASIC-----------\n ${RESET}"
+printf  "${GREEN}Starting $(basename $0)\n ${RESET}" #extract base name from $0
 cd #back to home directory 
 
-if ["$WSL" -eq "1"] ; then
+if [ $WSL -eq 1 ] ; then
 sudo ufw enable #enable firewall 
 fi
 
 #update the system, only proceed if the previous command is successful  
-if ["$WSL" -eq "1"] ; then
+if [ $WSL -eq 1 ] ; then
     SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI} ${SOFTWARE_WITH_GUI}"
 else 
     SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}"
 fi
 
-if [(sudo apt-get update\
+if sudo apt-get update\
 && sudo apt-get dist-upgrade\
-&& sudo apt-get install ${SOFTWARE_GENERAL_REPO}) -ne 0]; then
-printf "\n${YELLOW}Failed in Basic update and install\n"
+&& sudo apt-get install ${SOFTWARE_GENERAL_REPO} ; then
+printf "\n ${YELLOW}Failed in Basic update and install\n ${RESET}"
 exit 1 
 fi 
 
 #----------------------------------------------------------------------------------------------------
 #Auxilarry customizations start here
-echo "\n${CYAN}--------AUXILLARY------------\n"
+echo "\n ${CYAN} --------AUXILLARY------------\n ${RESET}"
 
 
-if ["$WSL" -eq "1"] ; then
+if [ $WSL -eq 1 ] ; then
 #customizing the shell prompt
 sed -i '/force_color_prompt/s/#//' ~/.bashrc #force color prompt, -i for in place manipulations 
 
@@ -91,33 +91,33 @@ fi
 
 #----------------------------------------------------------------------------------------------------
 #Dev tools installations start here
-echo "\n${CYAN}--------DEV-TOOLS-----------"
-printf "\n${CYAN}Basic Install is done, please select additional install options:\n"
-printf  "${CYAN}1/Full 2/ARM 3/AVR " 
+echo "\n ${CYAN}--------DEV-TOOLS----------- ${RESET}"
+printf "\n ${CYAN}Basic Install is done, please select additional install options:\n ${RESET}"
+printf  "${CYAN}1/Full 2/ARM 3/AVR ${RESET}" 
 read option
 
 case $option in #handle options
-    1) echo "\n${GREEN}installing $FULL\n" 
+    1) echo "\n ${GREEN}installing $FULL\n ${RESET}" 
     if ! sudo apt-get install $FULL; then
-    printf "\n${YELLOW}Failed to install full package\n" 
+    printf "\n ${YELLOW}Failed to install full package\n ${RESET}" 
     exit 1
     fi;;
-    2) echo "\n${GREEN}installing $ARM_TOOLCHAIN\n"
+    2) echo "\n ${GREEN}installing $ARM_TOOLCHAIN\n ${RESET}"
     if ! sudo apt-get install $ARM_TOOLCHAIN; then 
-    printf "\n${YELLOW}Failed to install ARM toolchain\n" 
+    printf "\n ${YELLOW}Failed to install ARM toolchain\n ${RESET}" 
     exit 1
     fi ;;
-    3) echo "\n${GREEN}installing $AVR_ARDUINO_TOOLCHAIN\n"
+    3) echo "\n ${GREEN}installing $AVR_ARDUINO_TOOLCHAIN\n ${RESET}"
     if ! sudo apt-get install $AVR_ARDUINO_TOOLCHAIN; then 
-    printf "\n${YELLOW}Failed to install AVR toolchain\n"
+    printf "\n ${YELLOW}Failed to install AVR toolchain\n ${RESET}"
     exit 1
     fi ;;
-    *) printf  "${YELLOW}\nInvalid options\n"
+    *) printf  "${YELLOW}\nInvalid options\n ${RESET}"
         exit 1;;
 esac
 
 #----------------------------------------------------------------------------------------------------
 #Post installtion messages start here 
-echo "\n${CYAN}--------POST-INST-----------\n"
-printf  "${GREEN}Script successfully executed \nPlease install these additional software if needed ${SOFTWARE_GENERAL_NONREPO}" 
+echo "\n ${CYAN} --------POST-INST-----------\n ${RESET}"
+printf  " ${GREEN} Script successfully executed \nPlease install these additional software if needed ${SOFTWARE_GENERAL_NONREPO} ${RESET}" 
 exit 0
