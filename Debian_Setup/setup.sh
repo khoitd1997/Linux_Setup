@@ -39,7 +39,7 @@ WSL=1 #0 for installing on Window Subsystem for Linux, 1 for not WSL by default
 #Default execution commands starts here
 
 #Handling input options
-while [-n "$1"]
+while [ -n "$1" ]
 do 
     case "$1" in
         -h) printf "${GREEN} program used for setting up new Debian based system \
@@ -62,7 +62,7 @@ fi
 
 #update the system, only proceed if the previous command is successful  
 if [ $WSL -eq 1 ] ; then
-    SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI} ${SOFTWARE_WITH_GUI}"
+    SOFTWARE_GENERAL_REPO=" ${SOFTWARE_GENERAL_REPO_NON_GUI} ${SOFTWARE_WITH_GUI} "
 else 
     SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}"
 fi
