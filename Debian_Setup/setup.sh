@@ -16,6 +16,8 @@ SOFTWARE_GENERAL_REPO_NON_GUI="checkinstall lm-sensors cmake \
 #list of software with GUI                        
 SOFTWARE_WITH_GUI= " gksu terminator gitg guake ddd evince synaptic psensor"
 
+SOFTWARE_GENERAL_REPO=
+
 #all tool chains and utilities
 ARM_TOOLCHAIN="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
 AVR_ARDUINO_TOOLCHAIN="arduino avrdude avr-libc simulavr"
@@ -65,7 +67,7 @@ fi
 
 #update the system, only proceed if the previous command is successful  
 if [ $WSL -eq 1 ] ; then
-    SOFTWARE_GENERAL_REPO= ${SOFTWARE_GENERAL_REPO_NON_GUI}${SOFTWARE_WITH_GUI}
+    SOFTWARE_GENERAL_REPO= "${SOFTWARE_GENERAL_REPO_NON_GUI}${SOFTWARE_WITH_GUI}"
 else 
     SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}"
 fi
