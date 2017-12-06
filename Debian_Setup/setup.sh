@@ -29,7 +29,7 @@ CYAN='\033[38;5;087m' #for marking the being of a new sections
 YELLOW='\033[38;5;226m' #for error 
 GREEN='\033[38;5;154m' #for general messages 
 RESET='\033[0m' #for resetting the color 
-DEBUG= 0 #set 0 to enable debug
+DEBUG= 1 #set 0 to enable debug, 1 by defaults
 #Configuration Parameters
 WSL=1 #0 for installing on Window Subsystem for Linux, 1 for not WSL by default
 
@@ -111,6 +111,7 @@ case $option in #handle options
     if ! sudo apt-get install $AVR_ARDUINO_TOOLCHAIN; then 
     printf "\n ${YELLOW}Failed to install AVR toolchain\n ${RESET}"
     exit 1
+    4) printf "\n ${GREEN}Exit\n ${RESET}"
     fi ;;
     *) printf  "${YELLOW}\nInvalid options\n ${RESET}"
         exit 1;;
