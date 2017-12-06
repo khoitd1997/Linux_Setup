@@ -52,7 +52,7 @@ do
 done 
 
 #set -e #exit when there is an error, replaced with specific error handling  
-echo "\n ${CYAN} ---------BASIC-----------\n ${RESET}"
+printf "\n ${CYAN} ---------BASIC-----------\n ${RESET}"
 printf  "${GREEN}Starting $(basename $0)\n ${RESET}" #extract base name from $0
 cd #back to home directory 
 
@@ -76,7 +76,7 @@ fi
 
 #----------------------------------------------------------------------------------------------------
 #Auxilarry customizations start here
-echo "\n ${CYAN} --------AUXILLARY------------\n ${RESET}"
+printf "${CYAN} \n  --------AUXILLARY------------\n ${RESET}"
 
 
 if [ $WSL -eq 1 ] ; then
@@ -91,23 +91,23 @@ fi
 
 #----------------------------------------------------------------------------------------------------
 #Dev tools installations start here
-echo "\n ${CYAN}--------DEV-TOOLS----------- ${RESET}"
-printf "\n ${CYAN}Basic Install is done, please select additional install options:\n ${RESET}"
+printf "\n ${CYAN}--------DEV-TOOLS----------- ${RESET}"
+printf "${CYAN}\n Basic Install is done, please select additional install options: \n ${RESET}"
 printf  "${CYAN}1/Full 2/ARM 3/AVR ${RESET}" 
 read option
 
 case $option in #handle options
-    1) echo "\n ${GREEN}installing $FULL\n ${RESET}" 
+    1) printf "${GREEN}\n installing $FULL\n ${RESET}" 
     if ! sudo apt-get install $FULL; then
-    printf "\n ${YELLOW}Failed to install full package\n ${RESET}" 
+    printf "${YELLOW}\n Failed to install full package\n ${RESET}" 
     exit 1
     fi;;
-    2) echo "\n ${GREEN}installing $ARM_TOOLCHAIN\n ${RESET}"
+    2) printf "${GREEN}\n installing $ARM_TOOLCHAIN\n ${RESET}"
     if ! sudo apt-get install $ARM_TOOLCHAIN; then 
-    printf "\n ${YELLOW}Failed to install ARM toolchain\n ${RESET}" 
+    printf "${YELLOW}\n Failed to install ARM toolchain\n ${RESET}" 
     exit 1
     fi ;;
-    3) echo "\n ${GREEN}installing $AVR_ARDUINO_TOOLCHAIN\n ${RESET}"
+    3) printf "\n ${GREEN}installing $AVR_ARDUINO_TOOLCHAIN\n ${RESET}"
     if ! sudo apt-get install $AVR_ARDUINO_TOOLCHAIN; then 
     printf "\n ${YELLOW}Failed to install AVR toolchain\n ${RESET}"
     exit 1
@@ -118,6 +118,6 @@ esac
 
 #----------------------------------------------------------------------------------------------------
 #Post installtion messages start here 
-echo "\n ${CYAN} --------POST-INST-----------\n ${RESET}"
+printf "\n ${CYAN} --------POST-INST-----------\n ${RESET}"
 printf  " ${GREEN} Script successfully executed \nPlease install these additional software if needed ${SOFTWARE_GENERAL_NONREPO} ${RESET}" 
 exit 0
