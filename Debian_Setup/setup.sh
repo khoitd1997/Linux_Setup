@@ -69,7 +69,7 @@ fi
 
 if sudo apt-get update\
 && sudo apt-get dist-upgrade\
-&& sudo apt-get install ${SOFTWARE_GENERAL_REPO} ; then
+&& sudo apt-get install "${SOFTWARE_GENERAL_REPO}" ; then
 printf "\n ${YELLOW}Failed in Basic update and install\n ${RESET}"
 exit 1 
 fi 
