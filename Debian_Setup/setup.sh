@@ -9,12 +9,12 @@
 
 #list of general utilities without GUI
 SOFTWARE_GENERAL_REPO_NON_GUI="checkinstall lm-sensors cmake \
-                        gufw valgrind gcc clang llvm \
-                        emacs build-essential htop\
-                        net-tools"
+                            gufw valgrind gcc clang llvm \
+                            emacs build-essential htop \
+                            net-tools"
 
 #list of software with GUI                        
-SOFTWARE_WITH_GUI= " gksu terminator gitg guake ddd evince synaptic psensor"
+SOFTWARE_WITH_GUI= " gksu terminator gitg guake ddd evince synaptic psensor "
 
 SOFTWARE_GENERAL_REPO=
 
