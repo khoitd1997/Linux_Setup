@@ -62,7 +62,7 @@ fi
 
 #update the system, only proceed if the previous command is successful  
 if [ $WSL -eq 1 ] ; then
-    SOFTWARE_GENERAL_REPO= "${SOFTWARE_GENERAL_REPO_NON_GUI}${SOFTWARE_WITH_GUI}"
+    SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}${SOFTWARE_WITH_GUI}"
 else 
     SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}"
 fi
