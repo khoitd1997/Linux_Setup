@@ -8,7 +8,7 @@
 #NO SPACE AROUND '=' for variable assignment
 
 #list of general utilities without GUI
-SOFTWARE_GENERAL_REPO_NON_GUI=" checkinstall lm-sensors cmake valgrind gcc clang llvm  emacs build-essential htop net-tools "
+SOFTWARE_GENERAL_REPO_NON_GUI=" checkinstall lm-sensors cmake valgrind gcc clang llvm emacs build-essential htop net-tools "
 
 #list of software with GUI                        
 SOFTWARE_WITH_GUI=" gksu terminator gitg guake ddd evince synaptic psensor gufw "
@@ -69,7 +69,7 @@ fi
 
 if sudo apt-get update\
 && sudo apt-get dist-upgrade\
-&& sudo apt-get install "${SOFTWARE_GENERAL_REPO}" ; then
+&& sudo apt-get install ${SOFTWARE_GENERAL_REPO} ; then
 printf "\n ${YELLOW}Failed in Basic update and install\n ${RESET}"
 exit 1 
 fi 
