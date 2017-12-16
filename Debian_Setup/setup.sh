@@ -71,6 +71,8 @@ fi
 fi
 
 #setting up git account info 
+git config --global credential.helper cache
+git config --global push.default simple
 printf "${GREEN}\n Please enter git user name \n ${RESET}"
 read name 
 git config --global user.name $name
