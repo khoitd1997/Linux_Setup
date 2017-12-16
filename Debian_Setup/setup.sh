@@ -70,8 +70,12 @@ sleep 4
 fi
 fi
 
-#setting up git account info 
-git config --global credential.helper cache
+#setup GNOME keyring git credential helper
+sudo apt-get install libgnome-keyring-dev
+sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
+git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring 
+
+#setting up git account info
 git config --global push.default simple
 printf "${GREEN}\n Please enter git user name \n ${RESET}"
 read name 
