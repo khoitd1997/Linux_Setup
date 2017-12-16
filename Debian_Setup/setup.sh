@@ -29,7 +29,7 @@ CYAN='\033[38;5;087m' #for marking the being of a new sections
 YELLOW='\033[38;5;226m' #for error 
 GREEN='\033[38;5;154m' #for general messages 
 RESET='\033[0m' #for resetting the color 
-DEBUG= 1 #set 0 to enable debug, 1 by defaults
+DEBUG=1 #set 0 to enable debug, 1 by defaults
 #Configuration Parameters
 WSL=1 #0 for installing on Window Subsystem for Linux, 1 for not WSL by default
 
@@ -69,7 +69,10 @@ fi
 
 if sudo apt-get update\
 && sudo apt-get dist-upgrade\
-&& sudo apt-get install ${SOFTWARE_GENERAL_REPO} ; then
+&& sudo apt-get install ${SOFTWARE_GENERAL_REPO}
+then
+printf "\n ${YELLOW}Basic Setup Done\n ${RESET}"
+else 
 printf "\n ${YELLOW}Failed in Basic update and install\n ${RESET}"
 exit 1 
 fi 
@@ -111,8 +114,8 @@ case $option in #handle options
     if ! sudo apt-get install $AVR_ARDUINO_TOOLCHAIN; then 
     printf "\n ${YELLOW}Failed to install AVR toolchain\n ${RESET}"
     exit 1
-    4) printf "\n ${GREEN}Exit\n ${RESET}"
     fi ;;
+    4) printf "\n ${GREEN}Exit\n ${RESET}";;
     *) printf  "${YELLOW}\nInvalid options\n ${RESET}"
         exit 1;;
 esac
@@ -120,5 +123,5 @@ esac
 #----------------------------------------------------------------------------------------------------
 #Post installtion messages start here 
 printf "\n ${CYAN} --------POST-INST-----------\n ${RESET}"
-printf  " ${GREEN} Script successfully executed \nPlease install these additional software if needed ${SOFTWARE_GENERAL_NONREPO} ${RESET}" 
+printf  " ${GREEN} Script successfully executed \nPlease install these additional software if needed ${RESET} ${SOFTWARE_GENERAL_NONREPO} ${RESET}" 
 exit 0
