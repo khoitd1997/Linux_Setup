@@ -8,10 +8,13 @@
 #NO SPACE AROUND '=' for variable assignment
 
 #list of general utilities without GUI
-SOFTWARE_GENERAL_REPO_NON_GUI=" checkinstall lm-sensors cmake valgrind gcc clang llvm emacs build-essential htop net-tools "
+SOFTWARE_GENERAL_REPO_NON_GUI=" xclip checkinstall lm-sensors cmake valgrind gcc clang llvm emacs build-essential htop net-tools "
 
 #list of software with GUI                        
-SOFTWARE_WITH_GUI=" gksu terminator gitg guake ddd evince synaptic psensor gufw "
+SOFTWARE_WITH_GUI=" gksu terminator guake ddd evince synaptic psensor gufw "
+
+#list of dropped app
+SOFTWARE_DROPPED=" gitg"
 
 #all tool chains and utilities
 ARM_TOOLCHAIN="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
@@ -57,8 +60,30 @@ printf  "${GREEN}Starting $(basename $0)\n ${RESET}" #extract base name from $0
 cd #back to home directory 
 
 if [ $WSL -eq 1 ] ; then
-sudo ufw enable #enable firewall 
+if sudo ufw enable; then 
+printf  "${GREEN}Firewall Enabled\n ${RESET}"
+sleep 4 
+else 
+printf "\n ${YELLOW}Firewall failed to enable\n ${RESET}"
+exit 1 
+sleep 4
 fi
+fi
+
+#setting up git account info 
+printf "${GREEN}\n Please enter git user name \n ${RESET}"
+read name 
+git config --global user.name $name
+printf "${GREEN}\n Your git user name is ${RESET}"
+git config --global user.name
+printf "\n"
+printf "${GREEN}\n Please enter git email address\n ${RESET}"
+read email 
+git config --global user.email $email
+printf "${GREEN}\n Your git email is ${RESET}"
+git config --global user.email
+printf "\n"
+sleep 4
 
 #update the system, only proceed if the previous command is successful  
 if [ $WSL -eq 1 ] ; then
@@ -92,11 +117,14 @@ fi
 #cp ~/Linux_Setup/Debian_Setup/terminator_config ~/.config/terminator/config #replace config files of terminator over the old one. 
 fi 
 
+printf "${GREEN}\nAuxilarry customizations done\n ${RESET}"
+sleep 4  
+
 #----------------------------------------------------------------------------------------------------
 #Dev tools installations start here
 printf "\n ${CYAN}--------DEV-TOOLS----------- ${RESET}"
 printf "${CYAN}\n Basic Install is done, please select additional install options: \n ${RESET}"
-printf  "${CYAN}1/Full 2/ARM 3/AVR ${RESET}" 
+printf  "${CYAN}1/Full 2/ARM 3/AVR 4/Exit${RESET}" 
 read option
 
 case $option in #handle options
