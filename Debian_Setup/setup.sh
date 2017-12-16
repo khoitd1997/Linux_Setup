@@ -8,7 +8,7 @@
 #NO SPACE AROUND '=' for variable assignment
 
 #list of general utilities without GUI
-SOFTWARE_GENERAL_REPO_NON_GUI=" xclip checkinstall lm-sensors cmake valgrind gcc clang llvm emacs build-essential htop net-tools "
+SOFTWARE_GENERAL_REPO_NON_GUI=" doxygen xclip checkinstall lm-sensors cmake valgrind gcc clang llvm emacs build-essential htop net-tools gnome-keyring libsecret "
 
 #list of software with GUI                        
 SOFTWARE_WITH_GUI=" gksu terminator guake ddd evince synaptic psensor gufw "
@@ -22,7 +22,7 @@ AVR_ARDUINO_TOOLCHAIN="arduino avrdude avr-libc simulavr"
 FULL="$ARM_TOOLCHAIN $AVR_ARDUINO_TOOLCHAIN" 
 
 #software not in current Ubuntu 16.04 repos
-SOFTWARE_GENERAL_NONREPO="\nFoxit_Reader Visual_Studio_Code\nSophos Veeam\n"
+SOFTWARE_GENERAL_NONREPO="\nFoxit_Reader Visual_Studio_Code\nSophos Veeam\n Chrome Segger-JLink\n"
 
 #Color Variables for output, chosen for best visibility
 #Consult the Xterm 256 color charts for more code 
@@ -116,8 +116,15 @@ if [ ! -d ~/Workspace/ ]; then
 mkdir ~/Workspace #create workspace dir for Visual Studio Code at home dir 
 fi 
 #customize the terminal 
-#cp ~/Linux_Setup/Debian_Setup/terminator_config ~/.config/terminator/config #replace config files of terminator over the old one. 
+cp ~/Linux_Setup/Debian_Setup/terminator/config ~/.config/terminator/config #replace config files of terminator over the old one. 
 fi 
+
+#multiscreen settings
+printf "${GREEN}\nDo you have the LG-Dell multiscren setup (y/n)\n ${RESET}"
+read display 
+if [ "${display}" = "y" ]; then 
+cp Linux_Setup/Debian_Setup/monitors.xml ~/.config/monitors.xml 
+fi
 
 printf "${GREEN}\nAuxilarry customizations done\n ${RESET}"
 sleep 4  
