@@ -85,9 +85,9 @@ printf "${CYAN} \n  --------AUXILLARY------------\n ${RESET}"
 if [ $WSL -eq 1 ] ; then
 #customizing the shell prompt
 sed -i '/force_color_prompt/s/#//' ~/.bashrc #force color prompt, -i for in place manipulations 
-
+if [ ! -d ~/Workspace/ ]; then
 mkdir ~/Workspace #create workspace dir for Visual Studio Code at home dir 
-
+fi 
 #customize the terminal 
 #cp ~/Linux_Setup/Debian_Setup/terminator_config ~/.config/terminator/config #replace config files of terminator over the old one. 
 fi 
