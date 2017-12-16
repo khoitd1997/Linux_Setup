@@ -124,7 +124,7 @@ cp ~/Linux_Setup/Debian_Setup/terminator/config ~/.config/terminator/config #rep
 fi 
 
 #multiscreen settings
-printf "${GREEN}\nDo you have the LG-Dell multiscren setup (y/n)\n ${RESET}"
+printf "${GREEN}\nDo you have the LG-Dell multiscreen setup (y/n)\n ${RESET}"
 read display 
 if [ "${display}" = "y" ]; then 
 cp Linux_Setup/Debian_Setup/monitors.xml ~/.config/monitors.xml 

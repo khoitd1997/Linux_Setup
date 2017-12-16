@@ -3,13 +3,13 @@
 
 #----------------------------------------------------------------------------------------------------
 #essential extensions that will always be installed
-EXTENSIONS_GENERAL=" ms-vscode.cpptools vsciot-vscode.vscode-arduino kevinkyang.auto-comment-blocks \ 
-CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donjayamanne.githistory huizhou.githd \
- PKief.material-icon-theme webfreak.debug Tyriar.sort-lines "
+EXTENSIONS_GENERAL="ms-vscode.cpptools vsciot-vscode.vscode-arduino kevinkyang.auto-comment-blocks  
+CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donjayamanne.githistory huizhou.githd 
+ PKief.material-icon-theme webfreak.debug Tyriar.sort-lines"
 
 #specialized dev tools
 EXTENSIONS_PYTHON=" ms-python.python"
-EXTENSIONS_DOXYGEN=" bbenoist.doxygen cschlosser.doxdocgen"
+EXTENSIONS_DOXYGEN=" bbenoist.doxygen cschlosser.doxdocgen "
 EXTENSIONS_ARM=" dan-c-underwood.arm "
 #Color Variables for output, chosen for best visibility
 #Consult the Xterm 256 color charts for more code 
@@ -30,13 +30,13 @@ if ! dpkg-query -l code; then
   printf "${GREEN}\nVisual Studio Code found\n ${RESET}" 
  fi  
 
-
+EXTENSIONS_ALL="${EXTENSIONS_GENERAL}"
 printf "${GREEN}\nPlease input the number of chosen options separated by space\n ${RESET}" 
 printf "${GREEN}\n 1/Python\n ${RESET}"
 printf "${GREEN}\n 2/Doxygen\n ${RESET}"
 printf "${GREEN}\n 3/ARM MCU\n ${RESET}"
 read input 
-for var in "$@"
+for var in ${input}
 do 
     case $var in 
     1)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_PYTHON}";;
@@ -46,13 +46,13 @@ do
 esac
 done
 
-
-EXTENSIONS_ALL="${EXTENSIONS_ALL}"
-
-if ! code --install-extensions ${EXTENSIONS_ALL}; then 
+for ext in ${EXTENSIONS_ALL}
+do 
+if ! code --install-extension "${ext}"; then 
 printf "${YELLOW}\nErrrors while installing extensions\n ${RESET}"
 exit 1 
 fi
+done
 
 printf "${GREEN}\nInstalled Extensions\n ${RESET}" 
 code --list-extensions
