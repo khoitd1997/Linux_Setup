@@ -8,7 +8,7 @@
 #NO SPACE AROUND '=' for variable assignment
 
 #list of general utilities without GUI
-SOFTWARE_GENERAL_REPO_NON_GUI=" doxygen xclip checkinstall lm-sensors cmake valgrind gcc clang llvm emacs build-essential htop net-tools gnome-keyring libsecret "
+SOFTWARE_GENERAL_REPO_NON_GUI=" doxygen xclip checkinstall lm-sensors cmake valgrind gcc clang llvm emacs build-essential htop net-tools gnome-keyring minicom screen "
 
 #list of software with GUI                        
 SOFTWARE_WITH_GUI=" gksu terminator guake ddd evince synaptic psensor gufw "
