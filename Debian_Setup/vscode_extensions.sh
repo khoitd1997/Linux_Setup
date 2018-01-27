@@ -11,6 +11,7 @@ CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donja
 EXTENSIONS_PYTHON=" ms-python.python"
 EXTENSIONS_DOXYGEN=" bbenoist.doxygen cschlosser.doxdocgen "
 EXTENSIONS_ARM=" dan-c-underwood.arm "
+EXTENSIONS_VHDL=" puorc.awesome-vhdl "
 #Color Variables for output, chosen for best visibility
 #Consult the Xterm 256 color charts for more code 
 #format is \33 then <fg_bg_code>;5;<color code>m, 38 for foreground, 48 for background
@@ -35,6 +36,7 @@ printf "${GREEN}\nPlease input the number of chosen options separated by space\n
 printf "${GREEN}\n 1/Python\n ${RESET}"
 printf "${GREEN}\n 2/Doxygen\n ${RESET}"
 printf "${GREEN}\n 3/ARM MCU\n ${RESET}"
+printf "${GREEN}\n 4/VHDL\n ${RESET}"
 read input 
 for var in ${input}
 do 
@@ -42,6 +44,7 @@ do
     1)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_PYTHON}";;
     2)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_DOXYGEN}";;
     3)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_ARM}";;
+    4)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_VHDL}";;
     *) ;;
 esac
 done
