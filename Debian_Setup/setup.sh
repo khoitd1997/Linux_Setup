@@ -11,7 +11,7 @@
 SOFTWARE_GENERAL_REPO_NON_GUI=" doxygen checkinstall lm-sensors cmake valgrind gcc clang llvm emacs build-essential htop net-tools  minicom screen "
 
 #list of software with GUI                        
-SOFTWARE_WITH_GUI=" gksu terminator guake ddd evince synaptic psensor gufw xpad "
+SOFTWARE_WITH_GUI=" gksu terminator guake ddd evince synaptic psensor gufw xpad unity-tweak-tool "
 
 #list of dropped app
 SOFTWARE_DROPPED=" gitg"
@@ -133,6 +133,16 @@ if [ "${display}" = "y" ]; then
 cp Linux_Setup/Debian_Setup/monitors.xml ~/.config/monitors.xml 
 fi
 
+#install obsidian theme
+printf "${GREEN}\nDo you want to install noobslab Obsidian theme?\n ${RESET}"
+read ${THEME_CHOICE}
+if [ "${THEME_CHOICE}" = "y" ]; then 
+sudo add-apt-repository ppa:noobslab/themes
+sudo apt-get update
+sudo apt-get install obsidian-gtk-theme
+gsettings set org.gnome.desktop.interface gtk-theme "Obsidian-1-green"
+fi
+
 printf "${GREEN}\nAuxilarry customizations done\n ${RESET}"
 sleep 4  
 
@@ -145,10 +155,10 @@ read option
 
 case $option in #handle options
     1) printf "${GREEN}\n installing $FULL\n ${RESET}" 
-    if ! sudo apt-get install $FULL; then
+    if ! sudo apt-get install ${FULL};then
     printf "${YELLOW}\n Failed to install full package\n ${RESET}" 
     exit 1
-    fi;;
+    fi ;;
     2) printf "${GREEN}\n installing $ARM_TOOLCHAIN\n ${RESET}"
     if ! sudo apt-get install $ARM_TOOLCHAIN; then 
     printf "${YELLOW}\n Failed to install ARM toolchain\n ${RESET}" 
