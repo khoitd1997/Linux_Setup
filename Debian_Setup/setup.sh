@@ -39,6 +39,9 @@ WSL=1 #0 for installing on Window Subsystem for Linux, 1 for not WSL by default
 #----------------------------------------------------------------------------------------------------
 #Default execution commands starts here
 
+#disable root account
+sudo passwd -l root
+
 #Handling input options
 while [ -n "$1" ]
 do 
