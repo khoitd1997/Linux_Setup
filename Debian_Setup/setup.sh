@@ -135,15 +135,27 @@ if [ "${display}" = "y" ]; then
 cp Linux_Setup/Debian_Setup/monitors.xml ~/.config/monitors.xml 
 fi
 
-#install obsidian theme
-printf "${GREEN}\nDo you want to install noobslab Obsidian theme?\n ${RESET}"
-read ${THEME_CHOICE}
-if [ "${THEME_CHOICE}" = "y" ]; then 
-sudo add-apt-repository ppa:noobslab/themes
+#install theme
+printf "${GREEN}\nWhich theme do you want? Make sure the PPAs are still legit\n ${RESET}"
+printf "${GREEN}\n1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n ${RESET}"
+read THEME_CHOICE
+
+case ${THEME_CHOICE} in 
+1) sudo add-apt-repository ppa:noobslab/themes
 sudo apt-get update
 sudo apt-get install obsidian-gtk-theme
-gsettings set org.gnome.desktop.interface gtk-theme "Obsidian-1-green"
-fi
+gsettings set org.gnome.desktop.interface gtk-theme "Obsidian-1-green";;
+
+2) sudo add-apt-repository ppa:noobslab/themes
+sudo add-apt-repository ppa:noobslab/icons
+sudo apt-get update
+sudo apt-get install ultra-flat-icons
+sudo apt-get install flatabulous-theme
+gsettings set org.gnome.desktop.interface gtk-theme "Flatabulous"
+gsettings set org.gnome.desktop.interface icon-theme Ultra-Flat;;
+
+esac
+
 
 printf "${GREEN}\nAuxilarry customizations done\n ${RESET}"
 sleep 4  
