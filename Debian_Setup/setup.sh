@@ -113,6 +113,9 @@ fi
 
 sudo dpkg-reconfigure unattended-upgrades
 
+#Added access to usb ports for current user
+sudo usermod -a -G dialout ${USER}
+
 #----------------------------------------------------------------------------------------------------
 #Auxilarry customizations start here
 printf "${CYAN} \n  --------AUXILLARY------------\n ${RESET}"
