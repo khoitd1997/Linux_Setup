@@ -14,7 +14,7 @@ DEPENDENCIES=" nodejs* "
 set -e
 
 printf  "${GREEN}Installing atom dependencies\n ${RESET}"
-sudo apt-get update update
+sudo apt-get update 
 sudo apt-get dist-upgrade ${DEPENDENCIES}
 
 
