@@ -25,17 +25,16 @@ printf "${GREEN}\n Please insert the guest addition cd, you have 15 seconds\n ${
 sleep 15
 
 KERNEL_NAME=$(uname -r)
-REGULAR_NAME=${USER}
 
 #deleting the OS built-in guest addition to avoid conflict
-sudo sh -c "rm -rf /lib/modules/${KERNEL_NAME}/vbox*"
+sudo rm -rf /lib/modules/${KERNEL_NAME}/kernel/ubuntu/vbox/vbox*
 
 
 #run guest addition install
-cd /media/{REGULAR_NAME}/VBox*
-./VBoxLinux*
+cd /media/${USER}/VBox_GAs*
+sudo ./VBoxLinux*
 
-sudo usermod -a -G vboxsf ${REGULAR_NAME}
+sudo usermod -a -G vboxsf ${USER}
 
 printf "${GREEN}\nDone installing, rebooting in 5\n ${RESET}"
 sleep 5
