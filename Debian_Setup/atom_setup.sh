@@ -8,13 +8,15 @@ GREEN='\033[38;5;154m' #for general messages
 RESET='\033[0m' #for resetting the color
 DEBUG=1 #set 0 to enable debug, 1 by defaults
 
-PACKAGE=" linter linter-gcc gpp-compiler busy-signal intentions linter-ui-default minimap code-peek minimap-codeglance git-plus file-icons minimap-highlight-selected highlight-selected "
+PACKAGE=" linter linter-gcc gpp-compiler busy-signal intentions linter-ui-default\
+minimap code-peek minimap-codeglance git-plus file-icons minimap-highlight-selected highlight-selected\
+language-arm "
 DEPENDENCIES=" nodejs* "
 
 set -e
 
 printf  "${GREEN}Installing atom dependencies\n ${RESET}"
-sudo apt-get update 
+sudo apt-get update
 sudo apt-get dist-upgrade ${DEPENDENCIES}
 
 
