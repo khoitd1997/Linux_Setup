@@ -5,7 +5,7 @@
 #essential extensions that will always be installed
 EXTENSIONS_GENERAL="ms-vscode.cpptools vsciot-vscode.vscode-arduino kevinkyang.auto-comment-blocks  
 CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donjayamanne.githistory huizhou.githd 
- PKief.material-icon-theme webfreak.debug Tyriar.sort-lines"
+ PKief.material-icon-theme webfreak.debug Tyriar.sort-lines wayou.vscode-todo-highlight "
 
 #specialized dev tools
 EXTENSIONS_PYTHON=" ms-python.python"
