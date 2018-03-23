@@ -22,7 +22,7 @@ AVR_ARDUINO_TOOLCHAIN="arduino avrdude avr-libc simulavr"
 FULL="$ARM_TOOLCHAIN $AVR_ARDUINO_TOOLCHAIN"
 
 #software not in current Ubuntu 16.04 repos
-SOFTWARE_GENERAL_NONREPO="\nFoxit_Reader Visual_Studio_Code\nSophos Veeam\n Chrome Segger-JLink\n"
+SOFTWARE_GENERAL_NONREPO="\nFoxit_Reader Visual_Studio_Code\nSophos Veeam\nChrome Segger-JLink\nGitKraken DropBox"
 
 #Color Variables for output, chosen for best visibility
 #Consult the Xterm 256 color charts for more code
@@ -190,6 +190,8 @@ case $option in #handle options
     *) printf  "${YELLOW}\nInvalid options\n ${RESET}"
         exit 1;;
 esac
+
+sudo apt autoremove -y 
 
 #----------------------------------------------------------------------------------------------------
 #Post installtion messages start here
