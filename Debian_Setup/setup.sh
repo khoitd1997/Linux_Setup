@@ -8,13 +8,13 @@
 #NO SPACE AROUND '=' for variable assignment
 
 #list of general utilities without GUI
-SOFTWARE_GENERAL_REPO_NON_GUI=" doxygen checkinstall lm-sensors cmake valgrind\
+SOFTWARE_GENERAL_REPO_NON_GUI=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip"
 
 #list of software with GUI
-SOFTWARE_WITH_GUI=" gksu terminator guake ddd evince synaptic psensor gufw xpad\
-unity-tweak-tool libreoffice-style-hicontrast unattended-upgrades gparted\
-libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* "
+SOFTWARE_WITH_GUI=" gksu terminator guake ddd evince synaptic psensor gufw xpad \
+unity-tweak-tool libreoffice-style-hicontrast unattended-upgrades gparted \
+libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* python-gpgme "
 
 #list of dropped app
 SOFTWARE_DROPPED=" gitg"
