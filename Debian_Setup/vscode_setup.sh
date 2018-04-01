@@ -60,8 +60,9 @@ done
 printf "${GREEN}\nInstalled Extensions\n ${RESET}" 
 code --list-extensions
 
-#copy Visual Studdio Code setting file
-cp -f ~/Linux_Setup/Debian_Setup/VisualCode/settings.json $HOME/.config/Code/User/s
+#copy Visual Studdio Code setting file and keybinding file
+cp -f ~/Linux_Setup/Debian_Setup/VisualCode/settings.json ~/.config/Code/User/settings.json
+cp -f ~/Linux_Setup/Debian_Setup/VisualCode/keybindings.json ~/.config/Code/User/keybindings.json
 
 printf "${GREEN}\nVisual Studio Code Configurations done\n ${RESET}" 
 exit 0 

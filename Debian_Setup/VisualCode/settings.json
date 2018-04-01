@@ -1,9 +1,4 @@
 {
-    "workbench.colorTheme": "Monokai",
-    "c-cpp-flylint.run": "onType",
-    "editor.wordWrap": "wordWrapColumn",
-    "c-cpp-flylint.cppcheck.enable": false,
-    "c-cpp-flylint.flexelint.enable": false,
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -11,13 +6,8 @@
         "suppressGitVersionWarning": false,
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
-        "suppressUpdateNotice": true,
-        "suppressWelcomeNotice": false
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
     },
-    "arduino.additionalUrls": [
-        "http://arduino.esp8266.com/stable/package_esp8266com_index.json"
-    ],
-    "editor.formatOnSave": true,
-    "html.format.wrapLineLength": 80,
-    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Mozilla, AlignConsecutiveAssignments: true }"
+    "workbench.startupEditor": "newUntitledFile"
 }
