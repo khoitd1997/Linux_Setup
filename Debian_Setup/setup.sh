@@ -21,7 +21,7 @@ SOFTWARE_DROPPED=" gitg"
 
 #all tool chains and utilities
 ARM_TOOLCHAIN="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
-AVR_ARDUINO_TOOLCHAIN="arduino avrdude avr-libc simulavr"
+AVR_ARDUINO_TOOLCHAIN="avrdude avr-libc simulavr"
 FULL="$ARM_TOOLCHAIN $AVR_ARDUINO_TOOLCHAIN"
 
 #software not in current Ubuntu 16.04 repos
