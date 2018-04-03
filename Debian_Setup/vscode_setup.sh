@@ -9,6 +9,7 @@ CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donja
 
 #specialized dev tools
 EXTENSIONS_PYTHON=" ms-python.python"
+EXTENSIONS_JAVA=" redhat.java "
 EXTENSIONS_DOXYGEN=" bbenoist.doxygen cschlosser.doxdocgen "
 EXTENSIONS_ARM=" dan-c-underwood.arm "
 EXTENSIONS_VHDL=" puorc.awesome-vhdl "
@@ -37,6 +38,7 @@ printf "${GREEN}\n 1/Python\n ${RESET}"
 printf "${GREEN}\n 2/Doxygen\n ${RESET}"
 printf "${GREEN}\n 3/ARM MCU\n ${RESET}"
 printf "${GREEN}\n 4/VHDL\n ${RESET}"
+printf "${GREEN}\n 5/Java\n ${RESET}"
 read input 
 for var in ${input}
 do 
@@ -45,6 +47,7 @@ do
     2)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_DOXYGEN}";;
     3)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_ARM}";;
     4)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_VHDL}";;
+    5)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_JAVA}";;
     *) ;;
 esac
 done
