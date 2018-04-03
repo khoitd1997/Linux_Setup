@@ -1,4 +1,5 @@
 {
+    "workbench.iconTheme": "material-icon-theme",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -7,7 +8,34 @@
         "suppressLineUncommittedWarning": false,
         "suppressNoRepositoryWarning": false,
         "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
     },
-    "workbench.startupEditor": "newUntitledFile"
+    "files.associations": {
+        "*.cu": "c",
+        "*.tdd": "makefile"
+    },
+    "editor.formatOnSave": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "window.zoomLevel": -1,
+    "python.formatting.provider": "autopep8",
+    "gitlens.keymap": "chorded",
+    "editor.wordWrap": "on",
+    "workbench.colorTheme": "Atom One Dark",
+    "todohighlight.include": [
+        "**/*.js",
+        "**/*.jsx",
+        "**/*.ts",
+        "**/*.tsx",
+        "**/*.html",
+        "**/*.php",
+        "**/*.css",
+        "**/*.scss",
+        "**/*.c"
+    ],
+    "todohighlight.keywordsPattern": "case",
+    "todohighlight.isEnable": true,
+    "material-icon-theme.showUpdateMessage": false,
+    "pasteImage.path": "${currentFileDir}/image"
 }

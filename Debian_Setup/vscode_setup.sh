@@ -13,6 +13,7 @@ EXTENSIONS_JAVA=" redhat.java vscjava.vscode-java-debug "
 EXTENSIONS_DOXYGEN=" bbenoist.doxygen cschlosser.doxdocgen "
 EXTENSIONS_ARM=" dan-c-underwood.arm "
 EXTENSIONS_VHDL=" puorc.awesome-vhdl "
+EXTENSIONS_MD=" mushan.vscode-paste-image DavidAnson.vscode-markdownlint shd101wyy.markdown-preview-enhanced yzhang.markdown-all-in-one hnw.vscode-auto-open-markdown-preview "
 #Color Variables for output, chosen for best visibility
 #Consult the Xterm 256 color charts for more code 
 #format is \33 then <fg_bg_code>;5;<color code>m, 38 for foreground, 48 for background
@@ -39,6 +40,7 @@ printf "${GREEN}\n 2/Doxygen\n ${RESET}"
 printf "${GREEN}\n 3/ARM MCU\n ${RESET}"
 printf "${GREEN}\n 4/VHDL\n ${RESET}"
 printf "${GREEN}\n 5/Java\n ${RESET}"
+printf "${GREEN}\n 6/Mark Down\n ${RESET}"
 read input 
 for var in ${input}
 do 
@@ -48,6 +50,7 @@ do
     3)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_ARM}";;
     4)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_VHDL}";;
     5)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_JAVA}";;
+    6)EXTENSIONS_ALL="${EXTENSIONS_ALL}${EXTENSIONS_MD}";;
     *) ;;
 esac
 done
