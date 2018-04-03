@@ -37,5 +37,13 @@
     "todohighlight.keywordsPattern": "case",
     "todohighlight.isEnable": true,
     "material-icon-theme.showUpdateMessage": false,
-    "pasteImage.path": "${currentFileDir}/image"
+    "pasteImage.path": "${currentFileDir}/image",
+    "editor.quickSuggestionsDelay": 2,
+    "[markdown]": {
+        "editor.wordWrap": "on",
+        "editor.quickSuggestions": true,
+    },
+    "html.autoClosingTags": false,
+    "markdown.extension.preview.autoShowPreviewToSide": false,
+    "markdown.preview.doubleClickToSwitchToEditor": false
 }
