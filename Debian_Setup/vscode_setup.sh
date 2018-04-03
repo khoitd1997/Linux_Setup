@@ -9,7 +9,7 @@ CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donja
 
 #specialized dev tools
 EXTENSIONS_PYTHON=" ms-python.python"
-EXTENSIONS_JAVA=" redhat.java "
+EXTENSIONS_JAVA=" redhat.java vscjava.vscode-java-debug "
 EXTENSIONS_DOXYGEN=" bbenoist.doxygen cschlosser.doxdocgen "
 EXTENSIONS_ARM=" dan-c-underwood.arm "
 EXTENSIONS_VHDL=" puorc.awesome-vhdl "
