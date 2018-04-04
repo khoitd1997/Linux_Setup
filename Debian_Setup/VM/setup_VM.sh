@@ -38,4 +38,6 @@ sudo usermod -a -G vboxsf ${USER}
 
 printf "${GREEN}\nDone installing, rebooting in 5\n ${RESET}"
 sleep 5
+
+sudo apt autoremove 
 reboot
