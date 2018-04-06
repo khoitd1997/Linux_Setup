@@ -3,9 +3,10 @@
 
 #----------------------------------------------------------------------------------------------------
 #essential extensions that will always be installed
-EXTENSIONS_GENERAL="ms-vscode.cpptools vsciot-vscode.vscode-arduino kevinkyang.auto-comment-blocks  
-CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donjayamanne.githistory huizhou.githd 
+EXTENSIONS_GENERAL="ms-vscode.cpptools  kevinkyang.auto-comment-blocks CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donjayamanne.githistory huizhou.githd 
  PKief.material-icon-theme webfreak.debug Tyriar.sort-lines wayou.vscode-todo-highlight "
+
+EXTENSIONS_DROPPED=" vsciot-vscode.vscode-arduino"
 
 #specialized dev tools
 EXTENSIONS_PYTHON=" ms-python.python"
