@@ -24,9 +24,6 @@ ARM_TOOLCHAIN="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
 AVR_ARDUINO_TOOLCHAIN="avrdude avr-libc simulavr"
 FULL="$ARM_TOOLCHAIN $AVR_ARDUINO_TOOLCHAIN"
 
-#software not in current Ubuntu 16.04 repos
-SOFTWARE_GENERAL_NONREPO="\nFoxit_Reader Visual_Studio_Code\nSophos Veeam\nChrome Segger-JLink\nGitKraken DropBox"
-
 #Color Variables for output, chosen for best visibility
 #Consult the Xterm 256 color charts for more code
 #format is \33 then <fg_bg_code>;5;<color code>m, 38 for foreground, 48 for background
@@ -198,6 +195,4 @@ sudo apt autoremove -y
 
 #----------------------------------------------------------------------------------------------------
 #Post installtion messages start here
-printf "\n ${CYAN} --------POST-INST-----------\n ${RESET}"
-printf  " ${GREEN} Script successfully executed \nPlease install these additional software if needed ${RESET} ${SOFTWARE_GENERAL_NONREPO} ${RESET}"
 exit 0
