@@ -166,31 +166,32 @@ sleep 4
 #----------------------------------------------------------------------------------------------------
 #Dev tools installations start here
 printf "\n ${CYAN}--------DEV-TOOLS----------- ${RESET}"
-printf "${CYAN}\n Basic Install is done, please select additional install options: \n ${RESET}"
-printf  "${CYAN}1/Full 2/ARM 3/AVR 4/Exit${RESET}"
-read option
+printf "${CYAN}\n Basic Install is done, please select additional install options separated by space: \n${RESET}"
+printf  "${CYAN}1/ARM 2/AVR 3/Java${RESET}"
+read input
 
-case $option in #handle options
-    1) printf "${GREEN}\n installing $FULL\n ${RESET}"
-    if ! sudo apt-get install ${FULL};then
-    printf "${YELLOW}\n Failed to install full package\n ${RESET}"
-    exit 1
-    fi ;;
-    2) printf "${GREEN}\n installing $ARM_TOOLCHAIN\n ${RESET}"
+#handle options
+for option in ${input}; do
+case $option in 
+    1) printf "${GREEN}\nInstalling ARM\n${RESET}"
     if ! sudo apt-get install $ARM_TOOLCHAIN; then
-    printf "${YELLOW}\n Failed to install ARM toolchain\n ${RESET}"
+    printf "${YELLOW}\n Failed to install ARM toolchain\n${RESET}"
     exit 1
     fi ;;
-    3) printf "\n ${GREEN}installing $AVR_ARDUINO_TOOLCHAIN\n ${RESET}"
+    2) printf "\n${GREEN}Installing AVR\n ${RESET}"
     if ! sudo apt-get install $AVR_ARDUINO_TOOLCHAIN; then
-    printf "\n ${YELLOW}Failed to install AVR toolchain\n ${RESET}"
+    printf "\n${YELLOW}Failed to install AVR toolchain\n${RESET}"
     exit 1
     fi ;;
-    4) printf "\n ${GREEN}Exit\n ${RESET}";;
-    *) printf  "${YELLOW}\nInvalid options\n ${RESET}"
-        exit 1;;
+    3) printf "\n${GREEN}Installing java 8, check PPA and newer version of Java, press anykey to confirm\n${RESET}"
+    read confirm
+    printf "${GREEN}Please press any key again for final confirm\n${RESET}"
+    read confirm
+    sudo add-apt-repository ppa:webupd8team/java
+    sudo apt-get update > /dev/null
+    sudo apt-get install oracle-java8-installer > /dev/null;;
 esac
-
+done 
 sudo apt autoremove -y
 
 #----------------------------------------------------------------------------------------------------
