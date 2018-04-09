@@ -26,7 +26,8 @@ discord \
 atom \
 slack-desktop \
 eagle \
-matlab
+matlab \
+anyconnect
 "
 
 #-----------------------------PROMPT-----------------------------------------#
@@ -73,7 +74,9 @@ if [ "$?" -eq "0" ]; then
 printf "${RESET}You have installed ${GREEN}${software}\n${RESET}"
 else
 # check if it was a type that need to be copied to home dir
-if [ -e ${HOME}/${software}* ] || [ -e /usr/share/${software}* ]; then 
+if [ -e ${HOME}/${software}* ] \
+|| [ -e /usr/share/${software}* ] \
+|| [ -e /opt/*/${software}* ]; then 
 printf "${RESET}You have installed ${GREEN}${software}\n${RESET}"
 else 
 printf "${RESET}You haven't installed ${RED}${software}\n${RESET}"
