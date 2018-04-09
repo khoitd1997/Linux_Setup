@@ -54,7 +54,18 @@ sudo dpkg -i ~/Downloads/*.deb > /dev/null 2>&1 || true # run again after all de
 # handle software that come in tar format
 counter=0
 printf "${GREEN}\nPLEASE WAIT TILL DONE, The following software need manual install:\n${RESET}"
-for software in $(ls ~/Downloads | grep .tar.gz); do
+for software in $(ls ~/Downloads | grep -i .tar.gz); do
+mkdir ~/Download/${software%%.zip}
+unzip -o ~/Downloads/${software} -d ~/Download/${software%%.zip} > /dev/null
+printf "${CYAN}%-35s  |  ${RESET}" "${software}"
+counter=$((++counter))
+if !((${counter}%2)); then
+printf "\n"
+fi
+done
+
+# handle software in ZIP format
+for software in $(ls ~/Downloads | grep -i .zip); do
 tar -xzf ~/Downloads/${software} -C ~/Downloads
 printf "${CYAN}%-35s  |  ${RESET}" "${software}"
 counter=$((++counter))
@@ -76,7 +87,8 @@ else
 # check if it was a type that need to be copied to home dir
 if [ -e ${HOME}/${software}* ] \
 || [ -e /usr/share/${software}* ] \
-|| [ -e /opt/*/${software}* ]; then 
+|| [ -e /opt/*/${software}* ] \
+|| [ -e /opt/${software}* ]; then 
 printf "${RESET}You have installed ${GREEN}${software}\n${RESET}"
 else 
 printf "${RESET}You haven't installed ${RED}${software}\n${RESET}"
