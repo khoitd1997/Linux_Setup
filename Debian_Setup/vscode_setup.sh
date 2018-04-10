@@ -10,7 +10,7 @@ EXTENSIONS_DROPPED=" vsciot-vscode.vscode-arduino"
 
 #specialized dev tools
 EXTENSIONS_PYTHON=" ms-python.python"
-EXTENSIONS_JAVA=" redhat.java vscjava.vscode-java-debug "
+EXTENSIONS_JAVA=" redhat.java vscjava.vscode-java-debug naco-siren.gradle-language "
 EXTENSIONS_DOXYGEN=" bbenoist.doxygen cschlosser.doxdocgen "
 EXTENSIONS_ARM=" dan-c-underwood.arm "
 EXTENSIONS_VHDL=" puorc.awesome-vhdl "
@@ -37,14 +37,15 @@ if ! dpkg-query -l code; then
  fi  
 
 EXTENSIONS_ALL="${EXTENSIONS_GENERAL}"
+clear
 printf "${GREEN}\nPlease input the number of chosen options separated by space\n ${RESET}" 
-printf "${GREEN}\n 1/Python\n ${RESET}"
-printf "${GREEN}\n 2/Doxygen\n ${RESET}"
-printf "${GREEN}\n 3/ARM MCU\n ${RESET}"
-printf "${GREEN}\n 4/VHDL\n ${RESET}"
-printf "${GREEN}\n 5/Java\n ${RESET}"
-printf "${GREEN}\n 6/Mark Down\n ${RESET}"
-printf "${GREEN}\n 7/Html, typescript, javascript\n ${RESET}"
+printf "${GREEN}\n1/Python\n ${RESET}"
+printf "${GREEN}\n2/Doxygen\n ${RESET}"
+printf "${GREEN}\n3/ARM MCU\n ${RESET}"
+printf "${GREEN}\n4/VHDL\n ${RESET}"
+printf "${GREEN}\n5/Java, Gradle\n ${RESET}"
+printf "${GREEN}\n6/Mark Down\n ${RESET}"
+printf "${GREEN}\n7/Html, typescript, javascript\n ${RESET}"
 read input 
 for var in ${input}
 do 
