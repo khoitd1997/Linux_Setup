@@ -183,12 +183,13 @@ case $option in
     printf "\n${YELLOW}Failed to install AVR toolchain\n${RESET}"
     exit 1
     fi ;;
-    3) printf "\n${GREEN}Installing java 8, check PPA and newer version of Java, press anykey to confirm\n${RESET}"
+    3) printf "\n${GREEN}Installing java 8, gradle, check PPA and newer version of Java, press anykey to confirm\n${RESET}"
     read confirm
     printf "${GREEN}Please press any key again for final confirm\n${RESET}"
     read confirm
     sudo add-apt-repository ppa:webupd8team/java
     sudo apt-get update > /dev/null
+    sudo apt-get install gradle > /dev/null
     sudo apt-get install oracle-java8-installer > /dev/null;;
 esac
 done 
