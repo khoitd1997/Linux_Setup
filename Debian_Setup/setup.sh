@@ -127,6 +127,11 @@ sed -i '/force_color_prompt/s/#//' ~/.bashrc #force color prompt, -i for in plac
 if [ ! -d ~/Workspace/ ]; then
 mkdir ~/Workspace #create workspace dir for Visual Studio Code at home dir
 fi
+
+if [ ! -d ~/temp/ ]; then
+mkdir ~/temp # temp dir for basic scratch work
+fi
+
 #customize the terminal
 cp ~/Linux_Setup/Debian_Setup/terminator/config ~/.config/terminator/config #replace config files of terminator over the old one.
 fi
