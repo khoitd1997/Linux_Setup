@@ -6,6 +6,8 @@
 EXTENSIONS_GENERAL="ms-vscode.cpptools  kevinkyang.auto-comment-blocks CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donjayamanne.githistory huizhou.githd 
  PKief.material-icon-theme webfreak.debug Tyriar.sort-lines wayou.vscode-todo-highlight "
 
+EXTENSIONS_THEME=" akamud.vscode-theme-onedark "
+
 EXTENSIONS_DROPPED=" vsciot-vscode.vscode-arduino"
 
 #specialized dev tools
@@ -36,7 +38,7 @@ if ! dpkg-query -l code; then
   printf "${GREEN}\nVisual Studio Code found\n ${RESET}" 
  fi  
 
-EXTENSIONS_ALL="${EXTENSIONS_GENERAL}"
+EXTENSIONS_ALL="${EXTENSIONS_GENERAL}${EXTENSIONS_THEME}"
 clear
 printf "${GREEN}\nPlease input the number of chosen options separated by space\n ${RESET}" 
 printf "${GREEN}\n1/Python\n ${RESET}"
