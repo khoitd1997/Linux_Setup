@@ -29,7 +29,9 @@ eagle \
 matlab \
 anyconnect
 "
-
+set -e 
+set -o pipefail
+set -o nounset
 #-----------------------------PROMPT-----------------------------------------#
 counter=0
 printf "${GREEN}\nList of software to be installed:\n${RESET}"

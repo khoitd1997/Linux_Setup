@@ -3,8 +3,9 @@
 
 #----------------------------------------------------------------------------------------------------
 #essential extensions that will always be installed
-EXTENSIONS_GENERAL="ms-vscode.cpptools  kevinkyang.auto-comment-blocks CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donjayamanne.githistory huizhou.githd
- PKief.material-icon-theme webfreak.debug Tyriar.sort-lines wayou.vscode-todo-highlight "
+EXTENSIONS_GENERAL="ms-vscode.cpptools  kevinkyang.auto-comment-blocks CoenraadS.bracket-pair-colorizer formulahendry.code-runner \
+eamodio.gitlens donjayamanne.githistory huizhou.githd PKief.material-icon-theme webfreak.debug Tyriar.sort-lines \
+wayou.vscode-todo-highlight emilast.logfilehighlighter "
 
 EXTENSIONS_THEME=" zhuangtongfa.material-theme "
 
@@ -16,7 +17,8 @@ EXTENSIONS_JAVA=" redhat.java vscjava.vscode-java-debug naco-siren.gradle-langua
 EXTENSIONS_DOXYGEN=" bbenoist.doxygen cschlosser.doxdocgen "
 EXTENSIONS_ARM=" dan-c-underwood.arm "
 EXTENSIONS_VHDL=" puorc.awesome-vhdl "
-EXTENSIONS_MD=" mushan.vscode-paste-image DavidAnson.vscode-markdownlint yzhang.markdown-all-in-one hnw.vscode-auto-open-markdown-preview shd101wyy.markdown-preview-enhanced "
+EXTENSIONS_MD=" mushan.vscode-paste-image DavidAnson.vscode-markdownlint yzhang.markdown-all-in-one \
+hnw.vscode-auto-open-markdown-preview shd101wyy.markdown-preview-enhanced "
 EXTENSIONS_WEB=" formulahendry.auto-close-tag "
 
 #Color Variables for output, chosen for best visibility
@@ -30,9 +32,13 @@ RESET='\033[0m' #for resetting the color
 DEBUG=1 #set 0 to enable debug, 1 by defaults
 SLEEPTIME=3 #delay amount between informative commands
 
+set -e 
+set -o pipefail
+set -o nounset
+
 #----------------------------------------------------------------------------------------------------
 if ! dpkg-query -l code; then
- printf "${YELLOW}\nVisual Studio Code not installed\n ${RESET}"
+ >&2 printf "${YELLOW}\nVisual Studio Code not installed\n ${RESET}"
  exit 1
  else
   printf "${GREEN}\nVisual Studio Code found\n ${RESET}"
@@ -67,7 +73,7 @@ printf "${GREEN}Starting Package Installation\n ${RESET}"
 for ext in ${EXTENSIONS_ALL}
 do
 if ! code --install-extension "${ext}" >> /dev/null ; then
-printf "${YELLOW}\nErrrors while installing extensions\n ${RESET}"
+>&2 printf "${YELLOW}\nErrrors while installing extensions\n ${RESET}"
 exit 1
 fi
 done

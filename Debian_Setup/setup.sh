@@ -35,7 +35,9 @@ RESET='\033[0m' #for resetting the color
 DEBUG=1 #set 0 to enable debug, 1 by defaults
 #Configuration Parameters
 WSL=1 #0 for installing on Window Subsystem for Linux, 1 for not WSL by default
-
+set -e 
+set -o pipefail
+set -o nounset
 #----------------------------------------------------------------------------------------------------
 #Default execution commands starts here
 
@@ -67,7 +69,7 @@ if sudo ufw enable; then
 printf  "${GREEN}Firewall Enabled\n ${RESET}"
 sleep 4
 else
-printf "\n ${YELLOW}Firewall failed to enable\n ${RESET}"
+>&2 printf "\n ${YELLOW}Firewall failed to enable\n ${RESET}"
 exit 1
 sleep 4
 fi
@@ -105,9 +107,9 @@ if sudo apt-get update\
 && sudo apt-get dist-upgrade\
 && sudo apt-get install ${SOFTWARE_GENERAL_REPO}
 then
-printf "\n ${YELLOW}Basic Setup Done\n ${RESET}"
+>&2 printf "\n ${YELLOW}Basic Setup Done\n ${RESET}"
 else
-printf "\n ${YELLOW}Failed in Basic update and install\n ${RESET}"
+ >&2 printf "\n ${YELLOW}Failed in Basic update and install\n ${RESET}"
 exit 1
 fi
 
@@ -180,12 +182,12 @@ for option in ${input}; do
 case $option in 
     1) printf "${GREEN}\nInstalling ARM\n${RESET}"
     if ! sudo apt-get install $ARM_TOOLCHAIN; then
-    printf "${YELLOW}\n Failed to install ARM toolchain\n${RESET}"
+    >&2 printf "${YELLOW}\n Failed to install ARM toolchain\n${RESET}"
     exit 1
     fi ;;
     2) printf "\n${GREEN}Installing AVR\n ${RESET}"
     if ! sudo apt-get install $AVR_ARDUINO_TOOLCHAIN; then
-    printf "\n${YELLOW}Failed to install AVR toolchain\n${RESET}"
+    >&2 printf "\n${YELLOW}Failed to install AVR toolchain\n${RESET}"
     exit 1
     fi ;;
     3) printf "\n${GREEN}Installing java 8, gradle, check PPA and newer version of Java, press anykey to confirm\n${RESET}"

@@ -9,13 +9,16 @@ RESET='\033[0m' #for resetting the color
 
 PACKAGE=" linter linter-gcc gpp-compiler busy-signal intentions linter-ui-default \
 minimap code-peek minimap-codeglance git-plus file-icons minimap-highlight-selected highlight-selected \
-language-arm tree-view-git-status git-log git-time-machine"
+language-arm tree-view-git-status git-log git-time-machine language-log"
 DEPENDENCIES=" nodejs* "
 
 ATOM_CONFIG_SCRIPT_DIR="~/Linux_Setup/Debian_Setup/Atom"
 ATOM_CONFIG_FILE_DIR="~/.atom"
 
-set -e
+set -e 
+set -o pipefail
+set -o nounset
+#-------------------------------------------------------------------------------------------
 
 printf  "${GREEN}Installing atom dependencies\n ${RESET}"
 sudo apt-get update >> /dev/null
