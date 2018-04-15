@@ -22,7 +22,7 @@
     "python.formatting.provider": "autopep8",
     "gitlens.keymap": "chorded",
     "editor.wordWrap": "on",
-    "workbench.colorTheme": "Atom One Dark",
+    "workbench.colorTheme": "One Dark Pro",
     "todohighlight.include": [
         "**/*.js",
         "**/*.jsx",

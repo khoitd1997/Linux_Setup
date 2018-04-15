@@ -6,7 +6,7 @@
 EXTENSIONS_GENERAL="ms-vscode.cpptools  kevinkyang.auto-comment-blocks CoenraadS.bracket-pair-colorizer formulahendry.code-runner eamodio.gitlens donjayamanne.githistory huizhou.githd
  PKief.material-icon-theme webfreak.debug Tyriar.sort-lines wayou.vscode-todo-highlight "
 
-EXTENSIONS_THEME=" akamud.vscode-theme-onedark "
+EXTENSIONS_THEME=" zhuangtongfa.material-theme "
 
 EXTENSIONS_DROPPED=" vsciot-vscode.vscode-arduino"
 
