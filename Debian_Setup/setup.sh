@@ -8,33 +8,25 @@
 # NO SPACE AROUND '=' for variable assignment
 
 # list of general utilities without GUI
-SOFTWARE_GENERAL_REPO_NON_GUI=" doxygen checkinstall lm-sensors cmake valgrind \
+software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip"
 
 # list of software with GUI
-SOFTWARE_WITH_GUI=" gksu terminator guake ddd evince synaptic psensor gufw xpad \
+software_with_gui=" gksu terminator guake ddd evince synaptic psensor gufw xpad \
 unity-tweak-tool libreoffice-style-hicontrast unattended-upgrades gparted \
 libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* python-gpgme "
 
 # list of dropped app
-SOFTWARE_DROPPED=" gitg"
+software_dropped=" gitg"
 
 # all tool chains and utilities
-ARM_TOOLCHAIN="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
-AVR_ARDUINO_TOOLCHAIN="avrdude avr-libc simulavr"
-FULL="$ARM_TOOLCHAIN $AVR_ARDUINO_TOOLCHAIN"
+arm_toolchain="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
+avr_arduino_toolchain="avrdude avr-libc simulavr"
 
-# Color Variables for output, chosen for best visibility
-# Consult the Xterm 256 color charts for more code
-# format is \33 then <fg_bg_code>;5;<color code>m, 38 for foreground, 48 for background
-RED='\33[38;5;0196m'
-CYAN='\033[38;5;087m' # for marking the being of a new sections
-YELLOW='\033[38;5;226m' # for error
-GREEN='\033[38;5;154m' # for general messages
-RESET='\033[0m' # for resetting the color
+source utils.h
 DEBUG=1 # set 0 to enable debug, 1 by defaults
 # Configuration Parameters
-WSL=1 # 0 for installing on Window Subsystem for Linux, 1 for not WSL by default
+wsl=1 # 0 for installing on Window Subsystem for Linux, 1 for not wsl by default
 set -e 
 set -o pipefail
 set -o nounset
@@ -48,10 +40,10 @@ sudo passwd -l root
 while [ -n "$1" ]
 do
     case "$1" in
-        -h) printf "${GREEN} program used for setting up new Debian based system \
+        -h) printf "${green} program used for setting up new Debian based system \
         -wsl is for selecting wsl options \
-        -h prints help\n ${RESET}";;
-        -wsl) WSL=0;;
+        -h prints help\n ${reset}";;
+        -wsl) wsl=0;;
         -debug) DEBUG=0;;
 print_message "Not a valid option ";;
     esac
@@ -60,11 +52,11 @@ done
 if [[ DEBUG = 0 ]]; then
 set -e # exit when there is an error, replaced with specific error handling
 fi
-printf "\n ${CYAN} ---------BASIC-----------\n ${RESET}"
+printf "\n ${cyan} ---------BASIC-----------\n ${reset}"
 print_message "Starting $(basename $0)\n " # extract base name from $0
 cd # back to home directory
 
-if [ $WSL -eq 1 ] ; then
+if [ $wsl -eq 1 ] ; then
 if sudo ufw enable; then
 print_message "Firewall Enabled\n"
 sleep 4
@@ -97,10 +89,10 @@ printf "\n"
 sleep 4
 
 # update the system, only proceed if the previous command is successful
-if [ $WSL -eq 1 ] ; then
-    SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}${SOFTWARE_WITH_GUI}"
+if [ $wsl -eq 1 ] ; then
+    SOFTWARE_GENERAL_REPO="${software_general_repo_non_gui}${software_with_gui}"
 else
-    SOFTWARE_GENERAL_REPO="${SOFTWARE_GENERAL_REPO_NON_GUI}"
+    SOFTWARE_GENERAL_REPO="${software_general_repo_non_gui}"
 fi
 
 if sudo apt-get update\
@@ -120,10 +112,10 @@ sudo usermod -a -G dialout ${USER}
 
 #----------------------------------------------------------------------------------------------------
 # Auxilarry customizations start here
-printf "${CYAN} \n  --------AUXILLARY------------\n ${RESET}"
+printf "${cyan} \n  --------AUXILLARY------------\n ${reset}"
 
 
-if [ $WSL -eq 1 ] ; then
+if [ $wsl -eq 1 ] ; then
 # customizing the shell prompt
 sed -i '/force_color_prompt/s/# //' ~/.bashrc # force color prompt, -i for in place manipulations
 if [ ! -d ~/Workspace/ ]; then
@@ -167,9 +159,9 @@ sleep 4
 
 #----------------------------------------------------------------------------------------------------
 # Dev tools installations start here
-printf "\n ${CYAN}--------DEV-TOOLS----------- ${RESET}"
-printf "${CYAN}\n Basic Install is done, please select additional install options separated by space: \n${RESET}"
-printf  "${CYAN}1/ARM 2/AVR 3/Java${RESET}"
+printf "\n ${cyan}--------DEV-TOOLS----------- ${reset}"
+printf "${cyan}\n Basic Install is done, please select additional install options separated by space: \n${reset}"
+printf  "${cyan}1/ARM 2/AVR 3/Java${reset}"
 read input
 
 # handle options
@@ -177,13 +169,13 @@ for option in ${input}; do
 case $option in 
     1) 
 print_message "Installing ARM\n"
-    if ! sudo apt-get install $ARM_TOOLCHAIN; then
+    if ! sudo apt-get install $arm_toolchain; then
 print_error "Failed to install ARM toolchain\n"
     exit 1
     fi ;;
     2) 
 print_message "Installing AVR\n "
-    if ! sudo apt-get install $AVR_ARDUINO_TOOLCHAIN; then
+    if ! sudo apt-get install $avr_arduino_toolchain; then
 print_error "Failed to install AVR toolchain\n"
     exit 1
     fi ;;

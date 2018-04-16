@@ -2,32 +2,28 @@
 #scripts written for setting up a fresh Debian VM
 #chmod u+x setup.sh will make the file executable for only owner
 
-RED='\33[38;5;0196m'
-CYAN='\033[38;5;087m' #for marking the being of a new sections
-YELLOW='\033[38;5;226m' #for error
-GREEN='\033[38;5;154m' #for general messages
-RESET='\033[0m' #for resetting the color
+source ../utils.h
 
-SOFTWARE=" calibre ufw "
+software=" calibre ufw "
 
 set -e
 
-printf "${GREEN}\nStarting VM setup scripts\n ${RESET}"
+print_message "Starting VM setup scripts\n"
 sudo apt remove libappstream3
 sudo apt-get update
 sudo apt-get dist-upgrade -y
-sudo apt-get install ${SOFTWARE} -y
+sudo apt-get install ${software} -y
 sudo ufw enable
 sudo ufw status
 sleep 5
 
-printf "${GREEN}\n Please insert the guest addition cd, you have 15 seconds\n ${RESET}"
+print_message "Please insert the guest addition cd, you have 15 seconds\n"
 sleep 15
 
-KERNEL_NAME=$(uname -r)
+kernel_name=$(uname -r)
 
 #deleting the OS built-in guest addition to avoid conflict
-sudo rm -rf /lib/modules/${KERNEL_NAME}/kernel/ubuntu/vbox/vbox*
+sudo rm -rf /lib/modules/${kernel_name}/kernel/ubuntu/vbox/vbox*
 
 
 #run guest addition install
@@ -36,7 +32,7 @@ sudo ./VBoxLinux*
 
 sudo usermod -a -G vboxsf ${USER}
 
-printf "${GREEN}\nDone installing, rebooting in 5\n ${RESET}"
+print_message "Done installing, rebooting in 5\n"
 sleep 5
 
 sudo apt autoremove 
