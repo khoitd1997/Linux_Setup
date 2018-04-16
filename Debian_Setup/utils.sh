@@ -1,11 +1,16 @@
 #!/bin/bash
 # carrying utilities for scripts like error reporting
+# as well as convenient variable
 
 red='\33[38;5;0196m'
 cyan='\033[38;5;087m' #for marking the being of a new sections
 yellow='\033[38;5;226m' #for error
 green='\033[38;5;154m' #for general messages
 reset='\033[0m' #for resetting the color
+
+quiet_stdout=">> /dev/null"
+quiet_both=">> /dev/null 2>&1" # direct both stdout and stderr to null
+#------------------------------------------------------------------------------
 
 # print general messages
 print_message()
@@ -41,7 +46,7 @@ log ()
     return 0
 }
 
-# discard everything in stdin so far works with multi line garbage
+# discard everything in stdin so far, works with multi line garbage
 empty_input_buffer()
 {
     read -d '' -t 0.1 -n 100000 unused || true # make sure this doesn't raise errors
