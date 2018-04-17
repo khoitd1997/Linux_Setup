@@ -45,7 +45,7 @@ do
         -h prints help\n ${reset}";;
         -wsl) wsl=0;;
         -debug) DEBUG=0;;
-print_message "Not a valid option ";;
+        *) print_message "Not a valid option ";;
     esac
     shift
 done
@@ -112,10 +112,10 @@ sudo usermod -a -G dialout ${USER}
 
 #----------------------------------------------------------------------------------------------------
 # Auxilarry customizations start here
-printf "${cyan} \n  --------AUXILLARY------------\n ${reset}"
+printf "${cyan}\n--------AUXILLARY------------\n ${reset}"
 
 
-if [ $wsl -eq 1 ] ; then
+if [ $wsl -eq 1 ]; then
 # customizing the shell prompt
 sed -i '/force_color_prompt/s/# //' ~/.bashrc # force color prompt, -i for in place manipulations
 if [ ! -d ~/Workspace/ ]; then
@@ -130,6 +130,9 @@ fi
 cp ~/Linux_Setup/Debian_Setup/terminator/config ~/.config/terminator/config # replace config files of terminator over the old one.
 fi
 
+if [ -f /etc/os-release ]; then
+source /etc/os-release # obtain env var about system
+if [ "${NAME}" = "Ubuntu" ]; then
 # install theme
 print_message "Which theme do you want? Make sure the PPAs are still legit\n"
 print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
@@ -152,7 +155,8 @@ gsettings set org.gnome.desktop.interface gtk-theme "Flatabulous"
 gsettings set org.gnome.desktop.interface icon-theme Ultra-Flat;;
 
 esac
-
+fi
+fi
 
 print_message "Auxilarry customizations done\n"
 sleep 4
