@@ -72,22 +72,6 @@ sudo apt-get install libgnome-keyring-dev
 sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
 git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 
-# setting up git account info
-git config --global push.default simple
-print_message " Please enter git user name \n"
-read name
-git config --global user.name $name
-print_message " Your git user name is "
-git config --global user.name
-printf "\n"
-print_message " Please enter git email address\n"
-read email
-git config --global user.email $email
-print_message " Your git email is"
-git config --global user.email
-printf "\n"
-sleep 4
-
 # update the system, only proceed if the previous command is successful
 if [ $wsl -eq 1 ] ; then
     SOFTWARE_GENERAL_REPO="${software_general_repo_non_gui}${software_with_gui}"
@@ -192,7 +176,7 @@ print_message "Installing java 8, gradle, check PPA and newer version of Java, p
 print_message "Please press any key again for final confirm\n"
     read confirm
     sudo add-apt-repository ppa:webupd8team/java
-    sudo apt-get update > /dev/null
+    sudo apt-get update 
     sudo apt-get install gradle -y 
     sudo apt-get install oracle-java8-installer -y ;;
 esac
