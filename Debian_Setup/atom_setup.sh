@@ -16,14 +16,13 @@ set -o nounset
 #-------------------------------------------------------------------------------------------
 
 print_message "Installing atom dependencies\n"
-sudo apt-get update >> /dev/null
-sudo apt-get dist-upgrade ${dependencies} >> /dev/null
-
+sudo apt-get update 
+sudo apt-get dist-upgrade ${dependencies} 
 
 print_message "Beginning installation of atom packages, make sure you have atom installed\n"
 
-apm install >> /dev/null
-apm install ${package} >> /dev/null
+apm install 
+apm install ${package} 
 
 cp -f ${atom_config_script_dir}/settings.json ${atom_config_file_dir}/keymap.cson
 cp -f ${atom_config_script_dir}/keybindings.json ${atom_config_file_dir}/config.cson

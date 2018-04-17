@@ -63,7 +63,7 @@ done
 print_message "Starting Package Installation\n"
 for ext in ${extension_all}
 do
-if ! code --install-extension "${ext}" >> /dev/null ; then
+if ! code --install-extension "${ext}" ; then
 print_error "Errrors while installing extensions\n"
 exit 1
 fi
