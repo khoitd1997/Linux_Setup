@@ -37,9 +37,9 @@ set -o nounset
 sudo passwd -l root
 
 # Handling input options
-while [ -n "$1" ]
+for input in "$@"
 do
-    case "$1" in
+    case "$input" in
         -h) printf "${green} program used for setting up new Debian based system \
         -wsl is for selecting wsl options \
         -h prints help\n ${reset}";;
@@ -77,7 +77,7 @@ git config --global push.default simple
 print_message " Please enter git user name \n"
 read name
 git config --global user.name $name
-print_message " Your git user name is"
+print_message " Your git user name is "
 git config --global user.name
 printf "\n"
 print_message " Please enter git email address\n"
@@ -127,7 +127,10 @@ mkdir ~/temp #  temp dir for basic scratch work
 fi
 
 # customize the terminal
+if [ -f ~/.config/terminator/config ]; then
 cp ~/Linux_Setup/Debian_Setup/terminator/config ~/.config/terminator/config # replace config files of terminator over the old one.
+fi
+
 fi
 
 if [ -f /etc/os-release ]; then
@@ -190,8 +193,8 @@ print_message "Please press any key again for final confirm\n"
     read confirm
     sudo add-apt-repository ppa:webupd8team/java
     sudo apt-get update > /dev/null
-    sudo apt-get install gradle > /dev/null
-    sudo apt-get install oracle-java8-installer > /dev/null;;
+    sudo apt-get install gradle -y 
+    sudo apt-get install oracle-java8-installer -y ;;
 esac
 done 
 sudo apt autoremove -y

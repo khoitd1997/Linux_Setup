@@ -23,7 +23,7 @@ sudo apt-get dist-upgrade ${dependencies} >> /dev/null
 print_message "Beginning installation of atom packages, make sure you have atom installed\n"
 
 apm install >> /dev/null
-apm install ${package} /dev/null
+apm install ${package} >> /dev/null
 
 cp -f ${atom_config_script_dir}/settings.json ${atom_config_file_dir}/keymap.cson
 cp -f ${atom_config_script_dir}/keybindings.json ${atom_config_file_dir}/config.cson
