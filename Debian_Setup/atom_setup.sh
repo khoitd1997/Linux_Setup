@@ -7,8 +7,8 @@ minimap code-peek minimap-codeglance git-plus file-icons minimap-highlight-selec
 language-arm tree-view-git-status git-log git-time-machine language-log"
 dependencies=" nodejs* "
 
-atom_config_script_dir="~/Linux_Setup/Debian_Setup/Atom"
-atom_config_file_dir="~/.atom"
+atom_config_script_dir="${HOME}/Linux_Setup/Debian_Setup/Atom"
+atom_config_file_dir="${HOME}/.atom"
 
 set -e 
 set -o pipefail
@@ -24,7 +24,7 @@ print_message "Beginning installation of atom packages, make sure you have atom 
 apm install 
 apm install ${package} 
 
-cp -f ${atom_config_script_dir}/settings.json ${atom_config_file_dir}/keymap.cson
-cp -f ${atom_config_script_dir}/keybindings.json ${atom_config_file_dir}/config.cson
+cp -f ${atom_config_script_dir}/config.cson ${atom_config_file_dir}/
+cp -f ${atom_config_script_dir}/keymap.cson ${atom_config_file_dir}/
 
 print_message "Package Installation and Config Done\n"
