@@ -49,9 +49,7 @@ do
     esac
     shift
 done
-if [[ DEBUG = 0 ]]; then
-set -e # exit when there is an error, replaced with specific error handling
-fi
+
 printf "\n ${cyan} ---------BASIC-----------\n ${reset}"
 print_message "Starting $(basename $0)\n " # extract base name from $0
 cd # back to home directory
@@ -108,13 +106,6 @@ fi
 
 if [ ! -d ~/temp/ ]; then
 mkdir ~/temp #  temp dir for basic scratch work
-fi
-
-# customize the terminal
-if [ -f ~/.config/terminator/config ]; then
-cp ~/Linux_Setup/Debian_Setup/terminator/config ~/.config/terminator/config # replace config files of terminator over the old one.
-fi
-
 fi
 
 if [ -f /etc/os-release ]; then
