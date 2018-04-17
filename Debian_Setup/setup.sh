@@ -23,7 +23,7 @@ software_dropped=" gitg"
 arm_toolchain="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
 avr_arduino_toolchain="avrdude avr-libc simulavr"
 
-source utils.h
+source ../utils.sh
 DEBUG=1 # set 0 to enable debug, 1 by defaults
 # Configuration Parameters
 wsl=1 # 0 for installing on Window Subsystem for Linux, 1 for not wsl by default

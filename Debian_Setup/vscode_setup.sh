@@ -21,7 +21,7 @@ extension_md=" mushan.vscode-paste-image DavidAnson.vscode-markdownlint yzhang.m
 hnw.vscode-auto-open-markdown-preview shd101wyy.markdown-preview-enhanced "
 extension_web=" formulahendry.auto-close-tag "
 
-source utils.h
+source ../utils.sh
 
 set -e 
 set -o pipefail

@@ -2,7 +2,7 @@
 #scripts written for setting up a fresh Debian VM
 #chmod u+x setup.sh will make the file executable for only owner
 
-source ../utils.h
+source ../../utils.sh
 
 software=" calibre ufw "
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 # This file serves to install external program currently not in ubuntu repo 16.04
 
-source utils.h
+source ../utils.sh
 
 software_dropped="Foxit_Reader \
 Sophos \
