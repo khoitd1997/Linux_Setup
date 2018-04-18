@@ -49,7 +49,7 @@ sudo dpkg -i ~/Downloads/*.deb   || true # run again after all dependency is fix
 # handle software that come in tar format
 counter=0
 printf "${green}\nPLEASE WAIT TILL DONE, The following software need manual install:\n${reset}"
-for software in $(ls ~/Downloads | grep -i .tar.gz); do
+for software in $(ls ~/Downloads | grep -i .zip); do
 mkdir ~/Download/${software%%.zip}
 unzip -o ~/Downloads/${software} -d ~/Download/${software%%.zip} 
 printf "${cyan}%-35s  |  ${reset}" "${software}"
@@ -60,7 +60,7 @@ fi
 done
 
 # handle software in ZIP format
-for software in $(ls ~/Downloads | grep -i .zip); do
+for software in $(ls ~/Downloads | grep -i .tar.gz); do
 tar -xzf ~/Downloads/${software} -C ~/Downloads
 printf "${cyan}%-35s  |  ${reset}" "${software}"
 counter=$((++counter))
