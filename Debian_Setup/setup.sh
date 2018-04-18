@@ -108,7 +108,7 @@ if [ ! -d ~/temp/ ]; then
 mkdir ~/temp #  temp dir for basic scratch work
 fi
 
-if [ "${DESKTOP_SESSION}" = "ubuntu" ]
+if [ "${DESKTOP_SESSION}" = "ubuntu" ]; then
 # install theme
 print_message "Which theme do you want? Make sure the PPAs are still legit\n"
 print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
