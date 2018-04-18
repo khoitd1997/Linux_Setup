@@ -32,7 +32,8 @@
         "**/*.php",
         "**/*.css",
         "**/*.scss",
-        "**/*.c"
+        "**/*.c",
+        "**/*.java"
     ],
     "todohighlight.keywordsPattern": "case",
     "todohighlight.isEnable": true,
@@ -45,5 +46,22 @@
     },
     "html.autoClosingTags": false,
     "markdown.extension.preview.autoShowPreviewToSide": false,
-    "markdown.preview.doubleClickToSwitchToEditor": false
+    "markdown.preview.doubleClickToSwitchToEditor": false,
+    "editor.tokenColorCustomizations": {"textMateRules": [
+        {
+            "scope": "log.error",
+            "settings": {
+                "foreground":  "#af1f1f",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "scope": "log.warning",
+            "settings": {
+                "foreground": "#f4ad42",
+                "fontStyle": ""
+            }
+        }
+    ]},
+    "C_Cpp.clang_format_fallbackStyle": "LLVM"
 }
