@@ -53,3 +53,14 @@ empty_input_buffer()
     return 0
 }
 
+# check if the user is executing the script from inside the git repo
+# first argument is the directory from home they need to be in, no / at beginning of arg
+check_dir() 
+{
+    if [ ${PWD} != "${HOME}/${1}" ]; then
+    print_error "You are not in the Debian setup directory, please go there and relaunch script"
+    exit 1
+    fi
+    return 0
+}
+

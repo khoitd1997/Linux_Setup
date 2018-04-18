@@ -15,6 +15,8 @@ set -o pipefail
 set -o nounset
 #-------------------------------------------------------------------------------------------
 
+check_dir Linux_Setup/Debian_Setup
+
 print_message "Installing atom dependencies\n"
 sudo apt-get update 
 sudo apt-get dist-upgrade ${dependencies} 
