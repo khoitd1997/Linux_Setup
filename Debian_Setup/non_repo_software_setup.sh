@@ -40,10 +40,10 @@ read input
 
 #----------------------------INSTALLING-----------------------------------#
 printf "${green}Installing\n ${reset}"
-sudo apt-get update > /dev/null
-sudo dpkg -i ~/Downloads/*.deb > /dev/null 2>&1 || true
-sudo apt-get -f install > /dev/null
-sudo dpkg -i ~/Downloads/*.deb > /dev/null 2>&1 || true # run again after all dependency is fixed
+sudo apt-get update 
+sudo dpkg -i ~/Downloads/*.deb   || true
+sudo apt-get -f install 
+sudo dpkg -i ~/Downloads/*.deb   || true # run again after all dependency is fixed
 
 
 # handle software that come in tar format
@@ -51,7 +51,7 @@ counter=0
 printf "${green}\nPLEASE WAIT TILL DONE, The following software need manual install:\n${reset}"
 for software in $(ls ~/Downloads | grep -i .tar.gz); do
 mkdir ~/Download/${software%%.zip}
-unzip -o ~/Downloads/${software} -d ~/Download/${software%%.zip} > /dev/null
+unzip -o ~/Downloads/${software} -d ~/Download/${software%%.zip} 
 printf "${cyan}%-35s  |  ${reset}" "${software}"
 counter=$((++counter))
 if !((${counter}%2)); then
@@ -75,7 +75,7 @@ read input
 
 #----------------------------CHECKING-------------------------------------#
 for software in ${software_general_nonrepo}; do 
-dpkg -s ${software} > /dev/null 2>&1
+dpkg -s ${software} 
 if [ "$?" -eq "0" ]; then 
 printf "${reset}You have installed ${green}${software}\n${reset}"
 else
