@@ -132,6 +132,7 @@ gsettings set org.gnome.desktop.interface icon-theme Ultra-Flat;;
 
 esac
 fi
+fi
 
 print_message "Auxilarry customizations done\n"
 sleep 4
