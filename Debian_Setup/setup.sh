@@ -99,10 +99,12 @@ printf "${cyan}\n--------AUXILLARY------------\n ${reset}"
 
 if [ $wsl -eq 1 ]; then
 
+# key remaps, WILL NEED REBOOT TO WORK
 print_message "Do you want to remap esc to caps_lock(y/n)" 
 read choice
 if [ "$choice" = "y" ]; then
-echo xmodmap -e "keycode 66 = Escape" >> "${HOME}/.bashrc"
+dconf write /org/gnome/desktop/input-sources/xkb-options "['terminate:ctrl_alt_bksp', 'caps:none']"
+echo "xmodmap -e \"keycode 66 = Escape\"" >> "${HOME}/.bashrc"
 fi
 
 # customizing the shell prompt
