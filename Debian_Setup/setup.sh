@@ -108,9 +108,7 @@ if [ ! -d ~/temp/ ]; then
 mkdir ~/temp #  temp dir for basic scratch work
 fi
 
-if [ -f /etc/os-release ]; then
-source /etc/os-release # obtain env var about system
-if [ "${NAME}" = "Ubuntu" ]; then
+if [ "${DESKTOP_SESSION}" = "ubuntu" ]
 # install theme
 print_message "Which theme do you want? Make sure the PPAs are still legit\n"
 print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
@@ -133,7 +131,6 @@ gsettings set org.gnome.desktop.interface gtk-theme "Flatabulous"
 gsettings set org.gnome.desktop.interface icon-theme Ultra-Flat;;
 
 esac
-fi
 fi
 
 print_message "Auxilarry customizations done\n"
