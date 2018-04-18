@@ -84,7 +84,7 @@ if [ -e ${HOME}/${software}* ] \
 || [ -e /opt/${software}* ]; then 
 printf "${reset}You have installed ${green}${software}\n${reset}"
 else 
-printf "${reset}You haven't installed ${RED}${software}\n${reset}"
+printf "${reset}You haven't installed ${red}${software}\n${reset}"
 fi
 fi
 done
