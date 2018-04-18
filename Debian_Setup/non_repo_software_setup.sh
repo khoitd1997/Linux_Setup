@@ -22,9 +22,7 @@ eagle \
 matlab \
 anyconnect
 "
-set -e 
-set -o pipefail
-set -o nounset
+
 #-----------------------------PROMPT-----------------------------------------#
 counter=0
 printf "${green}\nList of software to be installed:\n${reset}"
@@ -75,7 +73,7 @@ read input
 
 #----------------------------CHECKING-------------------------------------#
 for software in ${software_general_nonrepo}; do 
-dpkg -s ${software} 
+dpkg -s ${software} > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then 
 printf "${reset}You have installed ${green}${software}\n${reset}"
 else
