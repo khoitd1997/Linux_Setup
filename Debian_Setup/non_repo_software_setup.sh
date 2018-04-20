@@ -24,6 +24,8 @@ anyconnect
 "
 
 #-----------------------------PROMPT-----------------------------------------#
+check_dir Linux_Setup/Debian_Setup
+
 counter=0
 printf "${green}\nList of software to be installed:\n${reset}"
 for software in ${software_general_nonrepo}; do 

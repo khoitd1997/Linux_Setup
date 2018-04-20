@@ -2,6 +2,8 @@
 # scripts written to quickly install visual studio code extensions
 
 #----------------------------------------------------------------------------------------------------
+
+
 # essential extensions that will always be installed
 extension_general="ms-vscode.cpptools  kevinkyang.auto-comment-blocks CoenraadS.bracket-pair-colorizer formulahendry.code-runner \
 eamodio.gitlens donjayamanne.githistory huizhou.githd PKief.material-icon-theme webfreak.debug  \
@@ -28,6 +30,9 @@ set -o pipefail
 set -o nounset
 
 #----------------------------------------------------------------------------------------------------
+
+check_dir Linux_Setup/Debian_Setup
+
 if ! dpkg-query -l code; then
 print_error "Visual Studio Code not installed\n"
  exit 1

@@ -14,7 +14,7 @@ gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip"
 # list of software with GUI
 software_with_gui=" gksu terminator guake ddd evince synaptic psensor gufw xpad \
 unity-tweak-tool libreoffice-style-hicontrast unattended-upgrades gparted \
-libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* python-gpgme "
+libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* python-gpgme nautilus-dropbox "
 
 # list of dropped app
 software_dropped=" gitg"
@@ -31,7 +31,7 @@ set -e
 set -o pipefail
 set -o nounset
 #----------------------------------------------------------------------------------------------------
-# Default execution commands starts here
+check_dir Linux_Setup/Debian_Setup
 
 # disable root account
 sudo passwd -l root
@@ -98,6 +98,15 @@ printf "${cyan}\n--------AUXILLARY------------\n ${reset}"
 
 
 if [ $wsl -eq 1 ]; then
+
+# key remaps, WILL NEED REBOOT TO WORK
+print_message "Do you want to remap esc to caps_lock(y/n)" 
+read choice
+if [ "$choice" = "y" ]; then
+dconf write /org/gnome/desktop/input-sources/xkb-options "['terminate:ctrl_alt_bksp', 'caps:none']"
+echo "xmodmap -e \"keycode 66 = Escape\"" >> "${HOME}/.bashrc"
+fi
+
 # customizing the shell prompt
 sed -i '/force_color_prompt/s/# //' ~/.bashrc # force color prompt, -i for in place manipulations
 if [ ! -d ~/Workspace/ ]; then
@@ -132,6 +141,14 @@ gsettings set org.gnome.desktop.interface icon-theme Ultra-Flat;;
 
 esac
 fi
+
+elif [ "${DESKTOP_SESSION}" = "budgie-desktop" ]; then
+sudo apt-get install gnome-tweak-tool gnome-terminal 
+dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/size "16"
+dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/autohide "'automatic'"
+dconf write /net/launchpad/plank/docks/dock1/hide-mode "'auto'"
+fi
+
 fi
 
 print_message "Auxilarry customizations done\n"
