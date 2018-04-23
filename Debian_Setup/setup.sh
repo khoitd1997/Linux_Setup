@@ -12,7 +12,7 @@ software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip"
 
 # list of software with GUI
-software_with_gui=" gksu terminator guake ddd evince synaptic psensor gufw xpad \
+software_with_gui=" xclip gksu terminator guake ddd evince synaptic psensor gufw xpad \
 unity-tweak-tool libreoffice-style-hicontrast unattended-upgrades gparted \
 libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* python-gpgme nautilus-dropbox "
 

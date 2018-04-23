@@ -45,7 +45,6 @@
         "editor.quickSuggestions": true,
     },
     "html.autoClosingTags": false,
-    "markdown.extension.preview.autoShowPreviewToSide": false,
     "markdown.preview.doubleClickToSwitchToEditor": false,
     "editor.tokenColorCustomizations": {"textMateRules": [
         {
