@@ -151,8 +151,6 @@ dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d
 dconf write /net/launchpad/plank/docks/dock1/hide-mode "'auto'"
 fi
 
-fi
-
 print_message "Auxilarry customizations done\n"
 sleep 4
 
