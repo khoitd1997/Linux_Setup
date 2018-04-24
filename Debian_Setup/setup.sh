@@ -65,10 +65,7 @@ sleep 4
 fi
 fi
 
-# setup GNOME keyring git credential helper
-sudo apt-get install libgnome-keyring-dev
-sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
-git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+
 
 # update the system, only proceed if the previous command is successful
 if [ $wsl -eq 1 ] ; then
@@ -91,6 +88,11 @@ sudo dpkg-reconfigure unattended-upgrades
 
 # Added access to usb ports for current user
 sudo usermod -a -G dialout ${USER}
+
+# setup GNOME keyring git credential helper
+sudo apt-get install libgnome-keyring-dev
+sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
+git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 
 #----------------------------------------------------------------------------------------------------
 # Auxilarry customizations start here
