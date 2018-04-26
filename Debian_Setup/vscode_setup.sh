@@ -22,7 +22,7 @@ extension_vhdl=" puorc.awesome-vhdl "
 extension_md=" mushan.vscode-paste-image DavidAnson.vscode-markdownlint yzhang.markdown-all-in-one \
 hnw.vscode-auto-open-markdown-preview shd101wyy.markdown-preview-enhanced "
 extension_web=" formulahendry.auto-close-tag "
-
+extension_docker=" PeterJausovec.vscode-docker "
 source ../utils.sh
 
 set -e 
