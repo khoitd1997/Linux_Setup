@@ -20,7 +20,8 @@ atom \
 slack-desktop \
 eagle \
 matlab \
-anyconnect
+anyconnect \
+virtualbox
 "
 
 #-----------------------------PROMPT-----------------------------------------#
