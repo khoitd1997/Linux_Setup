@@ -12,15 +12,16 @@ software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip curl "
 
 # list of software with GUI
-software_with_gui=" xclip gksu terminator guake ddd evince synaptic psensor gufw xpad \
+software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \
 unity-tweak-tool libreoffice-style-hicontrast unattended-upgrades gparted \
-libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* python-gpgme nautilus-dropbox meld "
+libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* nautilus-dropbox meld "
 
 # list of dropped app
 software_dropped=" gitg"
 
 # all tool chains and utilities
-arm_toolchain="gdb-arm-none-eabi openocd qemu gcc-arm-none-eabi"
+tool_chain_not_18_04_compat = " gdb-arm-none-eabi " # not compatible with ubuntu 18.04 for now
+arm_toolchain=" openocd qemu gcc-arm-none-eabi"
 avr_arduino_toolchain="avrdude avr-libc simulavr"
 
 source ../utils.sh
@@ -119,38 +120,39 @@ if [ ! -d ~/temp/ ]; then
 mkdir ~/temp #  temp dir for basic scratch work
 fi
 
-if [ "${DESKTOP_SESSION}" = "ubuntu" ]; then
-# install theme
-print_message "Which theme do you want? Make sure the PPAs are still legit\n"
-print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
-read THEME_CHOICE
+# if [ "${DESKTOP_SESSION}" = "ubuntu" ]; then
+# # install theme
+# print_message "Which theme do you want? Make sure the PPAs are still legit\n"
+# print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
+# read THEME_CHOICE
 
-case ${THEME_CHOICE} in
-1) 
-sudo add-apt-repository ppa:noobslab/themes
-sudo apt-get update
-sudo apt-get install obsidian-gtk-theme
-gsettings set org.gnome.desktop.interface gtk-theme "Obsidian-1-green";;
+# case ${THEME_CHOICE} in
+# 1) 
+# sudo add-apt-repository ppa:noobslab/themes
+# sudo apt-get update
+# sudo apt-get install obsidian-gtk-theme
+# gsettings set org.gnome.desktop.interface gtk-theme "Obsidian-1-green";;
 
-2) 
-sudo add-apt-repository ppa:noobslab/themes
-sudo add-apt-repository ppa:noobslab/icons
-sudo apt-get update
-sudo apt-get install ultra-flat-icons
-sudo apt-get install flatabulous-theme
-gsettings set org.gnome.desktop.interface gtk-theme "Flatabulous"
-gsettings set org.gnome.desktop.interface icon-theme Ultra-Flat;;
+# 2) 
+# sudo add-apt-repository ppa:noobslab/themes
+# sudo add-apt-repository ppa:noobslab/icons
+# sudo apt-get update
+# sudo apt-get install ultra-flat-icons
+# sudo apt-get install flatabulous-theme
+# gsettings set org.gnome.desktop.interface gtk-theme "Flatabulous"
+# gsettings set org.gnome.desktop.interface icon-theme Ultra-Flat;;
 
-esac
+# esac
+
+
+# elif [ "${DESKTOP_SESSION}" = "budgie-desktop" ]; then
+# sudo apt-get install gnome-tweak-tool gnome-terminal 
+# dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/size "16"
+# dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/autohide "'automatic'"
+# dconf write /net/launchpad/plank/docks/dock1/hide-mode "'auto'"
+# fi
+
 fi
-
-elif [ "${DESKTOP_SESSION}" = "budgie-desktop" ]; then
-sudo apt-get install gnome-tweak-tool gnome-terminal 
-dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/size "16"
-dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/autohide "'automatic'"
-dconf write /net/launchpad/plank/docks/dock1/hide-mode "'auto'"
-fi
-
 print_message "Auxilarry customizations done\n"
 sleep 4
 
