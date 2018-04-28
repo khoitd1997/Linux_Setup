@@ -43,7 +43,7 @@ read input
 printf "${green}Installing\n ${reset}"
 sudo apt-get update 
 sudo dpkg -i ~/Downloads/*.deb   || true
-sudo apt-get -f install 
+sudo apt-get install -f
 sudo dpkg -i ~/Downloads/*.deb   || true # run again after all dependency is fixed
 
 
