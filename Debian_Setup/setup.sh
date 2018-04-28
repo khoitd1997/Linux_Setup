@@ -20,7 +20,7 @@ libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* na
 software_dropped=" gitg"
 
 # all tool chains and utilities
-tool_chain_not_18_04_compat = " gdb-arm-none-eabi " # not compatible with ubuntu 18.04 for now
+tool_chain_not_18_04_compat=" gdb-arm-none-eabi " # not compatible with ubuntu 18.04 for now
 arm_toolchain=" openocd qemu gcc-arm-none-eabi"
 avr_arduino_toolchain="avrdude avr-libc simulavr"
 
