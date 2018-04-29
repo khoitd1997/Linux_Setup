@@ -39,7 +39,7 @@ print_section()
 # $1 is type of log, $2 is which section of code, $3 is what happens
 # type of log for this project should usually just be error
 # for now only log error
-log ()
+log()
 {
     touch ./maintainance.log
     printf '%-20s %-7s %-15s %-s\n' "$(date --iso-8601=date) $(date +'%H:%M:%S')" "${1}" "\"[${2}]\"" "${3}" >> ./maintainance.log
