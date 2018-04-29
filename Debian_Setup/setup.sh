@@ -32,7 +32,7 @@ set -e
 set -o pipefail
 set -o nounset
 #----------------------------------------------------------------------------------------------------
-check_dir Linux_Setup/Debian_Setup
+check_dir OS_Setup/Debian_Setup
 
 # disable root account
 sudo passwd -l root

@@ -25,7 +25,7 @@ virtualbox
 "
 
 #-----------------------------PROMPT-----------------------------------------#
-check_dir Linux_Setup/Debian_Setup
+check_dir OS_Setup/Debian_Setup
 
 counter=0
 printf "${green}\nList of software to be installed:\n${reset}"
