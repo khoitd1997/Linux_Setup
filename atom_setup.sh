@@ -13,6 +13,9 @@ atom_config_file_dir="${HOME}/.atom"
 set -e 
 set -o pipefail
 set -o nounset
+
+OS="$(uname -s)"
+
 #-------------------------------------------------------------------------------------------
 
 check_dir OS_Setup

@@ -24,6 +24,7 @@ hnw.vscode-auto-open-markdown-preview shd101wyy.markdown-preview-enhanced "
 extension_web=" formulahendry.auto-close-tag "
 extension_docker=" PeterJausovec.vscode-docker "
 
+OS="$(uname -s)"
 source utils.sh
 set -e 
 set -o pipefail
