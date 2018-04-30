@@ -13,7 +13,7 @@ gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip 
 
 # list of software with GUI
 software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \
-unity-tweak-tool libreoffice-style-hicontrast unattended-upgrades gparted \
+libreoffice-style-hicontrast unattended-upgrades gparted \
 libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* nautilus-dropbox meld "
 
 # list of dropped app
@@ -122,6 +122,7 @@ fi
 
 # if [ "${DESKTOP_SESSION}" = "ubuntu" ]; then
 # # install theme
+# sudo apt-get install gnome-tweak-tool
 # print_message "Which theme do you want? Make sure the PPAs are still legit\n"
 # print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
 # read THEME_CHOICE
