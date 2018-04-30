@@ -3,7 +3,7 @@
     telemetryConsent: "limited"
     themes: [
       "atom-dark-ui"
-      "atom-dark-syntax"
+      "atom-light-syntax"
     ]
   editor:
     showIndentGuide: true
