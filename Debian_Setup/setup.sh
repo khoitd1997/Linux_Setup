@@ -120,9 +120,9 @@ if [ ! -d ~/temp/ ]; then
 mkdir ~/temp #  temp dir for basic scratch work
 fi
 
-# if [ "${DESKTOP_SESSION}" = "ubuntu" ]; then
-# # install theme
-# sudo apt-get install gnome-tweak-tool
+if [ "${DESKTOP_SESSION}" = "ubuntu" ]; then
+# install theme
+sudo apt-get install gnome-tweak-tool
 # print_message "Which theme do you want? Make sure the PPAs are still legit\n"
 # print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
 # read THEME_CHOICE
@@ -146,12 +146,17 @@ fi
 # esac
 
 
-# elif [ "${DESKTOP_SESSION}" = "budgie-desktop" ]; then
-# sudo apt-get install gnome-tweak-tool gnome-terminal 
-# dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/size "16"
-# dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/autohide "'automatic'"
-# dconf write /net/launchpad/plank/docks/dock1/hide-mode "'auto'"
-# fi
+elif [ "${DESKTOP_SESSION}" = "budgie-desktop" ]; then
+sudo apt-get install gnome-tweak-tool gnome-terminal 
+dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/size "16"
+dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/autohide "'automatic'"
+dconf write /net/launchpad/plank/docks/dock1/hide-mode "'auto'"
+
+elif [ "${DESKTOP_SESSION}" = "plasma" ]; then 
+kwriteconfig --file ~/.config/kwinrc --group Desktops --key Number 2 # allow 2 workspace
+kwriteconfig --file ~/.config/kglobalshortcutsrc --group kwin --key "Switch One Desktop to the Left" "Ctrl+Alt+Left,none,Switch One Desktop to the Left"
+kwriteconfig --file ~/.config/kglobalshortcutsrc --group kwin --key "Switch One Desktop to the Right" "Ctrl+Alt+Right,none,Switch One Desktop to the Right"
+fi
 
 fi
 print_message "Auxilarry customizations done\n"
