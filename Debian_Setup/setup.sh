@@ -165,8 +165,11 @@ cp -f ../plasma/plasma-org.kde.plasma.desktop-appletsrc ~/.config/plasma-org.kde
 # change look and feel
 # https://userbase.kde.org/Plasma/Create_a_Look_and_Feel_Package
 # https://techbase.kde.org/Development/Tutorials/KWin/Scripting 
-plasmapkg2 -t layout-template -i ./plasma/Main_Theme_2
+# the lookandfeeltool -l list available look and feel packages
+mkdir -p ~/.local/share/plasma/look-and-feel/
+mv -f ../plasma/Main_Theme_2/ ~/.local/share/plasma/look-and-feel/
 lookandfeeltool -a Main_Theme_2
+kstart plasmashell &
 fi
 
 fi # end of look customizations
