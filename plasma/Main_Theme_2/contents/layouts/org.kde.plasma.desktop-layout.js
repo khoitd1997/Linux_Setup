@@ -12,9 +12,12 @@ var layout = {
                     "lastScreen": "0",
                     "wallpaperplugin": "org.kde.image"
                 },
+                "/Configuration": {
+                    "PreloadWeight": "10"
+                },
                 "/General": {
                     "ToolBoxButtonState": "topright",
-                    "ToolBoxButtonX": "1250"
+                    "ToolBoxButtonX": "1336"
                 }
             },
             "wallpaperPlugin": "org.kde.image"
@@ -32,19 +35,15 @@ var layout = {
                         "/Configuration": {
                             "PreloadWeight": "100"
                         },
-                        "/Configuration/Configuration%2FGeneral": {
-                            "showAppsByName": "true"
+                        "/Configuration/ConfigDialog": {
+                            "DialogHeight": "540",
+                            "DialogWidth": "720"
                         },
                         "/Configuration/General": {
-                            "favorites": "preferred://browser,org.kde.discover.desktop,org.kde.kontact.desktop,org.kde.kate.desktop,libreoffice-startcenter.desktop,org.kde.dolphin.desktop,org.kde.ksysguard.desktop,systemsettings.desktop,org.kde.konsole.desktop",
-                            "favoritesPortedToKAstats": "true",
-                            "showAppsByName": "true"
-                        },
-                        "/Configuration/Shortcuts": {
-                            "global": "Alt+F1"
+                            "favoritesPortedToKAstats": "true"
                         },
                         "/Shortcuts": {
-                            "global": "Alt+F1"
+                            "global": "Meta+Alt+F1"
                         }
                     },
                     "plugin": "org.kde.plasma.kickoff"
@@ -53,6 +52,9 @@ var layout = {
                     "config": {
                         "/": {
                             "immutability": "1"
+                        },
+                        "/Configuration": {
+                            "PreloadWeight": "0"
                         }
                     },
                     "plugin": "org.kde.plasma.pager"
@@ -61,6 +63,9 @@ var layout = {
                     "config": {
                         "/": {
                             "immutability": "1"
+                        },
+                        "/Configuration": {
+                            "PreloadWeight": "0"
                         }
                     },
                     "plugin": "org.kde.plasma.taskmanager"
@@ -69,31 +74,16 @@ var layout = {
                     "config": {
                         "/": {
                             "immutability": "1"
-                        }
-                    },
-                    "plugin": "org.kde.plasma.systemloadviewer"
-                },
-                {
-                    "config": {
-                        "/": {
-                            "immutability": "1"
                         },
                         "/Configuration": {
-                            "PreloadWeight": "80"
-                        }
-                    },
-                    "plugin": "org.kde.plasma.systemtray"
-                },
-                {
-                    "config": {
-                        "/": {
-                            "immutability": "1"
-                        },
-                        "/Configuration": {
-                            "PreloadWeight": "60",
+                            "PreloadWeight": "32",
+                            "pressureUnit": "5028",
                             "source": "wettercom|weather|Irvine, California, US|US0CA0512;Irvine",
+                            "speedUnit": "9002",
+                            "temperatureUnit": "6001",
                             "updateInterval": "30",
-                            "weatherServiceProviders": "bbcukmet,envcan,noaa,wettercom"
+                            "visibilityUnit": "-1",
+                            "weatherServiceProviders": "noaa,bbcukmet,envcan,wettercom"
                         },
                         "/Configuration/ConfigDialog": {
                             "DialogHeight": "540",
@@ -108,12 +98,42 @@ var layout = {
                             "immutability": "1"
                         },
                         "/Configuration": {
-                            "PreloadWeight": "60"
+                            "PreloadWeight": "2"
+                        }
+                    },
+                    "plugin": "org.kde.plasma.systemloadviewer"
+                },
+                {
+                    "config": {
+                        "/": {
+                            "immutability": "1"
+                        },
+                        "/Configuration": {
+                            "PreloadWeight": "2"
+                        }
+                    },
+                    "plugin": "org.kde.plasma.battery"
+                },
+                {
+                    "config": {
+                        "/": {
+                            "immutability": "1"
+                        },
+                        "/Configuration": {
+                            "PreloadWeight": "87"
+                        }
+                    },
+                    "plugin": "org.kde.plasma.systemtray"
+                },
+                {
+                    "config": {
+                        "/": {
+                            "immutability": "1"
+                        },
+                        "/Configuration": {
+                            "PreloadWeight": "42"
                         },
                         "/Configuration/Appearance": {
-                            "boldText": "",
-                            "fontFamily": "Sans Serif",
-                            "italicText": "",
                             "showDate": "true"
                         },
                         "/Configuration/ConfigDialog": {
@@ -133,14 +153,17 @@ var layout = {
                 },
                 "/ConfigDialog": {
                     "DialogHeight": "84",
-                    "DialogWidth": "1280"
+                    "DialogWidth": "1366"
+                },
+                "/Configuration": {
+                    "PreloadWeight": "0"
                 }
             },
-            "height": 1.6666666666666667,
+            "height": 2,
             "hiding": "normal",
             "location": "bottom",
-            "maximumLength": 106.66666666666667,
-            "minimumLength": 106.66666666666667,
+            "maximumLength": 75.88888888888889,
+            "minimumLength": 75.88888888888889,
             "offset": 0
         }
     ],
