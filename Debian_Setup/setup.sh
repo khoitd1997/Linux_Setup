@@ -12,9 +12,9 @@ software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip curl "
 
 # list of software with GUI
-software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \
+software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \ 
 libreoffice-style-hicontrast unattended-upgrades gparted \
-libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* nautilus-dropbox meld "
+libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* nautilus-dropbox meld \ bustle d-feet "
 
 # list of dropped app
 software_dropped=" gitg"
@@ -153,15 +153,23 @@ dconf write /net/launchpad/plank/docks/dock1/hide-mode "'auto'"
 
 elif [ "${DESKTOP_SESSION}" = "plasma" ]; then 
 # workspace config
+killall plasmashell
+
 kwriteconfig --file ~/.config/kwinrc --group Desktops --key Number 2 # allow 2 workspace
 kwriteconfig --file ~/.config/kglobalshortcutsrc --group kwin --key "Switch One Desktop to the Left" "Ctrl+Alt+Left,none,Switch One Desktop to the Left"
 kwriteconfig --file ~/.config/kglobalshortcutsrc --group kwin --key "Switch One Desktop to the Right" "Ctrl+Alt+Right,none,Switch One Desktop to the Right"
 
 # taskbar config
 cp -f ../plasma/plasma-org.kde.plasma.desktop-appletsrc ~/.config/plasma-org.kde.plasma.desktop-appletsrc
+
+# change look and feel
+# https://userbase.kde.org/Plasma/Create_a_Look_and_Feel_Package
+# https://techbase.kde.org/Development/Tutorials/KWin/Scripting 
+plasmapkg2 -t layout-template -i ./plasma/Main_Theme_2
+lookandfeeltool -a Main_Theme_2
 fi
 
-fi
+fi # end of look customizations
 print_message "Auxilarry customizations done\n"
 sleep 4
 
