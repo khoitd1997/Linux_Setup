@@ -24,6 +24,15 @@ tool_chain_not_18_04_compat=" gdb-arm-none-eabi " # not compatible with ubuntu 1
 arm_toolchain=" openocd qemu gcc-arm-none-eabi"
 avr_arduino_toolchain="avrdude avr-libc simulavr"
 
+# snap package list
+snap_package_list_general=" spotify slack discord gitkraken "
+
+# pending list waiting approval list
+snap_package_list_pending=" atom vscode "
+
+# include heavy stuffs like IDE
+snap_package_list_extended=" intellij-idea-community android-studio "
+
 source ../utils.sh
 # Configuration Parameters
 wsl=1 # 0 for installing on Window Subsystem for Linux, 1 for not wsl by default
@@ -52,8 +61,6 @@ sleep 4
 fi
 fi
 
-
-
 # update the system, only proceed if the previous command is successful
 if [ $wsl -eq 1 ] ; then
     SOFTWARE_GENERAL_REPO="${software_general_repo_non_gui}${software_with_gui}"
@@ -70,6 +77,12 @@ else
 print_error "Failed in Basic update and install\n "
 exit 1
 fi
+
+# use snap package here
+# Note: snap provides the same level of security as app due to X11
+sudo apt-get install snapd -y
+sudo snap install "${snap_package_list_general}"
+
 
 sudo dpkg-reconfigure unattended-upgrades
 
