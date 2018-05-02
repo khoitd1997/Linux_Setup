@@ -8,7 +8,8 @@
 
 # list of general utilities without GUI
 software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
-gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip curl "
+gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip curl python-pip \
+"
 
 # list of software with GUI
 software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \
@@ -26,12 +27,13 @@ avr_arduino_toolchain="avrdude avr-libc simulavr"
 
 # snap package list
 snap_package_list_general=" spotify slack discord gitkraken atom vscode "
-
 # pending list waiting approval list
 snap_package_list_pending=" "
-
 # include heavy stuffs like IDE
 snap_package_list_extended=" intellij-idea-community android-studio "
+
+# python pip list
+python_pip_package_list=" pylint autopep8 "
 
 source ../utils.sh
 # Configuration Parameters
@@ -101,33 +103,37 @@ git config --global user.name "khoitd1997"
 # Dev tools installations start here
 printf "\n ${cyan}--------DEV-TOOLS----------- ${reset}"
 printf "${cyan}\n Basic Install is done, please select additional install options separated by space: \n${reset}"
-printf  "${cyan}1/ARM 2/AVR 3/Java${reset}"
+printf  "${cyan}1/ARM 2/AVR 3/Java 4/Python${reset}"
 read input
 
 # handle options
 for option in ${input}; do
 case $option in 
     1) 
-print_message "Installing ARM\n"
+    print_message "Installing ARM\n"
     if ! sudo apt-get install $arm_toolchain; then
-print_error "Failed to install ARM toolchain\n"
+    print_error "Failed to install ARM toolchain\n"
     exit 1
     fi ;;
     2) 
-print_message "Installing AVR\n "
+    print_message "Installing AVR\n "
     if ! sudo apt-get install $avr_arduino_toolchain; then
-print_error "Failed to install AVR toolchain\n"
+    print_error "Failed to install AVR toolchain\n"
     exit 1
     fi ;;
     3) 
-print_message "Installing java 8, gradle, check PPA and newer version of Java, press anykey to confirm\n"
+    print_message "Installing java 8, gradle, check PPA and newer version of Java, press anykey to confirm\n"
     read confirm
-print_message "Please press any key again for final confirm\n"
+    print_message "Please press any key again for final confirm\n"
     read confirm
     sudo add-apt-repository ppa:webupd8team/java
     sudo apt-get update 
     sudo apt-get install gradle -y 
     sudo apt-get install oracle-java8-installer -y ;;
+    4)
+    print_message "Installing Python support"
+    pip install "${python_pip_package_list}"
+    ;;
 esac
 done 
 sudo apt autoremove -y
