@@ -28,7 +28,11 @@ fi
 shopt -s nocasematch # ignore case
 if [[ "${DESKTOP_SESSION}" == "ubuntu" ]]; then
 # install theme
-sudo apt-get install gnome-tweak-tool -y
+sudo apt-get install gnome-tweak-tool gnome-shell-extensions chrome-gnome-shell -y
+dconf write /org/gnome/desktop/interface/show-battery-percentage "true"
+dconf write /org/gnome/desktop/interface/clock-show-date "true"
+print_message "Please install all the GNOME shell extensions\n"
+sleep 10
 # print_message "Which theme do you want? Make sure the PPAs are still legit\n"
 # print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
 # read THEME_CHOICE
