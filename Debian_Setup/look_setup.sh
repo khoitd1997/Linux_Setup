@@ -94,6 +94,10 @@ dconf write /org/gnome/shell/extensions/system-monitor/net-display "false"
 dconf write /org/gnome/shell/extensions/system-monitor/memory-show-text "false"
 dconf write /org/gnome/shell/extensions/system-monitor/cpu-show-text "false"
 
+# configure update monitor
+dconf write /org/gnome/shell/extensions/apt-update-indicator/interval-unit "'hours'"
+dconf write /org/gnome/shell/extensions/apt-update-indicator/check-interval "5"
+
 
 # enable extensions
 for extension in ${gnome_shell_extensions_long}; do
