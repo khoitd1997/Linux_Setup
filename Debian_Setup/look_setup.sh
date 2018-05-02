@@ -50,9 +50,24 @@ dconf write /org/gnome/desktop/background/primary-color "'#000000'"
 dconf write /org/gnome/desktop/background/secondary-color "'#000000'"
 
 
+
 print_message "Please install all the GNOME shell extensions\n"
 print_table "${gnome_shell_extensions_list}" 3
 sleep 10
+
+empty_input_buffer
+print_message "Press anykey when done"
+read done_signal
+
+# configure location to be Irvine, CA
+dconf write /org/gnome/shell/extensions/openweather/city "'-8.5211767,179.1976747>Vaiaku, Tuvalu>-1 && 33.6856969,-117.8259819>Irvine, Orange County, California, United States of America >-1'"
+dconf write /org/gnome/shell/extensions/openweather/city "'33.6856969,-117.8259819>Irvine, Orange County, California, United States of America >-1'"
+dconf write /org/gnome/shell/extensions/openweather/show-comment-in-panel "true"
+dconf write /org/gnome/shell/extensions/openweather/unit "'celsius'"
+dconf write /org/gnome/shell/extensions/openweather/days-forecast "7"
+dconf write /org/gnome/shell/extensions/openweather/use-symbolic-icons "false"
+
+
 # print_message "Which theme do you want? Make sure the PPAs are still legit\n"
 # print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
 # read THEME_CHOICE
