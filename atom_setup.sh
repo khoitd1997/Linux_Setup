@@ -30,7 +30,10 @@ print_message "Beginning installation of atom packages, make sure you have atom 
 apm install 
 apm install ${package} 
 
-cp -f ${atom_config_script_dir}/config.cson ${atom_config_file_dir}/
-cp -f ${atom_config_script_dir}/keymap.cson ${atom_config_file_dir}/
+atom . # open editor so that it creates a setting file, then we can overwite it
+sleep 5
+
+cp -vf ${atom_config_script_dir}/config.cson ${atom_config_file_dir}/
+cp -vf ${atom_config_script_dir}/keymap.cson ${atom_config_file_dir}/
 
 print_message "Package Installation and Config Done\n"

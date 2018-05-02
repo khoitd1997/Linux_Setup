@@ -81,10 +81,12 @@ done
 
 print_message "Installation Done\n"
 code --list-extensions
+code . # open editor so that it creates a setting file, then we can overwite it
+sleep 5
 
 # copy Visual Studdio Code setting file and keybinding file
-cp -f ~/OS_Setup/VisualCode/settings.json ${vscode_config_dir}/settings.json
-cp -f ~/OS_Setup/VisualCode/keybindings.json ${vscode_config_dir}/keybindings.json
+cp -vf ~/OS_Setup/VisualCode/settings.json ${vscode_config_dir}/settings.json
+cp -vf ~/OS_Setup/VisualCode/keybindings.json ${vscode_config_dir}/keybindings.json
 
 print_message "Visual Studio Code Configurations done\n"
 exit 0
