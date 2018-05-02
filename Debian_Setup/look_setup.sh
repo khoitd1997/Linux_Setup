@@ -9,6 +9,14 @@ wsl="1"
 gnome_shell_extensions_list=" clipboard_indicator apt_update_indicator openweather \
 extensions_update_notifier dash_to_panel "
 
+# shell extensions in long format for commands
+gnome_shell_extensions_long=" alternate-tab@gnome-shell-extensions.gcampax.github.com \
+update-extensions@franglais125.gmail.com \
+clipboard-indicator@tudmotu.com \
+openweather-extension@jenslody.de \
+apt-update-indicator@franglais125.gmail.com \
+dash-to-panel@jderose9.github.com"
+
 #--------------------------------------------------------------------
 check_dir OS_Setup/Debian_Setup
 
@@ -68,28 +76,13 @@ dconf write /org/gnome/shell/extensions/openweather/unit "'celsius'"
 dconf write /org/gnome/shell/extensions/openweather/days-forecast "7"
 dconf write /org/gnome/shell/extensions/openweather/use-symbolic-icons "false"
 
+# configure theme
+dconf write /org/gnome/desktop/interface/gtk-theme "'Ambiance'"
 
-# print_message "Which theme do you want? Make sure the PPAs are still legit\n"
-# print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
-# read THEME_CHOICE
-
-# case ${THEME_CHOICE} in
-# 1) 
-# sudo add-apt-repository ppa:noobslab/themes
-# sudo apt-get update
-# sudo apt-get install obsidian-gtk-theme
-# gsettings set org.gnome.desktop.interface gtk-theme "Obsidian-1-green";;
-
-# 2) 
-# sudo add-apt-repository ppa:noobslab/themes
-# sudo add-apt-repository ppa:noobslab/icons
-# sudo apt-get update
-# sudo apt-get install ultra-flat-icons
-# sudo apt-get install flatabulous-theme
-# gsettings set org.gnome.desktop.interface gtk-theme "Flatabulous"
-# gsettings set org.gnome.desktop.interface icon-theme Ultra-Flat;;
-
-# esac
+# enable extensions
+for extension in ${gnome_shell_extensions_long}; do
+gnome-shell-extension-tool -e ${extension}
+done 
 
 elif [[ "${DESKTOP_SESSION}" == "budgie-desktop" ]]; then
 sudo apt-get install gnome-tweak-tool gnome-terminal -y
