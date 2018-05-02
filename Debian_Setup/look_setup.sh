@@ -42,6 +42,14 @@ dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8f
 dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/background-transparency-percent "18"
 dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/cursor-blink-mode "'on'"
 
+# configure background pics
+dconf write /org/gnome/desktop/background/color-shading-type "'solid'"
+dconf write /org/gnome/desktop/background/picture-options "'zoom'"
+dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/On_top_of_the_Rubihorn_by_Matthias_Niess.jpg'"
+dconf write /org/gnome/desktop/background/primary-color "'#000000'"
+dconf write /org/gnome/desktop/background/secondary-color "'#000000'"
+
+
 print_message "Please install all the GNOME shell extensions\n"
 print_table "${gnome_shell_extensions_list}" 3
 sleep 10
