@@ -7,7 +7,7 @@ set -o pipefail
 set -o nounset
 wsl="1"
 gnome_shell_extensions_list=" clipboard_indicator apt_update_indicator openweather \
-extensions_update_notifier dash_to_panel "
+extensions_update_notifier dash_to_panel system-monitor "
 
 # shell extensions in long format for commands
 gnome_shell_extensions_long=" alternate-tab@gnome-shell-extensions.gcampax.github.com \
@@ -15,7 +15,8 @@ update-extensions@franglais125.gmail.com \
 clipboard-indicator@tudmotu.com \
 openweather-extension@jenslody.de \
 apt-update-indicator@franglais125.gmail.com \
-dash-to-panel@jderose9.github.com"
+dash-to-panel@jderose9.github.com \
+system-monitor@paradoxxx.zero.gmail.com"
 
 #--------------------------------------------------------------------
 check_dir OS_Setup/Debian_Setup
@@ -38,6 +39,9 @@ fi
 shopt -s nocasematch # ignore case
 if [[ "${DESKTOP_SESSION}" == "ubuntu" ]]; then
 sudo apt-get install gnome-tweak-tool gnome-shell-extensions chrome-gnome-shell -y
+
+# dependencies for system monitor gnome extensions
+sudo apt-get install gir1.2-gtop-2.0 gir1.2-networkmanager-1.0 gir1.2-clutter-1.0
 
 # customize top bar
 dconf write /org/gnome/desktop/interface/show-battery-percentage "true"
@@ -78,6 +82,13 @@ dconf write /org/gnome/shell/extensions/openweather/use-symbolic-icons "false"
 
 # configure theme
 dconf write /org/gnome/desktop/interface/gtk-theme "'Ambiance'"
+
+# configure system monitors
+dconf write /org/gnome/shell/extensions/system-monitor/net-graph-width "50"
+dconf write /org/gnome/shell/extensions/system-monitor/memory-graph-width "50"
+dconf write /org/gnome/shell/extensions/system-monitor/cpu-graph-width "50"
+dconf write /org/gnome/shell/extensions/system-monitor/icon-display "false"
+
 
 # enable extensions
 for extension in ${gnome_shell_extensions_long}; do
