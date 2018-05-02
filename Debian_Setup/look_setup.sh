@@ -5,6 +5,8 @@ source ../utils.sh
 set -e 
 set -o pipefail
 set -o nounset
+# set -o xtrace # for debugging only, will print out all commands befor eexecution
+
 wsl="1"
 gnome_shell_extensions_list=" clipboard_indicator apt_update_indicator openweather \
 extensions_update_notifier dash_to_panel system-monitor "
@@ -38,6 +40,7 @@ fi
 
 shopt -s nocasematch # ignore case
 if [[ "${DESKTOP_SESSION}" == "ubuntu" ]]; then
+dconf write /org/gnome/shell/favorite-apps "@as []" # remove apps from dock/topbar
 sudo apt-get install gnome-tweak-tool gnome-shell-extensions chrome-gnome-shell -y
 
 # dependencies for system monitor gnome extensions
@@ -66,7 +69,6 @@ dconf write /org/gtk/settings/file-chooser/show-hidden "true"
 
 print_message "Please install all the GNOME shell extensions\n"
 print_table "${gnome_shell_extensions_list}" 3
-sleep 10
 
 empty_input_buffer
 print_message "Press anykey when done"
@@ -92,7 +94,7 @@ dconf write /org/gnome/shell/extensions/system-monitor/icon-display "false"
 
 # enable extensions
 for extension in ${gnome_shell_extensions_long}; do
-gnome-shell-extension-tool -e ${extension}
+gnome-shell-extension-tool -e "${extension}" || true
 done 
 
 elif [[ "${DESKTOP_SESSION}" == "budgie-desktop" ]]; then
