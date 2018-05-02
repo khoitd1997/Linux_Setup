@@ -84,7 +84,14 @@ fi
 # Note: snap provides the same level of security as app due to X11
 sudo apt-get install snapd -y
 sudo snap install "${snap_package_list_general}"
-
+for snap_package in "${snap_package_list_extended}"; do 
+    empty_input_buffer
+    print_message "Do you want to install ${snap_package} (y/n)"
+    read snap_package_answer
+    if [ ${snap_package_answer} = "y" ]; then
+    sudo snap install "${snap_package}"
+    fi
+done
 
 sudo dpkg-reconfigure unattended-upgrades
 
