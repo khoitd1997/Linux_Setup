@@ -8,16 +8,10 @@ Sophos \
 Veeam"
 
 # make sure to have the same name that appear in dpkg -l
-software_general_nonrepo="code \
-google-chrome-stable \
+software_general_nonrepo=" google-chrome-stable \
 jlink \
 segger_embedded \
-gitkraken \
-dropbox \
 zoom \
-discord \
-atom \
-slack-desktop \
 eagle \
 matlab \
 anyconnect \

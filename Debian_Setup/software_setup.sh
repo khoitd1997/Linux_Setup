@@ -25,10 +25,10 @@ arm_toolchain=" openocd qemu gcc-arm-none-eabi"
 avr_arduino_toolchain="avrdude avr-libc simulavr"
 
 # snap package list
-snap_package_list_general=" spotify slack discord gitkraken "
+snap_package_list_general=" spotify slack discord gitkraken atom vscode "
 
 # pending list waiting approval list
-snap_package_list_pending=" atom vscode "
+snap_package_list_pending=" "
 
 # include heavy stuffs like IDE
 snap_package_list_extended=" intellij-idea-community android-studio "
