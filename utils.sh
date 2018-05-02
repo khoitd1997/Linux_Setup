@@ -64,3 +64,22 @@ check_dir()
     return 0
 }
 
+# print the given list in a table with given width
+# 1st input is list, 2nd is table width, the reserved 
+# length for each table member is hardcoded to be 30, change
+# to make bigger/smaller
+print_table()
+{
+counter=0
+printf "${cyan}\nList:\n${reset}"
+printf "${green}"
+for software in ${1}; do 
+printf "%-30s|  " "${software}"
+counter=$((++counter))
+if !((${counter}%${2})); then
+printf "\n"
+fi
+done
+printf "${reset}\n"
+}
+

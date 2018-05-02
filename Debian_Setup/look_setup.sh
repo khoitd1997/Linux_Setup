@@ -6,6 +6,8 @@ set -e
 set -o pipefail
 set -o nounset
 wsl="1"
+gnome_shell_extensions_list=" clipboard_indicator apt_update_indicator openweather \
+extensions_update_notifier dash_to_panel "
 
 #--------------------------------------------------------------------
 check_dir OS_Setup/Debian_Setup
@@ -32,6 +34,7 @@ sudo apt-get install gnome-tweak-tool gnome-shell-extensions chrome-gnome-shell 
 dconf write /org/gnome/desktop/interface/show-battery-percentage "true"
 dconf write /org/gnome/desktop/interface/clock-show-date "true"
 print_message "Please install all the GNOME shell extensions\n"
+print_table "${gnome_shell_extensions_list}" 3
 sleep 10
 # print_message "Which theme do you want? Make sure the PPAs are still legit\n"
 # print_message "1\\Obsidian green     2\\Flatabulous with Ultra-Flat theme\n"
