@@ -49,7 +49,8 @@ dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgr
 dconf write /org/gnome/desktop/background/primary-color "'#000000'"
 dconf write /org/gnome/desktop/background/secondary-color "'#000000'"
 
-
+# configure file explorer
+dconf write /org/gtk/settings/file-chooser/show-hidden "true"
 
 print_message "Please install all the GNOME shell extensions\n"
 print_table "${gnome_shell_extensions_list}" 3
