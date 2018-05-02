@@ -29,10 +29,19 @@ fi
 
 shopt -s nocasematch # ignore case
 if [[ "${DESKTOP_SESSION}" == "ubuntu" ]]; then
-# install theme
 sudo apt-get install gnome-tweak-tool gnome-shell-extensions chrome-gnome-shell -y
+
+# customize top bar
 dconf write /org/gnome/desktop/interface/show-battery-percentage "true"
 dconf write /org/gnome/desktop/interface/clock-show-date "true"
+
+# customize gnome terminal
+dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/use-transparent-background "true"
+dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/foreground-color "'rgb(211,215,207)'"
+dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/background-color "'rgb(46,52,54)'"
+dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/background-transparency-percent "18"
+dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/cursor-blink-mode "'on'"
+
 print_message "Please install all the GNOME shell extensions\n"
 print_table "${gnome_shell_extensions_list}" 3
 sleep 10
