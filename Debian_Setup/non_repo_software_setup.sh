@@ -43,7 +43,7 @@ read input
 printf "${green}Installing\n ${reset}"
 sudo apt-get update 
 sudo dpkg -i ~/Downloads/*.deb   || true
-sudo apt-get install -f
+sudo apt-get -f install 
 
 # handle software that come in tar format
 counter=0
