@@ -93,12 +93,15 @@ dconf write /org/gnome/desktop/interface/gtk-theme "'Ambiance'"
 
 # configure system monitors
 dconf write /org/gnome/shell/extensions/system-monitor/net-graph-width "50"
+
 dconf write /org/gnome/shell/extensions/system-monitor/memory-graph-width "50"
 dconf write /org/gnome/shell/extensions/system-monitor/cpu-graph-width "50"
 dconf write /org/gnome/shell/extensions/system-monitor/icon-display "false"
 dconf write /org/gnome/shell/extensions/system-monitor/net-display "false"
 dconf write /org/gnome/shell/extensions/system-monitor/memory-show-text "false"
 dconf write /org/gnome/shell/extensions/system-monitor/cpu-show-text "false"
+dconf write /org/gnome/shell/extensions/system-monitor/cpu-style "'both'"
+dconf write /org/gnome/shell/extensions/system-monitor/memory-style "'both'"
 
 # configure update monitor
 dconf write /org/gnome/shell/extensions/apt-update-indicator/interval-unit "'hours'"
