@@ -45,7 +45,7 @@ dconf write /org/gnome/shell/favorite-apps "@as []" # remove apps from dock/topb
 # configure night light
 dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled "true"
 dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled "true"
-
+dconf write /org/gnome/settings-daemon/peripherals/touchscreen/orientation-lock "true"
 
 sudo apt-get install gnome-tweak-tool gnome-shell-extensions chrome-gnome-shell -y
 
