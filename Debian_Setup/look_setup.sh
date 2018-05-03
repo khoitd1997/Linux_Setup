@@ -92,8 +92,6 @@ dconf write /org/gnome/shell/extensions/openweather/use-symbolic-icons "false"
 dconf write /org/gnome/desktop/interface/gtk-theme "'Ambiance'"
 
 # configure system monitors
-dconf write /org/gnome/shell/extensions/system-monitor/net-graph-width "50"
-
 dconf write /org/gnome/shell/extensions/system-monitor/memory-graph-width "50"
 dconf write /org/gnome/shell/extensions/system-monitor/cpu-graph-width "50"
 dconf write /org/gnome/shell/extensions/system-monitor/icon-display "false"
