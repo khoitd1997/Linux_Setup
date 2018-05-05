@@ -9,7 +9,7 @@ set -o nounset
 
 wsl="1"
 gnome_shell_extensions_list=" clipboard_indicator apt_update_indicator openweather \
-extensions_update_notifier dash_to_panel system-monitor "
+extensions_update_notifier dash_to_panel system-monitor no_top_left_hot_corner"
 
 # shell extensions in long format for commands
 gnome_shell_extensions_long=" alternate-tab@gnome-shell-extensions.gcampax.github.com \
@@ -18,7 +18,8 @@ clipboard-indicator@tudmotu.com \
 openweather-extension@jenslody.de \
 apt-update-indicator@franglais125.gmail.com \
 dash-to-panel@jderose9.github.com \
-system-monitor@paradoxxx.zero.gmail.com"
+system-monitor@paradoxxx.zero.gmail.com \
+nohotcorner@azuri.free.fr"
 
 #--------------------------------------------------------------------
 check_dir OS_Setup/Debian_Setup
