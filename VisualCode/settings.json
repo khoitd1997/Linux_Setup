@@ -65,11 +65,18 @@
             {
                 "scope": "log.info",
                 "settings": {
-                    "foreground": "#42b3f4",
+                    "foreground": "#42f4e5",
                     "fontStyle": ""
                 }
             }
         ]
     },
-    "C_Cpp.clang_format_fallbackStyle": "LLVM"
+    "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "C_Cpp.loggingLevel": "Information",
+    "logFileHighlighter.customPatterns": [
+        {
+            "pattern": "\\[(.*?)\\]",
+            "foreground": "#98f442"
+        }
+    ]
 }
