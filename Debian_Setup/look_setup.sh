@@ -58,11 +58,10 @@ dconf write /org/gnome/desktop/interface/show-battery-percentage "true"
 dconf write /org/gnome/desktop/interface/clock-show-date "true"
 
 # customize gnome terminal
-dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/use-transparent-background "true"
-dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/foreground-color "'rgb(211,215,207)'"
-dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/background-color "'rgb(46,52,54)'"
-dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/background-transparency-percent "18"
-dconf write /org/gnome/terminal/legacy/profiles:/:b8b3c9f0-633d-421b-b899-053a8fdc0d99/cursor-blink-mode "'on'"
+dconf reset -f /org/gnome/terminal/
+gnome-terminal # launch terminal to make sure a profile folder is created
+sleep 4
+dconf load /org/gnome/terminal/ < ~/OS_Setup/gnome/gnome_terminal_backup.txt
 
 # configure background pics
 dconf write /org/gnome/desktop/background/color-shading-type "'solid'"
