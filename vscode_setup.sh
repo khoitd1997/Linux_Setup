@@ -32,14 +32,8 @@ set -o nounset
 #----------------------------------------------------------------------------------------------------
 
 check_dir OS_Setup
-if [ "${OS}" != "Windows_NT" ]; then
+if [ "${OS}" != "Windows_NT" ] ; then
 vscode_config_dir="${HOME}/.config/Code/User"
-if ! dpkg-query -l code; then
-print_error "Visual Studio Code not installed\n"
- exit 1
- else
-print_message "Visual Studio Code found\n "
- fi
 
 else # window config
 vscode_config_dir="${HOME}/AppData/Roaming/Code/User"
