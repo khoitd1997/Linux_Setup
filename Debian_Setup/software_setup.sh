@@ -7,6 +7,7 @@
 # NO SPACE AROUND '=' for variable assignment
 
 # list of general utilities without GUI
+
 software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip curl python-pip \
 "
@@ -26,7 +27,7 @@ arm_toolchain=" openocd qemu gcc-arm-none-eabi"
 avr_arduino_toolchain="avrdude avr-libc simulavr"
 
 # snap package list
-snap_package_list_general=" spotify slack discord gitkraken atom vscode "
+snap_package_list_general="spotify discord gitkraken atom vscode slack "
 # pending list waiting approval list
 snap_package_list_pending=" "
 # include heavy stuffs like IDE
@@ -55,11 +56,9 @@ cd # back to home directory
 if [ $wsl -eq 1 ] ; then
 if sudo ufw enable; then
 print_message "Firewall Enabled\n"
-sleep 4
 else
 print_error "Firewall failed to enable\n "
 exit 1
-sleep 4
 fi
 fi
 
@@ -83,13 +82,17 @@ fi
 # use snap package here
 # Note: snap provides the same level of security as app due to X11
 sudo apt-get install snapd -y
-sudo snap install "${snap_package_list_general}"
-for snap_package in "${snap_package_list_extended}"; do 
+
+for snap_package_general in ${snap_package_list_general} ; do
+	sudo snap install ${snap_package_general} --classic
+done
+
+for snap_package in ${snap_package_list_extended} ; do 
     empty_input_buffer
     print_message "Do you want to install ${snap_package} (y/n)"
     read snap_package_answer
     if [ ${snap_package_answer} = "y" ]; then
-    sudo snap install "${snap_package}"
+    sudo snap install ${snap_package} --classic
     fi
 done
 
@@ -139,7 +142,9 @@ case $option in
     sudo apt-get install oracle-java8-installer -y ;;
     4)
     print_message "Installing Python support"
-    pip install "${python_pip_package_list}"
+for pip_software in ${python_pip_package_list}; do
+    pip install ${pip_software}
+done
     ;;
 esac
 done 
