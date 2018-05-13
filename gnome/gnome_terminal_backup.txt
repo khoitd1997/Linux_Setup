@@ -8,6 +8,7 @@ use-theme-colors=false
 use-theme-transparency=false
 use-transparent-background=true
 visible-name='main'
+audible-bell=false
 
 [legacy/profiles:/:7fe4dcd0-70d8-466f-b580-fe0b7f5c9c34]
 visible-name='main_1'
