@@ -62,6 +62,8 @@ exit 1
 fi
 fi
 
+#----------------------------------------------------------------------------------------------------
+# software installation here
 # update the system, only proceed if the previous command is successful
 if [ $wsl -eq 1 ] ; then
     SOFTWARE_GENERAL_REPO="${software_general_repo_non_gui}${software_with_gui}"
@@ -88,8 +90,8 @@ for snap_package_general in ${snap_package_list_general} ; do
 done
 
 for snap_package in ${snap_package_list_extended} ; do 
-    empty_input_buffer
     print_message "Do you want to install ${snap_package} (y/n)"
+    empty_input_buffer
     read snap_package_answer
     if [ ${snap_package_answer} = "y" ]; then
     sudo snap install ${snap_package} --classic
@@ -108,16 +110,30 @@ git config --global credential.helper /usr/share/doc/git/contrib/credential/gnom
 git config --global user.email "khoidinhtrinh@gmail.com"
 git config --global user.name "khoitd1997"
 
+# sound config
+clear
+print_message "Configuring Sound\n"
+
+# this used amixer to disable auto mute for card number 1, auto-mute basically allows only either the speaker
+# or the headphone at the same time so disabling it allows both to be on
+# the card number may change but always pick the realtek/analog one, generally use alsamixer or 
+# aplay -l to find card number to find the correct card number
+aplay -l # list available playback device
+print_message "Please input the correct card number from above, it should be the analog one(probably not the nvidia one)"
+empty_input_buffer
+read sound_card_number
+amixer -c ${sound_card_number} set 'Auto-Mute Mode' 'Disabled'
+
 #----------------------------------------------------------------------------------------------------
 
 # Dev tools installations start here
 printf "\n ${cyan}--------DEV-TOOLS----------- ${reset}"
 printf "${cyan}\n Basic Install is done, please select additional install options separated by space: \n${reset}"
 printf  "${cyan}1/ARM 2/AVR 3/Java 4/Python${reset}"
-read input
+read software_option
 
 # handle options
-for option in ${input}; do
+for option in ${software_option}; do
 case $option in 
     1) 
     print_message "Installing ARM\n"

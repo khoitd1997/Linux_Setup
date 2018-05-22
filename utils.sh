@@ -22,7 +22,7 @@ print_message()
 # error messaging
 print_error()
 {
-    >&2 printf "${red}\n${1}${reset}"
+    >&2 printf "${red}\n${1}${reset}" # direct to error output
     return 0
 }
 
@@ -82,4 +82,3 @@ fi
 done
 printf "${reset}\n"
 }
-
