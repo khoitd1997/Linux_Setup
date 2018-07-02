@@ -16,7 +16,7 @@ gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip 
 software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \
 libreoffice-style-hicontrast unattended-upgrades gparted \
 libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* nautilus-dropbox meld \
-bustle d-feet graphviz virtualbox npm shellcheck "
+bustle d-feet graphviz virtualbox npm shellcheck flameshot "
 
 # list of dropped app
 software_dropped=" gitg"
