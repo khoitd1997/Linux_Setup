@@ -7,7 +7,7 @@ set -o pipefail
 set -o nounset
 # set -o xtrace # for debugging only, will print out all commands befor eexecution
 
-wsl="1"
+not_wls="1"
 gnome_shell_extensions_list=" clipboard_indicator apt_update_indicator openweather \
 extensions_update_notifier dash_to_panel system-monitor no_top_left_hot_corner"
 
@@ -28,17 +28,18 @@ check_dir OS_Setup/Debian_Setup
 printf "${cyan}\n--------AUXILLARY------------\n ${reset}"
 
 
-if [ $wsl -eq 1 ]; then
+if [ $not_wls -eq 1 ]; then
 # customizing the shell prompt
 sed -i '/force_color_prompt/s/# //' ~/.bashrc # force color prompt, -i for in place manipulations
-if [ ! -d ~/Workspace/ ]; then
-mkdir ~/Workspace # create workspace dir for Visual Studio Code at home dir
-fi
 
-if [ ! -d ~/temp/ ]; then
-mkdir ~/temp #  temp dir for basic scratch work
-fi
+# directory setup
+mkdir -p ~/Workspace # create workspace dir for Visual Studio Code at home dir
+mkdir -p ~/temp #  temp dir for basic scratch work
+mkdir -p ~/Additional_Software/bin/ # directory for software that is not installed by package manager
+printf "\nPATH=\$PATH:${HOME}/Additional_Software/bin" >> ~/.bashrc # add additional software to search path
+source ~/.bashrc
 
+# start desktop evn specific setup
 shopt -s nocasematch # ignore case
 if [[ "${DESKTOP_SESSION}" == "ubuntu" ]]; then
 dconf write /org/gnome/shell/favorite-apps "@as []" # remove apps from dock/topbar
