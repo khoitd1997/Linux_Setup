@@ -24,6 +24,7 @@ extension_md=" mushan.vscode-paste-image DavidAnson.vscode-markdownlint yzhang.m
 hnw.vscode-auto-open-markdown-preview shd101wyy.markdown-preview-enhanced yzane.markdown-pdf "
 extension_web=" formulahendry.auto-close-tag "
 extension_docker=" PeterJausovec.vscode-docker "
+extension_latex=" james-yu.latex-workshop "
 
 OS="$(uname -s)"
 source utils.sh
@@ -50,6 +51,7 @@ print_message "4/VHDL\n"
 print_message "5/Java, Gradle\n"
 print_message "6/Mark Down\n"
 print_message "7/Html, typescript, javascript\n"
+print_message "8/Latex\n"
 read input
 for var in ${input}
 do
@@ -61,6 +63,7 @@ do
     5)extension_all="${extension_all}${extension_java}";;
     6)extension_all="${extension_all}${extension_md}";;
     7)extension_all="${extension_all}${extension_web}";;
+    8)extension_all="${extension_all}${extension_latex}";;
     *) ;;
 esac
 done
