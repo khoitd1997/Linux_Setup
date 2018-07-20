@@ -25,6 +25,8 @@ software_dropped=" gitg"
 tool_chain_not_18_04_compat=" gdb-arm-none-eabi " # not compatible with ubuntu 18.04 for now
 arm_toolchain=" openocd qemu gcc-arm-none-eabi"
 avr_arduino_toolchain="avrdude avr-libc simulavr"
+latex_doxygen_toolchain=" texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra \
+texlive-xetex "
 
 # snap package list
 snap_package_list_general="spotify discord gitkraken atom vscode slack "
@@ -129,7 +131,7 @@ amixer -c ${sound_card_number} set 'Auto-Mute Mode' 'Disabled'
 # Dev tools installations start here
 printf "\n ${cyan}--------DEV-TOOLS----------- ${reset}"
 printf "${cyan}\n Basic Install is done, please select additional install options separated by space: \n${reset}"
-printf  "${cyan}1/ARM 2/AVR 3/Java 4/Python${reset}"
+printf  "${cyan}1/ARM 2/AVR 3/Java 4/Python 5/Doxygen${reset}"
 read software_option
 
 # handle options
@@ -162,6 +164,11 @@ for pip_software in ${python_pip_package_list}; do
     pip install ${pip_software}
 done
     ;;
+    5)
+    if ! sudo apt-get install $latex_doxygen_toolchain; then
+    print_error "Failed to install doxygen toolchain\n"
+    exit 1
+    fi ;;
 esac
 done 
 sudo apt autoremove -y
