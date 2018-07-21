@@ -8,7 +8,7 @@
 extension_general="ms-vscode.cpptools  kevinkyang.auto-comment-blocks CoenraadS.bracket-pair-colorizer formulahendry.code-runner \
 eamodio.gitlens donjayamanne.githistory huizhou.githd PKief.material-icon-theme webfreak.debug  \
 wayou.vscode-todo-highlight emilast.logfilehighlighter Tyriar.sort-lines Gimly81.matlab \
-PeterJausovec.vscode-docker timonwong.shellcheck tomoki1207.pdf oderwat.indent-rainbow "
+PeterJausovec.vscode-docker timonwong.shellcheck tomoki1207.pdf oderwat.indent-rainbow rashwell.tcl "
 
 extension_theme=" zhuangtongfa.material-theme "
 
