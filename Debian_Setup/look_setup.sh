@@ -27,20 +27,9 @@ check_dir OS_Setup/Debian_Setup
 # Auxilarry customizations start here
 printf "${cyan}\n--------AUXILLARY------------\n ${reset}"
 
-
 if [ $not_wsl -eq 1 ]; then
 # customizing the shell prompt
 sed -i '/force_color_prompt/s/# //' ~/.bashrc # force color prompt, -i for in place manipulations
-
-# Add powerline to shell, may add the git utils in the future
-print_message "Installing powerline shell utils, please confirm its validity, and click any buttons to proceed\n"
-empty_input_buffer
-read powerline_confirmation
-sudo apt-get install fonts-powerline powerline
-printf "\n\npowerline-daemon -q\n" >> ~/.bashrc
-printf "POWERLINE_BASH_CONTINUATION=1\n" >> ~/.bashrc
-printf "POWERLINE_BASH_SELECT=1\n" >> ~/.bashrc
-printf ". /usr/share/powerline/bindings/bash/powerline.sh\n" >> ~/.bashrc
 
 # directory setup
 mkdir -p ~/Workspace # create workspace dir for Visual Studio Code at home dir
@@ -148,5 +137,15 @@ fi
 
 fi # end of look customizations
 shopt -u nocasematch
+
+# Add powerline to shell
+print_message "Installing powerline shell utils, please confirm its validity, and click any buttons to proceed\n"
+empty_input_buffer
+read powerline_confirmation
+sudo apt-get install fonts-powerline powerline
+printf "\n\npowerline-daemon -q\n" >> ~/.bashrc
+printf "POWERLINE_BASH_CONTINUATION=1\n" >> ~/.bashrc
+printf "POWERLINE_BASH_SELECT=1\n" >> ~/.bashrc
+printf ". /usr/share/powerline/bindings/bash/powerline.sh\n" >> ~/.bashrc
 
 print_message "Auxilarry customizations done\n"
