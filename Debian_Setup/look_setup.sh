@@ -7,7 +7,7 @@ set -o pipefail
 set -o nounset
 # set -o xtrace # for debugging only, will print out all commands befor eexecution
 
-not_wls="1"
+not_wsl="1"
 gnome_shell_extensions_list=" clipboard_indicator apt_update_indicator openweather \
 extensions_update_notifier dash_to_panel system-monitor no_top_left_hot_corner"
 
@@ -28,9 +28,19 @@ check_dir OS_Setup/Debian_Setup
 printf "${cyan}\n--------AUXILLARY------------\n ${reset}"
 
 
-if [ $not_wls -eq 1 ]; then
+if [ $not_wsl -eq 1 ]; then
 # customizing the shell prompt
 sed -i '/force_color_prompt/s/# //' ~/.bashrc # force color prompt, -i for in place manipulations
+
+# Add powerline to shell, may add the git utils in the future
+print_message "Installing powerline shell utils, please confirm its validity, and click any buttons to proceed\n"
+empty_input_buffer
+read powerline_confirmation
+sudo apt-get install fonts-powerline powerline
+printf "\n\npowerline-daemon -q\n" >> ~/.bashrc
+printf "POWERLINE_BASH_CONTINUATION=1\n" >> ~/.bashrc
+printf "POWERLINE_BASH_SELECT=1\n" >> ~/.bashrc
+printf ". /usr/share/powerline/bindings/bash/powerline.sh\n" >> ~/.bashrc
 
 # directory setup
 mkdir -p ~/Workspace # create workspace dir for Visual Studio Code at home dir
