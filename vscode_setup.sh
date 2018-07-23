@@ -18,7 +18,7 @@ extension_dropped=" vsciot-vscode.vscode-arduino"
 extension_python=" ms-python.python"
 extension_java=" redhat.java vscjava.vscode-java-debug naco-siren.gradle-language "
 extension_doxygen=" bbenoist.doxygen cschlosser.doxdocgen "
-extension_arm=" dan-c-underwood.arm "
+extension_arm=" dan-c-underwood.arm marus25.cortex-debug "
 extension_vhdl=" puorc.awesome-vhdl "
 extension_md=" mushan.vscode-paste-image DavidAnson.vscode-markdownlint yzhang.markdown-all-in-one \
 hnw.vscode-auto-open-markdown-preview shd101wyy.markdown-preview-enhanced yzane.markdown-pdf "
