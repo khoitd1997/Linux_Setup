@@ -147,5 +147,6 @@ printf "\n\npowerline-daemon -q\n" >> ~/.bashrc
 printf "POWERLINE_BASH_CONTINUATION=1\n" >> ~/.bashrc
 printf "POWERLINE_BASH_SELECT=1\n" >> ~/.bashrc
 printf ". /usr/share/powerline/bindings/bash/powerline.sh\n" >> ~/.bashrc
+sudo cp ~/OS_Setup/terminal/powerline_config.json /usr/share/powerline/config_files/config.json # overwite config file
 
 print_message "Auxilarry customizations done\n"
