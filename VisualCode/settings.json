@@ -14,7 +14,9 @@
     },
     "files.associations": {
         "*.cu": "c",
-        "*.tdd": "makefile"
+        "*.tdd": "makefile",
+        "*.cfg": "tcl",
+        "*.svd": "xml"
     },
     "editor.formatOnSave": true,
     "workbench.startupEditor": "newUntitledFile",
@@ -72,7 +74,10 @@
         ]
     },
     "C_Cpp.clang_format_fallbackStyle": "LLVM",
+    "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
     "C_Cpp.loggingLevel": "Information",
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
     "logFileHighlighter.customPatterns": [
         {
             "pattern": "\\[(.*?)\\]",
