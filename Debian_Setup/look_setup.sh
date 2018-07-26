@@ -9,7 +9,7 @@ set -o nounset
 
 not_wsl="1"
 gnome_shell_extensions_list=" clipboard_indicator apt_update_indicator openweather \
-extensions_update_notifier dash_to_panel system-monitor no_top_left_hot_corner"
+extensions_update_notifier dash_to_panel system-monitor_by_elvetemedve no_top_left_hot_corner"
 
 # shell extensions in long format for commands
 gnome_shell_extensions_long=" alternate-tab@gnome-shell-extensions.gcampax.github.com \
@@ -100,6 +100,11 @@ dconf write /org/gnome/shell/extensions/system-monitor/memory-show-text "false"
 dconf write /org/gnome/shell/extensions/system-monitor/cpu-show-text "false"
 dconf write /org/gnome/shell/extensions/system-monitor/cpu-style "'both'"
 dconf write /org/gnome/shell/extensions/system-monitor/memory-style "'both'"
+
+dconf write /org/gnome/shell/extensions/system-monitor/storage-meter "false"
+dconf write /org/gnome/shell/extensions/system-monitor/swap-meter "false"
+dconf write /org/gnome/shell/extensions/system-monitor/network-meter "false"
+dconf write /org/gnome/shell/extensions/system-monitor/cpu-meter "false"
 
 # configure update monitor
 dconf write /org/gnome/shell/extensions/apt-update-indicator/interval-unit "'hours'"

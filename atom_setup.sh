@@ -5,7 +5,6 @@ source utils.sh
 package=" linter linter-gcc gpp-compiler busy-signal intentions linter-ui-default \
 minimap code-peek minimap-codeglance git-plus file-icons minimap-highlight-selected highlight-selected \
 language-arm tree-view-git-status git-log git-time-machine language-log markdown-writer language-markdown "
-dependencies=" nodejs* "
 
 atom_config_script_dir="${HOME}/OS_Setup/Atom"
 atom_config_file_dir="${HOME}/.atom"
@@ -19,11 +18,6 @@ OS="$(uname -s)"
 #-------------------------------------------------------------------------------------------
 
 check_dir OS_Setup
-if [ "${OS}" != "Windows_NT" ]; then
-print_message "Installing atom dependencies\n"
-sudo apt-get update 
-sudo apt-get install -y ${dependencies} 
-fi
 
 print_message "Beginning installation of atom packages, make sure you have atom installed\n"
 
