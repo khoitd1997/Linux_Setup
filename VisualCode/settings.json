@@ -77,6 +77,7 @@
     "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
     "C_Cpp.loggingLevel": "Information",
     "git.enableSmartCommit": true,
+    "editor.foldingStrategy": "indentation",
     "git.autofetch": true,
     "logFileHighlighter.customPatterns": [
         {
