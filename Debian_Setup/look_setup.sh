@@ -57,6 +57,9 @@ sudo apt-get install gir1.2-gtop-2.0 gir1.2-networkmanager-1.0 gir1.2-clutter-1.
 dconf write /org/gnome/desktop/interface/show-battery-percentage "true"
 dconf write /org/gnome/desktop/interface/clock-show-date "true"
 
+# customize power settings
+dconf write /org/gnome/desktop/session/idle-delay "uint32 0"
+
 # customize gnome terminal
 dconf reset -f /org/gnome/terminal/
 gnome-terminal # launch terminal to make sure a profile folder is created
@@ -127,7 +130,7 @@ sudo apt-get install plasma-sdk gnome-terminal -y
 # taskbar config
 if [ "$HOSTNAME" = "kd-HP" ]; then
 cp -vf ~/OS_Setup/plasma/HP_plasma-org.kde.plasma.desktop-appletsrc ~/.config/plasma-org.kde.plasma.desktop-appletsrc
-elif [ "$HOSTNAME"= "kd-Asrock" ]; then
+elif [ "$HOSTNAME" = "kd-Asrock" ]; then
 cp -vf ~/OS_Setup/plasma/Asrock_plasma-org.kde.plasma.desktop-appletsrc ~/.config/plasma-org.kde.plasma.desktop-appletsrc
 fi
 
