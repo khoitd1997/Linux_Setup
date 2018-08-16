@@ -22,7 +22,7 @@ extension_doxygen=" bbenoist.doxygen cschlosser.doxdocgen "
 extension_arm=" dan-c-underwood.arm marus25.cortex-debug "
 extension_vhdl=" puorc.awesome-vhdl "
 extension_md=" mushan.vscode-paste-image DavidAnson.vscode-markdownlint yzhang.markdown-all-in-one \
-hnw.vscode-auto-open-markdown-preview shd101wyy.markdown-preview-enhanced yzane.markdown-pdf "
+shd101wyy.markdown-preview-enhanced yzane.markdown-pdf "
 extension_web=" formulahendry.auto-close-tag "
 extension_docker=" PeterJausovec.vscode-docker "
 extension_latex=" james-yu.latex-workshop "
