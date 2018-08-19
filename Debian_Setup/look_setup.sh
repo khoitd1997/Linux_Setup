@@ -43,6 +43,9 @@ shopt -s nocasematch # ignore case
 if [[ "${DESKTOP_SESSION}" == "ubuntu" ]]; then
 dconf write /org/gnome/shell/favorite-apps "@as []" # remove apps from dock/topbar
 
+# configure workspaces
+dconf write /org/gnome/mutter/workspaces-only-on-primary "false"
+
 # configure night light
 dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled "true"
 dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled "true"
