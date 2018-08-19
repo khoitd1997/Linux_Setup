@@ -24,7 +24,8 @@ software_dropped=" gitg"
 # all tool chains and utilities
 tool_chain_not_18_04_compat=" gdb-arm-none-eabi " # not compatible with ubuntu 18.04 for now
 
-arm_toolchain=" openocd qemu gcc-arm-none-eabi gcc-arm-* "
+# there is no gcc-arm-none-eabi bc there is a bug in ubuntu 18.04
+arm_toolchain=" openocd qemu gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf gdb-multiarch "
 avr_arduino_toolchain="avrdude avr-libc simulavr"
 latex_doxygen_toolchain=" texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra \
 texlive-xetex "
