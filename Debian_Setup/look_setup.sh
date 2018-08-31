@@ -41,6 +41,8 @@ source ~/.bashrc
 # start desktop evn specific setup
 shopt -s nocasematch # ignore case
 if [[ "${DESKTOP_SESSION}" == "ubuntu" ]]; then
+gsettings set org.gnome.SessionManager logout-prompt false # disable timer countdown for shutdown
+
 dconf write /org/gnome/shell/favorite-apps "@as []" # remove apps from dock/topbar
 
 # configure workspaces
