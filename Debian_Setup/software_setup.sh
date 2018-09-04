@@ -177,6 +177,8 @@ done
     fi ;;
 esac
 done 
+
+timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
 sudo apt autoremove -y
 
 #----------------------------------------------------------------------------------------------------
