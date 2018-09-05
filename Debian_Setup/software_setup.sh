@@ -10,13 +10,13 @@
 
 software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip curl python-pip \
-"
+libboost-all-dev "
 
 # list of software with GUI
 software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \
 libreoffice-style-hicontrast unattended-upgrades gparted \
 libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* nautilus-dropbox meld \
-bustle d-feet graphviz virtualbox npm shellcheck flameshot "
+bustle d-feet graphviz virtualbox npm shellcheck flameshot"
 
 # list of dropped app
 software_dropped=" gitg"
