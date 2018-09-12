@@ -16,7 +16,7 @@ extension_theme=" zhuangtongfa.material-theme "
 extension_dropped=" vsciot-vscode.vscode-arduino"
 
 # specialized dev tools
-extension_python=" ms-python.python"
+extension_python=" ms-python.python njpwerner.autodocstring "
 extension_java=" redhat.java vscjava.vscode-java-debug naco-siren.gradle-language "
 extension_doxygen=" bbenoist.doxygen cschlosser.doxdocgen "
 extension_arm=" dan-c-underwood.arm marus25.cortex-debug "
