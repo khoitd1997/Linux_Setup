@@ -16,7 +16,7 @@ libboost-all-dev "
 software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \
 libreoffice-style-hicontrast unattended-upgrades gparted \
 libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* nautilus-dropbox meld \
-bustle d-feet graphviz virtualbox npm shellcheck flameshot"
+bustle d-feet graphviz virtualbox npm shellcheck flameshot libgtk2.0-dev libglib2.0-dev libglade2-dev "
 
 # list of dropped app
 software_dropped=" gitg"
