@@ -10,7 +10,7 @@
 
 software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip curl python-pip \
-libboost-all-dev "
+libboost-all-dev python3-setuptools virtualbox-qt "
 
 # list of software with GUI
 software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \
@@ -31,9 +31,9 @@ latex_doxygen_toolchain=" texlive-latex-base texlive-latex-extra texlive-fonts-r
 texlive-xetex "
 
 # snap package list
-snap_package_list_general="spotify discord gitkraken atom vscode slack "
+snap_package_list_general="spotify discord gitkraken atom slack "
 # pending list waiting approval list
-snap_package_list_pending=" "
+snap_package_list_pending=" vscode "
 # include heavy stuffs like IDE
 snap_package_list_extended=" intellij-idea-community android-studio "
 
@@ -167,7 +167,7 @@ case $option in
     4)
     print_message "Installing Python support"
 for pip_software in ${python_pip_package_list}; do
-    pip install ${pip_software}
+    pip3 install ${pip_software}
 done
     ;;
     5)
