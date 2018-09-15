@@ -15,7 +15,6 @@ extensions_update_notifier dash_to_panel system-monitor_by_elvetemedve no_top_le
 gnome_shell_extensions_long=" alternate-tab@gnome-shell-extensions.gcampax.github.com \
 update-extensions@franglais125.gmail.com \
 clipboard-indicator@tudmotu.com \
-openweather-extension@jenslody.de \
 apt-update-indicator@franglais125.gmail.com \
 dash-to-panel@jderose9.github.com \
 system-monitor@paradoxxx.zero.gmail.com \
@@ -129,6 +128,15 @@ sudo apt-get install gnome-tweak-tool gnome-terminal -y
 dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/size "16"
 dconf write /com/solus-project/budgie-panel/panels/{5df1693c-4333-11e8-8a7b-b46d836391f1}/autohide "'automatic'"
 dconf write /net/launchpad/plank/docks/dock1/hide-mode "'auto'"
+
+elif [[ "${DESKTOP_SESSION}" == "cinnamon" ]]; then
+dconf write /org/cinnamon/desktop/interface/gtk-theme "'Adwaita-dark'"
+dconf write /org/cinnamon/desktop/wm/preferences/theme "'Mint-Y-Dark'"
+dconf write /org/cinnamon/theme/name "'Mint-Y-Dark'"
+dconf write /org/cinnamon/settings-daemon/plugins/power/sleep-display-ac "10800"
+dconf write /org/cinnamon/settings-daemon/plugins/power/idle-dim-battery "false"
+dconf write /org/cinnamon/cinnamon-session/quit-delay-toggle "true"
+dconf write /org/cinnamon/enable-indicators "true"
 
 elif [[ "${DESKTOP_SESSION}" == "plasma" ]]; then 
 sudo apt-get install plasma-sdk gnome-terminal -y
