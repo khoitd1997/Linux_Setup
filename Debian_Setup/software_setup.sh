@@ -114,9 +114,12 @@ git config --global credential.helper /usr/share/doc/git/contrib/credential/gnom
 git config --global user.email "khoidinhtrinh@gmail.com"
 git config --global user.name "khoitd1997"
 
-# auto complete config
-printf "\nbind 'set show-all-if-ambiguous on'\n" >> ~/.bashrc
-printf "bind 'TAB:menu-complete'\n" >> ~/.bashrc
+# # auto complete config
+# printf "\nbind 'set show-all-if-ambiguous on'\n" >> ~/.bashrc
+# printf "bind 'TAB:menu-complete'\n" >> ~/.bashrc
+
+# increase notification maximum for vscode
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 
 # sound config
 clear
