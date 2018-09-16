@@ -11,7 +11,7 @@ wayou.vscode-todo-highlight emilast.logfilehighlighter Tyriar.sort-lines Gimly81
 PeterJausovec.vscode-docker timonwong.shellcheck tomoki1207.pdf oderwat.indent-rainbow rashwell.tcl \
 vector-of-bool.cmake-tools twxs.cmake eugenwiens.bitbake "
 
-extension_theme=" zhuangtongfa.material-theme "
+extension_theme=" zhuangtongfa.material-theme monokai.theme-monokai-pro-vscode "
 
 extension_dropped=" vsciot-vscode.vscode-arduino"
 

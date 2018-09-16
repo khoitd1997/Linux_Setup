@@ -1,5 +1,5 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
+    "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -24,7 +24,7 @@
     "python.formatting.provider": "autopep8",
     "gitlens.keymap": "chorded",
     "editor.wordWrap": "on",
-    "workbench.colorTheme": "One Dark Pro",
+    "workbench.colorTheme": "Monokai Pro (Filter Machine)",
     "todohighlight.include": [
         "**/*.js",
         "**/*.jsx",
