@@ -1,5 +1,5 @@
 {
-    "workbench.iconTheme": "Monokai Pro (Filter Machine) Icons",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -16,15 +16,16 @@
         "*.cu": "c",
         "*.tdd": "makefile",
         "*.cfg": "tcl",
-        "*.svd": "xml"
+        "*.svd": "xml",
+        "*.hpp": "cpp"
     },
     "editor.formatOnSave": true,
     "workbench.startupEditor": "newUntitledFile",
-    "window.zoomLevel": -1,
+    "window.zoomLevel": 1,
     "python.formatting.provider": "autopep8",
     "gitlens.keymap": "chorded",
     "editor.wordWrap": "on",
-    "workbench.colorTheme": "Monokai Pro (Filter Machine)",
+    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
     "todohighlight.include": [
         "**/*.js",
         "**/*.jsx",
@@ -84,5 +85,6 @@
             "pattern": "\\[(.*?)\\]",
             "foreground": "#98f442"
         }
-    ]
+    ],
+    "breadcrumbs.enabled": true
 }
