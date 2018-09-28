@@ -137,6 +137,9 @@ dconf write /org/cinnamon/settings-daemon/plugins/power/sleep-display-ac "10800"
 dconf write /org/cinnamon/settings-daemon/plugins/power/idle-dim-battery "false"
 dconf write /org/cinnamon/cinnamon-session/quit-delay-toggle "true"
 dconf write /org/cinnamon/enable-indicators "true"
+dconf write /org/cinnamon/sounds/login-enabled "false"
+dconf write /org/cinnamon/cinnamon-session/quit-time-delay "20"
+dconf write /org/cinnamon/desktop/notifications/remove-old "true"
 
 elif [[ "${DESKTOP_SESSION}" == "plasma" ]]; then 
 sudo apt-get install plasma-sdk gnome-terminal -y
