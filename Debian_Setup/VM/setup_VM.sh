@@ -9,7 +9,6 @@ software=" calibre ufw "
 set -e
 
 print_message "Starting VM setup scripts\n"
-sudo apt remove libappstream3
 sudo apt-get update
 sudo apt-get dist-upgrade -y
 sudo apt-get install ${software} -y
@@ -25,15 +24,15 @@ kernel_name=$(uname -r)
 #deleting the OS built-in guest addition to avoid conflict
 sudo rm -rf /lib/modules/${kernel_name}/kernel/ubuntu/vbox/vbox*
 
-
+current_user="$(logname)"
 #run guest addition install
-cd /media/${USER}/VBox_GAs*
+cd /media/${current_user}/VBox_GAs*
 sudo ./VBoxLinux*
 
-sudo usermod -a -G vboxsf ${USER}
+sudo usermod -a -G vboxsf ${current_user}
 
 print_message "Done installing, rebooting in 5\n"
 sleep 5
 
-sudo apt autoremove 
+sudo apt autoremove -y
 reboot
