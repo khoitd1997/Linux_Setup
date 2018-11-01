@@ -29,6 +29,8 @@ arm_toolchain=" openocd qemu gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf gdb-m
 avr_arduino_toolchain="avrdude avr-libc simulavr"
 latex_doxygen_toolchain=" texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra \
 texlive-xetex "
+golang_toolchain=" golang-go golang-doc golang-go.tools golint "
+golang_package=" github.com/ramya-rao-a/go-outline github.com/acroca/go-symbols github.com/mdempsky/gocode github.com/rogpeppe/godef golang.org/x/tools/cmd/godoc github.com/zmb3/gogetdoc golang.org/x/lint/golint github.com/fatih/gomodifytags golang.org/x/tools/cmd/gorename sourcegraph.com/sqs/goreturns golang.org/x/tools/cmd/goimports github.com/cweill/gotests/... golang.org/x/tools/cmd/guru github.com/josharian/impl github.com/haya14busa/goplay/cmd/goplay github.com/uudashr/gopkgs/cmd/gopkgs github.com/davidrjenni/reftools/cmd/fillstruct github.com/alecthomas/gometalinter " # source: https://github.com/Microsoft/vscode-go/wiki/Go-tools-that-the-Go-extension-depends-on
 
 # snap package list
 snap_package_list_general="spotify discord gitkraken atom slack "
@@ -39,6 +41,8 @@ snap_package_list_extended=" intellij-idea-community android-studio "
 
 # python pip list
 python_pip_package_list=" pylint autopep8 "
+
+
 
 source ../utils.sh
 # Configuration Parameters
@@ -140,7 +144,7 @@ amixer -c ${sound_card_number} set 'Auto-Mute Mode' 'Disabled'
 # Dev tools installations start here
 printf "\n ${cyan}--------DEV-TOOLS----------- ${reset}"
 printf "${cyan}\n Basic Install is done, please select additional install options separated by space: \n${reset}"
-printf  "${cyan}1/ARM 2/AVR 3/Java 4/Python 5/Doxygen${reset}"
+printf  "${cyan}1/ARM 2/AVR 3/Java 4/Python 5/Doxygen 6/Golang${reset}"
 read software_option
 
 # handle options
@@ -174,10 +178,21 @@ for pip_software in ${python_pip_package_list}; do
 done
     ;;
     5)
+    print_message "Installing Doxygen support"
     if ! sudo apt-get install $latex_doxygen_toolchain; then
     print_error "Failed to install doxygen toolchain\n"
     exit 1
     fi ;;
+    6)
+    print_message "Installing Golang support"
+    if ! sudo apt-get install $golang_toolchain; then
+    print_error "Failed to install Golang toolchain\n"
+    exit 1
+    fi
+    for go_package in ${golang_package}; do
+        go get ${go_package}
+    done
+    ;;
 esac
 done 
 

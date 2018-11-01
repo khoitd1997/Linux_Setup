@@ -26,6 +26,7 @@ shd101wyy.markdown-preview-enhanced yzane.markdown-pdf "
 extension_web=" formulahendry.auto-close-tag "
 extension_docker=" PeterJausovec.vscode-docker "
 extension_latex=" james-yu.latex-workshop "
+extension_golang=" ms-vscode.go "
 
 OS="$(uname -s)"
 source utils.sh
@@ -53,6 +54,7 @@ print_message "5/Java, Gradle\n"
 print_message "6/Mark Down\n"
 print_message "7/Html, typescript, javascript\n"
 print_message "8/Latex\n"
+print_message "9/Golang\n"
 read input
 for var in ${input}
 do
@@ -65,6 +67,7 @@ do
     6)extension_all="${extension_all}${extension_md}";;
     7)extension_all="${extension_all}${extension_web}";;
     8)extension_all="${extension_all}${extension_latex}";;
+    9)extension_all="${extension_all}${extension_golang}";;
     *) ;;
 esac
 done
