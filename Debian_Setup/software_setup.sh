@@ -179,19 +179,17 @@ done
     ;;
     5)
     print_message "Installing Doxygen support"
-    if ! sudo apt-get install $latex_doxygen_toolchain; then
+    if ! sudo apt-get install ${latex_doxygen_toolchain}; then
     print_error "Failed to install doxygen toolchain\n"
     exit 1
     fi ;;
     6)
     print_message "Installing Golang support"
-    if ! sudo apt-get install $golang_toolchain; then
+    if ! sudo apt-get install ${golang_toolchain}; then
     print_error "Failed to install Golang toolchain\n"
     exit 1
     fi
-    for go_package in ${golang_package}; do
-        go get ${go_package}
-    done
+    go get -u -v ${golang_package}
     ;;
 esac
 done 
