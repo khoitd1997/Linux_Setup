@@ -10,7 +10,7 @@
 
 software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip curl python-pip \
-libboost-all-dev python3-setuptools virtualbox-qt "
+libboost-all-dev python3-setuptools virtualbox-qt pylint"
 
 # list of software with GUI
 software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \
