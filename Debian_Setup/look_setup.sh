@@ -113,6 +113,15 @@ dconf write /org/gnome/shell/extensions/system-monitor/swap-meter "false"
 dconf write /org/gnome/shell/extensions/system-monitor/network-meter "false"
 dconf write /org/gnome/shell/extensions/system-monitor/cpu-meter "false"
 
+# configure dash to top bar
+dconf write /org/gnome/shell/extensions/dash-to-panel/panel-position "'TOP'"
+dconf write /org/gnome/shell/extensions/dash-to-panel/show-favorites "false"
+dconf write /org/gnome/shell/extensions/dash-to-panel/animate-app-switch "false"
+dconf write /org/gnome/shell/extensions/dash-to-panel/animate-window-launch "false"
+dconf write /org/gnome/shell/extensions/dash-to-panel/show-show-apps-button "false"
+dconf write /org/gnome/shell/extensions/dash-to-panel/appicon-padding "6"
+dconf write /org/gnome/shell/extensions/dash-to-panel/panel-size "32"
+
 # configure update monitor
 dconf write /org/gnome/shell/extensions/apt-update-indicator/interval-unit "'hours'"
 dconf write /org/gnome/shell/extensions/apt-update-indicator/check-interval "5"
