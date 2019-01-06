@@ -9,14 +9,14 @@
 # list of general utilities without GUI
 
 software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
-gcc clang llvm emacs build-essential htop net-tools  minicom screen python3-pip curl python-pip \
-libboost-all-dev python3-setuptools virtualbox-qt pylint"
+gcc clang llvm build-essential htop net-tools  minicom screen python3-pip curl \
+libboost-all-dev python3-setuptools virtualbox-qt "
 
 # list of software with GUI
-software_with_gui=" xclip terminator guake ddd evince synaptic psensor gufw xpad \
-libreoffice-style-hicontrast unattended-upgrades gparted \
-libappindicator1 libindicator7 hardinfo chromium-browser moserial libncurses* nautilus-dropbox meld \
-bustle d-feet graphviz virtualbox npm shellcheck flameshot libgtk2.0-dev libglib2.0-dev libglade2-dev "
+software_with_gui=" xclip terminator evince synaptic psensor gufw xpad \
+libreoffice-style-hicontrast unattended-upgrades gparted libappindicator1 \
+libindicator7 hardinfo moserial libncurses* nautilus-dropbox meld \
+bustle d-feet graphviz npm shellcheck flameshot libgtk2.0-dev libglib2.0-dev libglade2-dev "
 
 # list of dropped app
 software_dropped=" gitg"
@@ -27,8 +27,7 @@ tool_chain_not_18_04_compat=" gdb-arm-none-eabi " # not compatible with ubuntu 1
 # there is no gcc-arm-none-eabi bc there is a bug in ubuntu 18.04
 arm_toolchain=" openocd qemu gcc-arm-linux-gnueabi gcc-arm-linux-gnueabihf gdb-multiarch "
 avr_arduino_toolchain="avrdude avr-libc simulavr"
-latex_doxygen_toolchain=" texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra \
-texlive-xetex "
+latex_doxygen_toolchain=" texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra texlive-xetex "
 golang_toolchain=" golang-go golang-doc golang-go.tools golint "
 golang_package=" github.com/ramya-rao-a/go-outline github.com/acroca/go-symbols github.com/mdempsky/gocode github.com/rogpeppe/godef golang.org/x/tools/cmd/godoc github.com/zmb3/gogetdoc golang.org/x/lint/golint github.com/fatih/gomodifytags golang.org/x/tools/cmd/gorename sourcegraph.com/sqs/goreturns golang.org/x/tools/cmd/goimports github.com/cweill/gotests/... golang.org/x/tools/cmd/guru github.com/josharian/impl github.com/haya14busa/goplay/cmd/goplay github.com/uudashr/gopkgs/cmd/gopkgs github.com/davidrjenni/reftools/cmd/fillstruct github.com/alecthomas/gometalinter " # source: https://github.com/Microsoft/vscode-go/wiki/Go-tools-that-the-Go-extension-depends-on
 
@@ -163,14 +162,7 @@ case $option in
     exit 1
     fi ;;
     3) 
-    print_message "Installing java 8, gradle, check PPA and newer version of Java, press anykey to confirm\n"
-    read confirm
-    print_message "Please press any key again for final confirm\n"
-    read confirm
-    sudo add-apt-repository ppa:webupd8team/java
-    sudo apt-get update 
-    sudo apt-get install gradle -y 
-    sudo apt-get install oracle-java8-installer -y ;;
+    sudo apt install default-jre ;;
     4)
     print_message "Installing Python support"
 for pip_software in ${python_pip_package_list}; do
