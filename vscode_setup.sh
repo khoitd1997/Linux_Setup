@@ -36,11 +36,11 @@ set -o nounset
 #----------------------------------------------------------------------------------------------------
 
 check_dir OS_Setup
-if [ "${OS}" != "Windows_NT" ] ; then
+if [ "${OS}" == "Linux" ] ; then
 vscode_config_dir="${HOME}/.config/Code/User"
 
 else # window config
-vscode_config_dir="${HOME}/AppData/Code/User"
+vscode_config_dir="$APPDATA/Code/User"
 fi
 
 extension_all="${extension_general}${extension_theme}"
@@ -93,7 +93,7 @@ cp -vf ~/OS_Setup/VisualCode/keybindings.json ${vscode_config_dir}/keybindings.j
 print_message "Installing Source Code Pro font"
 git clone https://github.com/adobe-fonts/source-code-pro.git --branch release ~/source-code-pro
 
-if [ "${OS}" != "Windows_NT" ] ; then
+if [ "${OS}" == "Linux" ] ; then
 mkdir -p ~/.fonts
 cp ~/source-code-pro/OTF/*.otf ~/.fonts
 fc-cache -f -v ~/.fonts/

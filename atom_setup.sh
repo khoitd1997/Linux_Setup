@@ -9,7 +9,7 @@ language-arm tree-view-git-status git-log git-time-machine language-log markdown
 atom_config_script_dir="${HOME}/OS_Setup/Atom"
 atom_config_file_dir="${HOME}/.atom"
 
-set -e 
+# set -e 
 set -o pipefail
 set -o nounset
 
