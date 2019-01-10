@@ -8,17 +8,14 @@ set -o nounset
 # set -o xtrace # for debugging only, will print out all commands befor eexecution
 
 not_wsl="1"
-gnome_shell_extensions_list=" clipboard_indicator apt_update_indicator openweather \
-extensions_update_notifier dash_to_panel system-monitor_by_elvetemedve no_top_left_hot_corner"
+gnome_shell_extensions_list=" apt_update_indicator extensions_update_notifier dash_to_panel system-monitor_by_elvetemedve "
 
 # shell extensions in long format for commands
 gnome_shell_extensions_long=" alternate-tab@gnome-shell-extensions.gcampax.github.com \
 update-extensions@franglais125.gmail.com \
-clipboard-indicator@tudmotu.com \
 apt-update-indicator@franglais125.gmail.com \
 dash-to-panel@jderose9.github.com \
-system-monitor@paradoxxx.zero.gmail.com \
-nohotcorner@azuri.free.fr"
+system-monitor@paradoxxx.zero.gmail.com"
 
 #--------------------------------------------------------------------
 check_dir OS_Setup/Debian_Setup
@@ -96,7 +93,7 @@ dconf write /org/gnome/shell/extensions/openweather/days-forecast "7"
 dconf write /org/gnome/shell/extensions/openweather/use-symbolic-icons "false"
 
 # configure theme
-dconf write /org/gnome/desktop/interface/gtk-theme "'Ambiance'"
+dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"
 
 # configure system monitors
 dconf write /org/gnome/shell/extensions/system-monitor/memory-graph-width "50"
@@ -112,6 +109,17 @@ dconf write /org/gnome/shell/extensions/system-monitor/storage-meter "false"
 dconf write /org/gnome/shell/extensions/system-monitor/swap-meter "false"
 dconf write /org/gnome/shell/extensions/system-monitor/network-meter "false"
 dconf write /org/gnome/shell/extensions/system-monitor/cpu-meter "false"
+
+# configure dash to top bar
+dconf write /org/gnome/shell/extensions/dash-to-panel/panel-position "'TOP'"
+dconf write /org/gnome/shell/extensions/dash-to-panel/show-favorites "false"
+dconf write /org/gnome/shell/extensions/dash-to-panel/animate-app-switch "false"
+dconf write /org/gnome/shell/extensions/dash-to-panel/animate-window-launch "false"
+dconf write /org/gnome/shell/extensions/dash-to-panel/show-show-apps-button "false"
+dconf write /org/gnome/shell/extensions/dash-to-panel/appicon-padding "6"
+dconf write /org/gnome/shell/extensions/dash-to-panel/panel-size "32"
+dconf write /org/gnome/shell/extensions/dash-to-panel/trans-panel-opacity "0.65000000000000002"
+
 
 # configure update monitor
 dconf write /org/gnome/shell/extensions/apt-update-indicator/interval-unit "'hours'"
