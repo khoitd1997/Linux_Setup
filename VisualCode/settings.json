@@ -102,7 +102,6 @@
         "foreground": "black",
         "background": "#6F6F70",
     },
-    "sync.gist": "544c1515f379fc9cdba6c23f9d09b4b5",
-    // "editor.fontFamily": "Fira Code",
-    // "editor.fontLigatures": true
+    // "editor.fontFamily": "Hasklig-Medium",
+    // "editor.fontLigatures": true,
 }
