@@ -86,5 +86,6 @@
             "foreground": "#98f442"
         }
     ],
-    "breadcrumbs.enabled": true
+    "breadcrumbs.enabled": true,
+    "editor.fontFamily": "source code pro",
 }

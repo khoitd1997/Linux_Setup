@@ -90,5 +90,12 @@ sleep 5
 cp -vf ~/OS_Setup/VisualCode/settings.json ${vscode_config_dir}/settings.json
 cp -vf ~/OS_Setup/VisualCode/keybindings.json ${vscode_config_dir}/keybindings.json
 
+print_message "Installing Source Code Pro font"
+git clone https://github.com/adobe-fonts/source-code-pro.git --branch release ~/source-code-pro
+mkdir -p ~/.fonts
+cp ~/source-code-pro/OTF/*.otf ~/.fonts
+fc-cache -f -v ~/.fonts/
+rm -rf ~/source-code-pro
+
 print_message "Visual Studio Code Configurations done\n"
 exit 0
