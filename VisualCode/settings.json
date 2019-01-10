@@ -1,5 +1,5 @@
 {
-    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+    "workbench.iconTheme": "vscode-icons",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -19,13 +19,12 @@
         "*.svd": "xml",
         "*.hpp": "cpp"
     },
-    "editor.formatOnSave": true,
     "workbench.startupEditor": "newUntitledFile",
-    "window.zoomLevel": 1,
+    "window.zoomLevel": 2,
     "python.formatting.provider": "autopep8",
     "gitlens.keymap": "chorded",
     "editor.wordWrap": "on",
-    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
+    "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
     "todohighlight.include": [
         "**/*.js",
         "**/*.jsx",
@@ -87,5 +86,23 @@
         }
     ],
     "breadcrumbs.enabled": true,
+    "doxdocgen.generic.authorTag": "@author Khoi Trinh",
+    "editor.detectIndentation": false,
+    "go.formatTool": "gofmt",
+    "editor.formatOnSave": true,
+    "workbench.editor.enablePreview": false,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "editor.formatOnPaste": true,
+    "go.autocompleteUnimportedPackages": true,
+    "window.titleBarStyle": "native",
+    "shellcheck.disableVersionCheck": true,
     "editor.fontFamily": "source code pro",
+    "todo-tree.defaultHighlight": {
+        "type": "text",
+        "foreground": "black",
+        "background": "#6F6F70",
+    },
+    "sync.gist": "544c1515f379fc9cdba6c23f9d09b4b5",
+    // "editor.fontFamily": "Fira Code",
+    // "editor.fontLigatures": true
 }

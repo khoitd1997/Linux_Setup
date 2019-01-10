@@ -9,7 +9,7 @@ extension_general="ms-vscode.cpptools  kevinkyang.auto-comment-blocks CoenraadS.
 eamodio.gitlens donjayamanne.githistory huizhou.githd robertohuertasm.vscode-icons webfreak.debug  \
 wayou.vscode-todo-highlight emilast.logfilehighlighter Tyriar.sort-lines Gimly81.matlab \
 PeterJausovec.vscode-docker timonwong.shellcheck tomoki1207.pdf oderwat.indent-rainbow rashwell.tcl \
-vector-of-bool.cmake-tools twxs.cmake eugenwiens.bitbake redhat.vscode-yaml zhoufeng.pyqt-integration"
+vector-of-bool.cmake-tools twxs.cmake eugenwiens.bitbake redhat.vscode-yaml zhoufeng.pyqt-integration pnp.polacode wmaurer.vscode-jumpy Gruntfuggly.todo-tree ibm.output-colorizer Shan.code-settings-sync "
 
 extension_theme=" zhuangtongfa.material-theme monokai.theme-monokai-pro-vscode "
 
@@ -40,7 +40,7 @@ if [ "${OS}" != "Windows_NT" ] ; then
 vscode_config_dir="${HOME}/.config/Code/User"
 
 else # window config
-vscode_config_dir="${HOME}/AppData/Roaming/Code/User"
+vscode_config_dir="${HOME}/AppData/Code/User"
 fi
 
 extension_all="${extension_general}${extension_theme}"
@@ -92,10 +92,15 @@ cp -vf ~/OS_Setup/VisualCode/keybindings.json ${vscode_config_dir}/keybindings.j
 
 print_message "Installing Source Code Pro font"
 git clone https://github.com/adobe-fonts/source-code-pro.git --branch release ~/source-code-pro
+
+if [ "${OS}" != "Windows_NT" ] ; then
 mkdir -p ~/.fonts
 cp ~/source-code-pro/OTF/*.otf ~/.fonts
 fc-cache -f -v ~/.fonts/
 rm -rf ~/source-code-pro
+else
+print_message "Window requires installing fonts manually, just use the ttf file in the cloned repo"
+fi
 
 print_message "Visual Studio Code Configurations done\n"
 exit 0
