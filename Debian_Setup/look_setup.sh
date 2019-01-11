@@ -41,6 +41,9 @@ gsettings set org.gnome.SessionManager logout-prompt false # disable timer count
 
 dconf write /org/gnome/shell/favorite-apps "@as []" # remove apps from dock/topbar
 
+# configure animations
+dconf write /org/gnome/desktop/interface/enable-animations "false"
+
 # configure workspaces
 dconf write /org/gnome/mutter/workspaces-only-on-primary "false"
 
