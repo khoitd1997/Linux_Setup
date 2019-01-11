@@ -24,7 +24,7 @@
     "python.formatting.provider": "autopep8",
     "gitlens.keymap": "chorded",
     "editor.wordWrap": "on",
-    "workbench.colorTheme": "Monokai Pro (Filter Octagon)",
+    "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
     "todohighlight.include": [
         "**/*.js",
         "**/*.jsx",
