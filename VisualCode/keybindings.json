@@ -141,5 +141,29 @@
     {
         "key": "ctrl+shift+x",
         "command": "-workbench.view.extensions"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "-copyFilePath",
+        "when": "!editorFocus"
+    },
+    {
+        "key": "ctrl+l alt+c",
+        "command": "-latex-workshop.clean",
+        "when": "editorTextFocus && latex-workshop:altkeymap"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "-latex-workshop.clean",
+        "when": "editorTextFocus && !latex-workshop:altkeymap"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "-search.action.copyPath",
+        "when": "fileMatchOrFolderMatchFocus"
+    },
+    {
+        "key": "ctrl+alt+c",
+        "command": "git.commit"
     }
 ]
