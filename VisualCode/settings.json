@@ -85,7 +85,6 @@
             "foreground": "#98f442"
         }
     ],
-    "breadcrumbs.enabled": true,
     "doxdocgen.generic.authorTag": "@author Khoi Trinh",
     "editor.detectIndentation": false,
     "go.formatTool": "gofmt",
