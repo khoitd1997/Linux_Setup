@@ -22,6 +22,7 @@ extension_java=" redhat.java vscjava.vscode-java-debug naco-siren.gradle-languag
 extension_doxygen=" bbenoist.doxygen cschlosser.doxdocgen "
 extension_arm=" dan-c-underwood.arm marus25.cortex-debug "
 extension_vhdl=" puorc.awesome-vhdl "
+extension_verilog=" mshr-h.veriloghdl "
 extension_md=" mushan.vscode-paste-image DavidAnson.vscode-markdownlint yzhang.markdown-all-in-one \
 shd101wyy.markdown-preview-enhanced yzane.markdown-pdf "
 extension_web=" formulahendry.auto-close-tag "
@@ -56,6 +57,7 @@ print_message "6/Mark Down\n"
 print_message "7/Html, typescript, javascript\n"
 print_message "8/Latex\n"
 print_message "9/Golang\n"
+print_message "10/Verilog\n"
 read input
 for var in ${input}
 do
@@ -69,6 +71,7 @@ do
     7)extension_all="${extension_all}${extension_web}";;
     8)extension_all="${extension_all}${extension_latex}";;
     9)extension_all="${extension_all}${extension_golang}";;
+    10)extension_all="${extension_all}${extension_verilog}";;
     *) ;;
 esac
 done
