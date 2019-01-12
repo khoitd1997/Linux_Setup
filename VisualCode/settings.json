@@ -1,5 +1,5 @@
 {
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
         "suppressCommitNotFoundWarning": false,
@@ -102,6 +102,19 @@
         "foreground": "black",
         "background": "#6F6F70",
     },
+    "vsicons.dontShowNewVersionMessage": true,
+    "window.newWindowDimensions": "inherit",
+    "window.restoreFullscreen": true,
+    "workbench.activityBar.visible": false,
+    "editor.cursorStyle": "line-thin",
+    "editor.hover.delay": 50,
+    "editor.cursorBlinking": "phase",
+    "search.showLineNumbers": true,
+    "extensions.ignoreRecommendations": true,
+    "window.menuBarVisibility": "hidden",
+    "workbench.statusBar.feedback.visible": false,
+    "gitlens.mode.statusBar.enabled": false,
+    "gitlens.statusBar.enabled": false,
     // "editor.fontFamily": "Hasklig-Medium",
     // "editor.fontLigatures": true,
 }

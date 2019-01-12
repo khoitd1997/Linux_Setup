@@ -8,9 +8,10 @@
 extension_general="ms-vscode.cpptools  kevinkyang.auto-comment-blocks CoenraadS.bracket-pair-colorizer formulahendry.code-runner \
 eamodio.gitlens donjayamanne.githistory huizhou.githd robertohuertasm.vscode-icons webfreak.debug  \
 wayou.vscode-todo-highlight emilast.logfilehighlighter Tyriar.sort-lines Gimly81.matlab \
-PeterJausovec.vscode-docker timonwong.shellcheck tomoki1207.pdf oderwat.indent-rainbow rashwell.tcl \
+PeterJausovec.vscode-docker tomoki1207.pdf oderwat.indent-rainbow rashwell.tcl \
 vector-of-bool.cmake-tools twxs.cmake eugenwiens.bitbake redhat.vscode-yaml \
-zhoufeng.pyqt-integration pnp.polacode wmaurer.vscode-jumpy Gruntfuggly.todo-tree ibm.output-colorizer "
+zhoufeng.pyqt-integration pnp.polacode wmaurer.vscode-jumpy Gruntfuggly.todo-tree \
+ibm.output-colorizer compulim.vscode-clock github.vscode-pull-request-github "
 
 extension_theme=" zhuangtongfa.material-theme monokai.theme-monokai-pro-vscode "
 
