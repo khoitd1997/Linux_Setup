@@ -25,20 +25,6 @@
     "gitlens.keymap": "chorded",
     "editor.wordWrap": "on",
     "workbench.colorTheme": "Monokai Pro (Filter Spectrum)",
-    "todohighlight.include": [
-        "**/*.js",
-        "**/*.jsx",
-        "**/*.ts",
-        "**/*.tsx",
-        "**/*.html",
-        "**/*.php",
-        "**/*.css",
-        "**/*.scss",
-        "**/*.c",
-        "**/*.java"
-    ],
-    "todohighlight.keywordsPattern": "case",
-    "todohighlight.isEnable": true,
     "material-icon-theme.showUpdateMessage": false,
     "pasteImage.path": "${currentFileDir}/image",
     "editor.quickSuggestionsDelay": 2,
@@ -94,7 +80,6 @@
     "editor.formatOnPaste": true,
     "go.autocompleteUnimportedPackages": true,
     "window.titleBarStyle": "native",
-    "shellcheck.disableVersionCheck": true,
     "editor.fontFamily": "source code pro",
     "todo-tree.defaultHighlight": {
         "type": "text",
@@ -116,6 +101,28 @@
     "gitlens.statusBar.enabled": false,
     "C_Cpp.default.cppStandard": "c++11",
     "C_Cpp.default.cStandard": "c99",
+    "vim.useCtrlKeys": false,
+    "multiCommand.commands": [
+        {
+            "command": "multiCommand.openFileAndCloseSideBar",
+            "sequence": [
+                "workbench.action.toggleSidebarVisibility",
+                "list.select"
+            ]
+        },
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    "vim.startInInsertMode": true
     // "editor.fontFamily": "Hasklig-Medium",
     // "editor.fontLigatures": true,
 }
