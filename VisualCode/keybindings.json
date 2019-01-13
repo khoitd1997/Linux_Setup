@@ -187,8 +187,13 @@
     },
     {
         "key": "j",
-        "command": "list.focusDown",
-        "when": "listFocus"
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "k",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
         "key": "k",
