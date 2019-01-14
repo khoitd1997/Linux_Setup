@@ -8,7 +8,7 @@ set -o nounset
 # set -o xtrace # for debugging only, will print out all commands befor eexecution
 
 not_wsl="1"
-gnome_shell_extensions_list=" apt_update_indicator extensions_update_notifier dash_to_panel system-monitor_by_elvetemedve "
+gnome_shell_extensions_list=" apt_update_indicator extensions_update_notifier dash_to_panel system-monitor_by_elvetemedve workspace_grid"
 
 # shell extensions in long format for commands
 gnome_shell_extensions_long=" alternate-tab@gnome-shell-extensions.gcampax.github.com \
