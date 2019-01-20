@@ -191,11 +191,6 @@ empty_input_buffer()
 read input
 ./non_repo_software_setup.sh
 
-printf "alias man=\"tldr\"\n" >> ~/.bashrc
-printf "alias cat=\"bat\"\n" >> ~/.bashrc
-printf "alias grep=\"echo USE_AG_INSTEAD_OF_GREP\"\n" >> ~/.bashrc
-
-
 timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
 sudo apt autoremove -y
 
