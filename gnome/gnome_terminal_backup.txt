@@ -11,6 +11,7 @@ use-theme-transparency=false
 background-color='rgb(46,52,54)'
 background-transparency-percent=21
 audible-bell=false
+font='Source Code Pro Medium 12'
 
 [legacy/profiles:/:7fe4dcd0-70d8-466f-b580-fe0b7f5c9c34]
 visible-name='main_1'
