@@ -10,7 +10,7 @@
 
 software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm build-essential htop net-tools  minicom screen python3-pip curl \
-libboost-all-dev python3-setuptools virtualbox-qt ranger "
+libboost-all-dev python3-setuptools virtualbox-qt ranger tldr ag "
 
 # list of software with GUI
 software_with_gui=" xclip evince synaptic psensor gufw xpad \
@@ -185,6 +185,16 @@ done
     ;;
 esac
 done 
+
+print_message "Starting Installation of non repo software, click any key to proceed"
+empty_input_buffer()
+read input
+./non_repo_software_setup.sh
+
+printf "alias man=\"tldr\"\n" >> ~/.bashrc
+printf "alias cat=\"bat\"\n" >> ~/.bashrc
+printf "alias grep=\"echo USE_AG_INSTEAD_OF_GREP\"\n" >> ~/.bashrc
+
 
 timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
 sudo apt autoremove -y
