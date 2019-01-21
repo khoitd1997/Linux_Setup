@@ -49,7 +49,6 @@ dconf write /org/gnome/mutter/workspaces-only-on-primary "false"
 
 # configure night light
 dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled "true"
-dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled "true"
 dconf write /org/gnome/settings-daemon/peripherals/touchscreen/orientation-lock "true"
 
 sudo apt-get install gnome-tweak-tool gnome-shell-extensions chrome-gnome-shell -y
@@ -71,14 +70,12 @@ sleep 4
 dconf load /org/gnome/terminal/ < ~/OS_Setup/gnome/gnome_terminal_backup.txt
 
 # configure background pics
+cp ../shared/TCP118v1_by_Tiziano_Consonni.jpg /usr/share/backgrounds/
 dconf write /org/gnome/desktop/background/color-shading-type "'solid'"
 dconf write /org/gnome/desktop/background/picture-options "'zoom'"
-dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/On_top_of_the_Rubihorn_by_Matthias_Niess.jpg'"
+dconf write /org/gnome/desktop/background/picture-uri "'file:///usr/share/backgrounds/TCP118v1_by_Tiziano_Consonni.jpg'"
 dconf write /org/gnome/desktop/background/primary-color "'#000000'"
 dconf write /org/gnome/desktop/background/secondary-color "'#000000'"
-
-# configure file explorer
-dconf write /org/gtk/settings/file-chooser/show-hidden "true"
 
 print_message "Please install all the GNOME shell extensions\n"
 print_table "${gnome_shell_extensions_list}" 3
