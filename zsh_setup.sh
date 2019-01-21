@@ -8,7 +8,6 @@ zsh_plugin="https://github.com/zsh-users/zsh-completions.git \
 #--------------------------------------------------------------------------------------
 
 print_message "Starting zsh installation"
-sudo apt update && sudo apt install zsh zsh-syntax-highlighting
 
 # oh-my-zsh stuffs
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
