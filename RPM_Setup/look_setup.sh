@@ -6,7 +6,7 @@ set -e
 set -o pipefail
 set -o nounset
 
-gnome_shell_extensions_list=" extensions_update_notifier workspace_grid Fedora_Linux_Updates_Indicator "
+gnome_shell_extensions_list=" top_icon_plus extensions_update_notifier workspace_grid Fedora_Linux_Updates_Indicator "
 
 #------------------------------------------------------------------------
 if [[ "${DESKTOP_SESSION}" == "gnome" ]]; then
