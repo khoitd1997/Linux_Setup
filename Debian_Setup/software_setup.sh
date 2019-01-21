@@ -10,7 +10,7 @@
 
 software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm build-essential htop net-tools  minicom screen python3-pip curl \
-libboost-all-dev python3-setuptools virtualbox-qt ranger tldr ag neofetch "
+libboost-all-dev python3-setuptools virtualbox-qt ranger tldr ag neofetch taskwarrior autojump "
 
 # list of software with GUI
 software_with_gui=" xclip evince synaptic psensor gufw xpad \
@@ -190,6 +190,11 @@ print_message "Starting Installation of non repo software, click any key to proc
 empty_input_buffer()
 read input
 ./non_repo_software_setup.sh
+
+print_message "Installing zsh, click any key to proceed"
+empty_input_buffer()
+read input
+source ../zsh_setup.sh
 
 timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
 sudo apt autoremove -y
