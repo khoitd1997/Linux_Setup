@@ -15,7 +15,7 @@ software_general_repo_non_gui=" doxygen cmake valgrind \
 gcc clang llvm htop net-tools  minicom screen python3-pip curl \
 python3-setuptools ranger tldr the_silver_searcher neofetch task autojump \
 google-chrome-stable xorg-x11-drv-nvidia akmod-nvidia fd-find bat fzf hub git \
-nano dnf-automatic "
+nano dnf-automatic openconnect "
 
 # list of software with GUI
 software_with_gui=" xclip evince synaptic xpad gparted moserial libncurses* meld \

@@ -10,7 +10,8 @@
 
 software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm build-essential htop net-tools  minicom screen python3-pip curl \
-libboost-all-dev python3-setuptools virtualbox-qt ranger tldr silversearcher-ag neofetch taskwarrior autojump "
+libboost-all-dev python3-setuptools virtualbox-qt ranger tldr silversearcher-ag neofetch taskwarrior \
+autojump openconnect"
 
 # list of software with GUI
 software_with_gui=" xclip evince synaptic psensor gufw xpad \
