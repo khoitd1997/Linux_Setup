@@ -10,16 +10,13 @@
 
 software_general_repo_non_gui=" doxygen checkinstall lm-sensors cmake valgrind \
 gcc clang llvm build-essential htop net-tools  minicom screen python3-pip curl \
-libboost-all-dev python3-setuptools virtualbox-qt ranger tldr ag neofetch taskwarrior autojump "
+libboost-all-dev python3-setuptools virtualbox-qt ranger tldr silversearcher-ag neofetch taskwarrior autojump "
 
 # list of software with GUI
 software_with_gui=" xclip evince synaptic psensor gufw xpad \
 libreoffice-style-hicontrast unattended-upgrades gparted libappindicator1 \
 libindicator7 hardinfo moserial libncurses* nautilus-dropbox meld \
 bustle d-feet graphviz npm flameshot libgtk2.0-dev libglib2.0-dev libglade2-dev feh "
-
-# list of dropped app
-software_dropped=" gitg"
 
 # all tool chains and utilities
 tool_chain_not_18_04_compat=" gdb-arm-none-eabi " # not compatible with ubuntu 18.04 for now
@@ -194,6 +191,7 @@ read input
 print_message "Installing zsh, click any key to proceed"
 empty_input_buffer()
 read input
+sudo apt update && sudo apt install zsh zsh-syntax-highlighting
 source ../zsh_setup.sh
 
 timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
