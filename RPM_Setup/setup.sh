@@ -14,7 +14,8 @@ software_dropped_not_in_repo=" checkinstall build-essential gufw hardinfo "
 software_general_repo_non_gui=" doxygen cmake valgrind \
 gcc clang llvm htop net-tools  minicom screen python3-pip curl \
 python3-setuptools ranger tldr the_silver_searcher neofetch task autojump \
-google-chrome-stable xorg-x11-drv-nvidia akmod-nvidia fd-find bat fzf hub git "
+google-chrome-stable xorg-x11-drv-nvidia akmod-nvidia fd-find bat fzf hub git \
+nano dnf-automatic "
 
 # list of software with GUI
 software_with_gui=" xclip evince synaptic xpad gparted moserial libncurses* meld \
@@ -75,6 +76,11 @@ for flatpak in ${flatpak_maybe} ; do
     sudo flatpak install flathub ${flatpak} -y 
     fi
 done
+
+# edit auto update settings
+sudo sed -i '/upgrade_type/s/default/security/' /etc/dnf/automatic.conf 
+sudo sed -i '/apply_updates/s/no/yes/' /etc/dnf/automatic.conf
+sudo systemctl enable --now dnf-automatic-install.timer
 
 # Added access to usb ports for current user
 sudo usermod -a -G dialout ${USER}
@@ -139,7 +145,7 @@ read input
 # got from here: https://code.visualstudio.com/docs/setup/linux
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-dnf check-update
+sudo dnf check-update
 sudo dnf install code
 
 print_message "Installing zsh, click any key to proceed"
