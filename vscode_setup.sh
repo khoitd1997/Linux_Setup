@@ -42,6 +42,9 @@ print_message "Installing vscode, add the keys for the correct os and then click
 empty_input_buffer
 read input
 
+check_dir OS_Setup
+if [ "${OS}" == "Linux" ] ; then
+vscode_config_dir="${HOME}/.config/Code/User"
 if [ -f "/etc/debian_version" ]; then
     sudo apt-get install apt-transport-https -y
     sudo apt-get update
@@ -50,10 +53,6 @@ else
     sudo dnf check-update
     sudo dnf install code -y
 fi
-
-check_dir OS_Setup
-if [ "${OS}" == "Linux" ] ; then
-vscode_config_dir="${HOME}/.config/Code/User"
 
 else # window config
 vscode_config_dir="$APPDATA/Code/User"

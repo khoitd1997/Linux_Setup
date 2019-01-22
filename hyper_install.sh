@@ -12,12 +12,19 @@ empty_input_buffer
 read done_signal
 
 OS="$(uname -s)"
+cp hyper/.hyper.js temp.js
 
 if [ "${OS}" == "Linux" ] ; then
-hyper_config_dir="${HOME}/.hyper.js"
+sed -i '/Program Files/s/^/\/\//' temp.js
+sed -i '/bash.exe/s/^/\/\//' temp.js
+sed -i '/msys/s/^/\/\//' temp.js
+hyper_config_dir="${HOME}"
 else
-hyper_config_dir="$APPDATA/Hyper/"
+sed -i "/shell: '',/s/^/\/\//" temp.js
+sed -i "/--login/s/^/\/\//" temp.js
+# hyper_config_dir="$APPDATA/Hyper/"
+hyper_config_dir="/c/Users/khoid" # change this based on user name
 fi
 
-cp hyper/.hyper.js ${hyper_config_dir}
+mv -v temp.js ${hyper_config_dir}/.hyper.js
 print_message "Hyper installation done\n"

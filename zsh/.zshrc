@@ -111,6 +111,7 @@ if [ -f "/etc/debian_version" ]; then
 source /usr/share/autojump/autojump.sh
 fi
 
+source /usr/share/fzf/shell/key-bindings.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
 
 PATH=$PATH:${GOPATH//://bin:}/bin

@@ -91,26 +91,14 @@ module.exports = {
             yellow: "#fce566",
         },
 
-        // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
-        // if left empty, your system's login shell will be used by default
-        //
-        // Windows
-        // - Make sure to use a full path if the binary name doesn't work
-        // - Remove `--login` in shellArgs
-        //
-        // Bash on Windows
-        // - Example: `C:\\Windows\\System32\\bash.exe`
-        //
-        // PowerShell on Windows
-        // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
-        shell: '',
+        shellArgs: ['--command=usr/bin/bash.exe', '-l', '-i'],
+        shell: 'C:\\Program Files\\Git\\git-cmd.exe',
 
-        // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
-        // by default `['--login']` will be used
+        shell: '',
         shellArgs: ['--login'],
 
         // for environment variables
-        env: {},
+        env: { TERM: 'cygwin' },
 
         // set to `false` for no bell
         bell: 'SOUND',

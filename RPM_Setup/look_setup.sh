@@ -1,4 +1,5 @@
 #!/bin/bash
+# look setup for rpm based system
 
 source ../utils.sh
 
@@ -39,6 +40,9 @@ dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"
 
 print_message "Please install all the GNOME shell extensions\n"
 print_table "${gnome_shell_extensions_list}" 3
+
+gnome-shell-extension-tool -e 'alternate-tab@gnome-shell-extensions.gcampax.github.com'
+gnome-shell-extension-tool -e 'nohotcorner@azuri.free.fr'
 
 print_message "Press anykey when done"
 empty_input_buffer
