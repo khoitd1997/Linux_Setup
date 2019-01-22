@@ -103,13 +103,13 @@ for option in ${software_option}; do
 case $option in 
     1) 
     print_message "Installing ARM\n"
-    if ! sudo dnf install $arm_toolchain; then
+    if ! sudo dnf install $arm_toolchain -y; then
     print_error "Failed to install ARM toolchain\n"
     exit 1
     fi ;;
     2) 
     print_message "Installing AVR\n "
-    if ! sudo dnf install $avr_arduino_toolchain; then
+    if ! sudo dnf install $avr_arduino_toolchain -y; then
     print_error "Failed to install AVR toolchain\n"
     exit 1
     fi ;;
@@ -123,13 +123,13 @@ done
     ;;
     5)
     print_message "Installing Doxygen support"
-    if ! sudo dnf install ${latex_doxygen_toolchain}; then
+    if ! sudo dnf install ${latex_doxygen_toolchain} -y; then
     print_error "Failed to install doxygen toolchain\n"
     exit 1
     fi ;;
     6)
     print_message "Installing Golang support"
-    if ! sudo dnf install ${golang_toolchain}; then
+    if ! sudo dnf install ${golang_toolchain} -y; then
     print_error "Failed to install Golang toolchain\n"
     exit 1
     fi
