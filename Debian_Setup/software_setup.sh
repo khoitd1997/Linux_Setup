@@ -193,5 +193,5 @@ sudo apt autoremove -y
 
 #----------------------------------------------------------------------------------------------------
 # Post installtion messages start here
-print_message "Basic Software Installation Done"
+print_message "Basic Software Installation Done\n"
 exit 0

@@ -43,7 +43,7 @@ set -e
 set -o pipefail
 set -o nounset
 #----------------------------------------------------------------------------------------------------
-print_message "Starting Installation of Fedora Machine"
+print_message "Starting Installation of Fedora Machine\n"
 SOFTWARE_GENERAL_REPO="${software_general_repo_non_gui}${software_with_gui}"
 sudo passwd -l root
 sudo systemctl status firewalld
@@ -142,5 +142,5 @@ sudo dnf autoremove -y
 
 #----------------------------------------------------------------------------------------------------
 # Post installtion messages start here
-print_message "Basic Software Installation Done"
+print_message "Basic Software Installation Done\n"
 exit 0
