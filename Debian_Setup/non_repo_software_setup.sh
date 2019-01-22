@@ -21,7 +21,7 @@ printf "\n"
 fi
 done
 print_message "Press any key when you are done with manual installtion\n"
-empty_input_buffer()
+
 read input
 
 #----------------------------INSTALLING-----------------------------------#

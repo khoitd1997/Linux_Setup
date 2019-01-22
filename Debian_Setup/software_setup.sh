@@ -185,12 +185,12 @@ esac
 done 
 
 print_message "Starting Installation of non repo software, click any key to proceed"
-empty_input_buffer()
+
 read input
 ./non_repo_software_setup.sh
 
 print_message "Installing zsh, click any key to proceed"
-empty_input_buffer()
+
 read input
 sudo apt update && sudo apt install zsh zsh-syntax-highlighting
 source ../zsh_setup.sh

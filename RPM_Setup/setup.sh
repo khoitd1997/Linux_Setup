@@ -137,7 +137,7 @@ esac
 done 
 
 print_message "Installing vscode, click any key to proceed\n"
-empty_input_buffer()
+
 read input
 
 # got from here: https://code.visualstudio.com/docs/setup/linux
@@ -147,7 +147,7 @@ sudo dnf check-update
 sudo dnf install code -y
 
 print_message "Installing zsh, click any key to proceed\n"
-empty_input_buffer()
+
 read input
 
 sudo dnf install zsh zsh-syntax-highlighting -y
