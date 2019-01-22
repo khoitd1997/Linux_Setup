@@ -86,7 +86,7 @@ sudo systemctl enable --now dnf-automatic-install.timer
 sudo usermod -a -G dialout ${USER}
 
 # setup GNOME keyring git credential helper
-git config --global credential.helper /usr/libexec/git-core/git-credential-gnome-keyring
+git config --global credential.helper /usr/libexec/git-core/git-credential-libsecret
 git config --global user.email "khoidinhtrinh@gmail.com"
 git config --global user.name "khoitd1997"
 
