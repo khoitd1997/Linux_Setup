@@ -15,7 +15,7 @@ dconf write /org/gnome/desktop/interface/enable-animations "false"
 dconf write /org/gnome/settings-daemon/plugins/color/night-light-enabled "true"
 dconf write /org/gnome/settings-daemon/peripherals/touchscreen/orientation-lock "true"
 
-sudo dnf install gnome-tweak-tool chrome-gnome-shell -y
+sudo dnf install gnome-tweak-tool chrome-gnome-shell gnome-shell-extension-no-topleft-hot-corner -y
 
 dconf write /org/gnome/desktop/interface/clock-show-date "true" 
 dconf write /org/gnome/desktop/interface/show-battery-percentage "true"

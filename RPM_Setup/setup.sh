@@ -19,11 +19,11 @@ nano dnf-automatic openconnect "
 
 # list of software with GUI
 software_with_gui=" xclip evince synaptic xpad gparted moserial libncurses* meld \
-bustle d-feet graphviz npm flameshot feh nautilus-dropbox"
+bustle d-feet graphviz npm flameshot feh nautilus-dropbox VirtualBox "
 
 software_non_fedora_repo=" lpf-spotify-client "
 
-flatpak_package=" com.dropbox.Client com.spotify.Client com.discordapp.Discord \
+flatpak_package=" com.spotify.Client com.discordapp.Discord \
 com.axosoft.GitKraken com.slack.Slack "
 flatpak_maybe=" com.jetbrains.IntelliJ-IDEA-Community com.google.AndroidStudio "
 
