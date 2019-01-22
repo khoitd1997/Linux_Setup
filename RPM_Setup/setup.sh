@@ -63,6 +63,7 @@ sudo dnf update
 sudo dnf install ${SOFTWARE_GENERAL_REPO} -y
 
 #flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 for flatpak in ${flatpak_package} ; do
 	sudo flatpak install flathub ${flatpak} -y 
 done
