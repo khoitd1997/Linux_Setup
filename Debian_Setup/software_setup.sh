@@ -188,6 +188,7 @@ print_message "Starting Installation of non repo software, click any key to proc
 read input
 ./non_repo_software_setup.sh
 
+sudo timedatectl set-timezone America/Los_Angeles
 timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
 sudo apt autoremove -y
 

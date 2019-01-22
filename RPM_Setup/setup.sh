@@ -137,6 +137,7 @@ done
 esac
 done 
 
+sudo timedatectl set-timezone America/Los_Angeles
 timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
 sudo dnf autoremove -y
 
