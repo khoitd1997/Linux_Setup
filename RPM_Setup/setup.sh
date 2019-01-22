@@ -50,9 +50,6 @@ sudo systemctl status firewalld
 
 sudo dnf update && sudo dnf upgrade -y
 sudo dnf install ${software_group}
-sudo dnf update
-sudo dnf install ${SOFTWARE_GENERAL_REPO}
-
 # got from here: https://rpmfusion.org/Configuration/
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf update 
@@ -61,6 +58,11 @@ sudo dnf config-manager --set-enabled google-chrome rpmfusion-nonfree-nvidia-dri
 sudo dnf groupinstall multimedia
 sudo dnf groupupdate multimedia
 sudo dnf groupupdate sound-and-video
+
+sudo dnf update
+sudo dnf install ${SOFTWARE_GENERAL_REPO}
+
+
 
 #flatpak
 
