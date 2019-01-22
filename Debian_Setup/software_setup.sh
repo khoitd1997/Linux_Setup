@@ -185,19 +185,13 @@ esac
 done 
 
 print_message "Starting Installation of non repo software, click any key to proceed"
-
 read input
 ./non_repo_software_setup.sh
-
-print_message "Installing zsh, click any key to proceed"
-
-read input
-sudo apt update && sudo apt install zsh zsh-syntax-highlighting
-source ../zsh_setup.sh
 
 timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
 sudo apt autoremove -y
 
 #----------------------------------------------------------------------------------------------------
 # Post installtion messages start here
+print_message "Basic Software Installation Done"
 exit 0

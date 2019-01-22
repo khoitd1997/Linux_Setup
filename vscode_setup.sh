@@ -38,6 +38,19 @@ set -o pipefail
 set -o nounset
 #----------------------------------------------------------------------------------------------------
 
+print_message "Installing vscode, add the keys for the correct os and then click any key to continue\n"
+empty_input_buffer
+read input
+
+if [ -f "/etc/debian_version" ]; then
+    sudo apt-get install apt-transport-https -y
+    sudo apt-get update
+    sudo apt-get install code -y
+else
+    sudo dnf check-update
+    sudo dnf install code -y
+fi
+
 check_dir OS_Setup
 if [ "${OS}" == "Linux" ] ; then
 vscode_config_dir="${HOME}/.config/Code/User"
