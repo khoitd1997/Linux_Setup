@@ -108,3 +108,10 @@ bindkey '^ ' autosuggest-accept
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source /usr/share/autojump/autojump.sh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
+
+PATH=$PATH:${GOPATH//://bin:}/bin
+
+# export GOPATH=~/GO_PROJECTS
+# export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+# export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"
+# export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"

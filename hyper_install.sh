@@ -1,7 +1,7 @@
 #!/bin/bash
 # install and config the hyper terminal
 
-source utils.sh
+source ./utils.sh
 set -e 
 set -o pipefail
 set -o nounset
@@ -15,9 +15,9 @@ OS="$(uname -s)"
 
 if [ "${OS}" == "Linux" ] ; then
 hyper_config_dir="${HOME}/.hyper.js"
-else # window config
+else
 hyper_config_dir="$APPDATA/Hyper/"
 fi
 
-cp  hyper/.hyper.js ${hyper_config_dir}
+cp hyper/.hyper.js ${hyper_config_dir}
 print_message "Hyper installation done\n"

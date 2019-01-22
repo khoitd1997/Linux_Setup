@@ -25,4 +25,4 @@ for plugin in ${zsh_plugin}; do
 git clone ${plugin}
 done
 
-print_message "zsh installation done\n"
+print_message "zsh installation done, PLEASE LOG OUT FIRST\n"
