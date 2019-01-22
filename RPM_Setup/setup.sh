@@ -95,7 +95,7 @@ echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf
 # Dev tools installations start here
 printf "\n ${cyan}--------DEV-TOOLS----------- ${reset}"
 printf "${cyan}\n Basic Install is done, please select additional install options separated by space: \n${reset}"
-printf  "${cyan}1/ARM 2/AVR 3/Java 4/Python 5/Doxygen 6/Golang${reset}"
+printf  "${cyan}1/ARM 2/AVR 3/Python 4/Doxygen 5/Golang${reset}"
 read software_option
 
 # handle options
@@ -114,20 +114,18 @@ case $option in
     exit 1
     fi ;;
     3) 
-    sudo dnf install default-jre ;;
-    4)
     print_message "Installing Python support"
 for pip_software in ${python_pip_package_list}; do
     pip3 install ${pip_software}
 done
     ;;
-    5)
+    4)
     print_message "Installing Doxygen support"
     if ! sudo dnf install ${latex_doxygen_toolchain} -y; then
     print_error "Failed to install doxygen toolchain\n"
     exit 1
     fi ;;
-    6)
+    5)
     print_message "Installing Golang support"
     if ! sudo dnf install ${golang_toolchain} -y; then
     print_error "Failed to install Golang toolchain\n"
