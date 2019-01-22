@@ -7,7 +7,7 @@ zsh_plugin="https://github.com/zsh-users/zsh-completions.git \
 
 #--------------------------------------------------------------------------------------
 
-print_message "Starting zsh installation"
+print_message "Starting zsh installation\n"
 if [ -f "/etc/debian_version" ]; then
     sudo apt update && sudo apt install zsh zsh-syntax-highlighting -y
 else
@@ -25,4 +25,4 @@ for plugin in ${zsh_plugin}; do
 git clone ${plugin}
 done
 
-print_message "zsh installation done"
+print_message "zsh installation done\n"

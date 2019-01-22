@@ -7,7 +7,7 @@ set -o pipefail
 set -o nounset
 #----------------------------------------------------------------------------------------------------
 
-print_message "Press anykey when done installing hyper for your platform"
+print_message "Press anykey when done installing hyper for your platform\n"
 empty_input_buffer
 read done_signal
 
@@ -20,3 +20,4 @@ hyper_config_dir="$APPDATA/Hyper/"
 fi
 
 cp  hyper/.hyper.js ${hyper_config_dir}
+print_message "Hyper installation done\n"
