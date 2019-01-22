@@ -164,7 +164,7 @@ case $option in
     4)
     print_message "Installing Python support"
 for pip_software in ${python_pip_package_list}; do
-    pip3 install ${pip_software}
+    pip3 install ${pip_software} --user
 done
     ;;
     5)
