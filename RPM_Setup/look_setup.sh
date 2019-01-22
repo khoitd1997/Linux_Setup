@@ -40,6 +40,8 @@ dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita-dark'"
 print_message "Please install all the GNOME shell extensions\n"
 print_table "${gnome_shell_extensions_list}" 3
 
+gnome-shell-extension-tool -e 'alternate-tab@gnome-shell-extensions.gcampax.github.com'
+
 print_message "Press anykey when done"
 empty_input_buffer
 read done_signal
