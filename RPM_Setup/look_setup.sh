@@ -23,6 +23,10 @@ dconf write /org/gnome/desktop/interface/show-battery-percentage "true"
 
 dconf write /org/gnome/desktop/session/idle-delay "uint32 0"
 
+# customize mouse
+dconf write /org/gnome/desktop/peripherals/touchpad/disable-while-typing "false"
+dconf write /org/gnome/desktop/peripherals/touchpad/click-method "'areas'"
+
 # customize gnome terminal
 dconf reset -f /org/gnome/terminal/
 gnome-terminal # launch terminal to make sure a profile folder is created
