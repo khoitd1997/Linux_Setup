@@ -23,6 +23,10 @@ dconf write /org/gnome/desktop/interface/show-battery-percentage "true"
 
 dconf write /org/gnome/desktop/session/idle-delay "uint32 0"
 
+# customize power settings
+dconf write /org/gnome/settings-daemon/plugins/power/idle-dim "false"
+dconf write /org/gnome/settings-daemon/plugins/power/sleep-inactive-battery-type "'nothing'"
+
 # customize mouse
 dconf write /org/gnome/desktop/peripherals/touchpad/disable-while-typing "false"
 dconf write /org/gnome/desktop/peripherals/touchpad/click-method "'areas'"
