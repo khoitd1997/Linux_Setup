@@ -48,4 +48,19 @@ print_message "Press anykey when done"
 empty_input_buffer
 read done_signal
 
+elif [[ "${DESKTOP_SESSION}" == "cinnamon" ]]; then
+dconf write /org/cinnamon/desktop/interface/gtk-theme "'Adwaita-dark'"
+dconf write /org/cinnamon/desktop/wm/preferences/theme "'Mint-Y-Dark'"
+dconf write /org/cinnamon/theme/name "'Mint-Y-Dark'"
+dconf write /org/cinnamon/settings-daemon/plugins/power/sleep-display-ac "10800"
+dconf write /org/cinnamon/settings-daemon/plugins/power/idle-dim-battery "false"
+dconf write /org/cinnamon/cinnamon-session/quit-delay-toggle "true"
+dconf write /org/cinnamon/enable-indicators "true"
+dconf write /org/cinnamon/sounds/login-enabled "false"
+dconf write /org/cinnamon/cinnamon-session/quit-time-delay "20"
+dconf write /org/cinnamon/desktop/notifications/remove-old "true"
+
+dconf write /org/cinnamon/enabled-applets "['panel1:right:0:systray@cinnamon.org:0', 'panel1:left:0:menu@cinnamon.org:1', 'panel1:left:1:show-desktop@cinnamon.org:2', 'panel1:left:3:window-list@cinnamon.org:4', 'panel1:right:1:keyboard@cinnamon.org:5', 'panel1:right:2:notifications@cinnamon.org:6', 'panel1:right:3:removable-drives@cinnamon.org:7', 'panel1:right:5:network@cinnamon.org:9', 'panel1:right:6:blueberry@cinnamon.org:10', 'panel1:right:7:power@cinnamon.org:11', 'panel1:right:8:calendar@cinnamon.org:12', 'panel1:right:9:sound@cinnamon.org:13']"
+
+dconf write /org/cinnamon/panels-enabled "['1:0:top']"
 fi
