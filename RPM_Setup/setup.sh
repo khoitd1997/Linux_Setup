@@ -19,7 +19,7 @@ nano dnf-automatic openconnect "
 
 # list of software with GUI
 software_with_gui=" xclip evince synaptic xpad gparted moserial libncurses* meld \
-bustle d-feet graphviz npm flameshot feh nautilus-dropbox VirtualBox "
+bustle d-feet graphviz npm flameshot feh nautilus-dropbox VirtualBox synapse "
 
 software_non_fedora_repo=" lpf-spotify-client "
 
@@ -140,6 +140,8 @@ done
 sudo timedatectl set-timezone America/Los_Angeles
 timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
 sudo dnf autoremove -y
+
+cp ../synapse/config.json ~/.config/synapse/ -v
 
 #----------------------------------------------------------------------------------------------------
 # Post installtion messages start here
