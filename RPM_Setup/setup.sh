@@ -15,7 +15,7 @@ software_general_repo_non_gui=" doxygen cmake valgrind \
 gcc clang llvm htop net-tools  minicom screen python3-pip curl \
 python3-setuptools ranger tldr the_silver_searcher neofetch task autojump \
 google-chrome-stable xorg-x11-drv-nvidia akmod-nvidia fd-find bat fzf hub git \
-nano dnf-automatic openconnect "
+nano dnf-automatic openconnect tmux glibc-devel.i686 libnsl "
 
 # list of software with GUI
 software_with_gui=" xclip evince synaptic xpad gparted moserial libncurses* meld \
@@ -23,6 +23,7 @@ bustle d-feet graphviz npm flameshot feh nautilus-dropbox VirtualBox synapse "
 
 software_non_fedora_repo=" lpf-spotify-client "
 
+sudo dnf install flatpak
 flatpak_package=" com.spotify.Client com.discordapp.Discord \
 com.axosoft.GitKraken com.slack.Slack "
 flatpak_maybe=" com.jetbrains.IntelliJ-IDEA-Community com.google.AndroidStudio "
@@ -31,7 +32,7 @@ flatpak_maybe=" com.jetbrains.IntelliJ-IDEA-Community com.google.AndroidStudio "
 arm_toolchain=" openocd qemu arm-none-eabi-newlib arm-none-eabi-gcc-cs arm-none-eabi-gcc-cs-c++ "
 avr_arduino_toolchain="avrdude avr-gcc simulavr avr-binutils "
 latex_doxygen_toolchain=" texlive-scheme-basic texlive-collection-latexextra texlive-collection-latexrecommended \
-texlive-fonts-extra texlive-collection-xetex "
+texlive-collection-xetex "
 golang_toolchain=" golang golint "
 golang_package=" github.com/ramya-rao-a/go-outline github.com/acroca/go-symbols github.com/mdempsky/gocode github.com/rogpeppe/godef golang.org/x/tools/cmd/godoc github.com/zmb3/gogetdoc golang.org/x/lint/golint github.com/fatih/gomodifytags golang.org/x/tools/cmd/gorename sourcegraph.com/sqs/goreturns golang.org/x/tools/cmd/goimports github.com/cweill/gotests/... golang.org/x/tools/cmd/guru github.com/josharian/impl github.com/haya14busa/goplay/cmd/goplay github.com/uudashr/gopkgs/cmd/gopkgs github.com/davidrjenni/reftools/cmd/fillstruct github.com/alecthomas/gometalinter " # source: https://github.com/Microsoft/vscode-go/wiki/Go-tools-that-the-Go-extension-depends-on
 
