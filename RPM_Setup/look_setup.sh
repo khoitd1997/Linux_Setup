@@ -57,6 +57,7 @@ empty_input_buffer
 read done_signal
 
 elif [[ "${DESKTOP_SESSION}" == "cinnamon" ]]; then
+dconf write /org/gnome/desktop/background/picture-uri "'file:///home/${USER}/OS_Setup/shared/TCP118v1_by_Tiziano_Consonni.jpg'"
 # theme
 dconf write /org/cinnamon/desktop/interface/gtk-theme "'Adwaita-dark'"
 dconf write /org/cinnamon/desktop/wm/preferences/theme "'Mint-Y-Dark'"
