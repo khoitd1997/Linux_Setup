@@ -19,7 +19,7 @@ nano dnf-automatic openconnect tmux glibc-devel.i686 libnsl "
 
 # list of software with GUI
 software_with_gui=" xclip evince synaptic xpad gparted moserial libncurses* meld \
-bustle d-feet graphviz npm flameshot feh nautilus-dropbox VirtualBox synapse "
+bustle d-feet graphviz npm flameshot feh nautilus-dropbox VirtualBox synapse latexmk "
 
 software_non_fedora_repo=" lpf-spotify-client "
 
