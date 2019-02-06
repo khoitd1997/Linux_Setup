@@ -17,7 +17,7 @@ autojump openconnect"
 software_with_gui=" xclip evince synaptic psensor gufw xpad \
 libreoffice-style-hicontrast unattended-upgrades gparted libappindicator1 \
 libindicator7 hardinfo moserial libncurses* nautilus-dropbox meld \
-bustle d-feet graphviz npm flameshot libgtk2.0-dev libglib2.0-dev libglade2-dev feh "
+bustle d-feet graphviz npm flameshot libgtk2.0-dev libglib2.0-dev libglade2-dev feh latexmk "
 
 # all tool chains and utilities
 tool_chain_not_18_04_compat=" gdb-arm-none-eabi " # not compatible with ubuntu 18.04 for now
