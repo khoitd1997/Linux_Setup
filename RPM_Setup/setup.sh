@@ -10,6 +10,8 @@ software_group=" @development-tools fedora-workstation-repositories "
 
 software_dropped_not_in_repo=" checkinstall build-essential gufw hardinfo "
 
+software_startup=" redshift "
+
 # list of general utilities without GUI
 software_general_repo_non_gui=" doxygen cmake valgrind \
 gcc clang llvm htop net-tools  minicom screen python3-pip curl \
@@ -143,6 +145,8 @@ timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
 sudo dnf autoremove -y
 
 cp ../synapse/config.json ~/.config/synapse/ -v
+
+print_message "Please enable these app on startup: ${software_startup}\n"
 
 #----------------------------------------------------------------------------------------------------
 # Post installtion messages start here

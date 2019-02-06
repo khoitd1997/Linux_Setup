@@ -73,7 +73,7 @@ dconf write /org/cinnamon/desktop/notifications/remove-old "true"
 # panels
 dconf write /org/cinnamon/enabled-applets "['panel1:right:0:systray@cinnamon.org:0', 'panel1:left:0:menu@cinnamon.org:1', 'panel1:left:1:show-desktop@cinnamon.org:2', 'panel1:left:3:window-list@cinnamon.org:4', 'panel1:right:1:keyboard@cinnamon.org:5', 'panel1:right:2:notifications@cinnamon.org:6', 'panel1:right:3:removable-drives@cinnamon.org:7', 'panel1:right:5:network@cinnamon.org:9', 'panel1:right:6:blueberry@cinnamon.org:10', 'panel1:right:7:power@cinnamon.org:11', 'panel1:right:8:calendar@cinnamon.org:12', 'panel1:right:9:sound@cinnamon.org:13']"
 dconf write /org/cinnamon/panels-enabled "['1:0:top']"
-
+dconf write /org/cinnamon/panels-height "['1:25']"
 
 # effects 
 dconf write /org/cinnamon/desktop-effects "false"
@@ -95,5 +95,7 @@ dconf write /org/cinnamon/alttab-switcher-style "'icons'"
 dconf write /org/cinnamon/panels-autohide "['1:intel']"
 dconf write /org/cinnamon/settings-daemon/peripherals/touchscreen/orientation-lock "true"
 dconf write /org/cinnamon/settings-daemon/plugins/power/sleep-display-ac "0"
+dconf write /org/gnome/libgnomekbd/keyboard/options "['caps\tcaps:escape']"
+
 
 fi
