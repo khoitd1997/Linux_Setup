@@ -10,7 +10,7 @@ software_group=" @development-tools fedora-workstation-repositories "
 
 software_dropped_not_in_repo=" checkinstall build-essential gufw hardinfo "
 
-software_startup=" redshift synapse "
+software_startup=" redshift synapse flameshot "
 
 # list of general utilities without GUI
 software_general_repo_non_gui=" doxygen cmake valgrind \
