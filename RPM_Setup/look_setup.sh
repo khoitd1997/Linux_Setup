@@ -91,7 +91,7 @@ dconf write /org/cinnamon/sounds/unmaximize-enabled "false"
 dconf write /org/cinnamon/sounds/tile-enabled "false"
 dconf write /org/cinnamon/sounds/notification-enabled "false"
 
-dconf write /org/cinnamon/alttab-switcher-style "'icons'"
+dconf write /org/cinnamon/alttab-switcher-style "'icons+preview'"
 dconf write /org/cinnamon/panels-autohide "['1:intel']"
 dconf write /org/cinnamon/settings-daemon/peripherals/touchscreen/orientation-lock "true"
 dconf write /org/cinnamon/settings-daemon/plugins/power/sleep-display-ac "0"
