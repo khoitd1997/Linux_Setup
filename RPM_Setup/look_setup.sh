@@ -57,6 +57,8 @@ empty_input_buffer
 read done_signal
 
 elif [[ "${DESKTOP_SESSION}" == "cinnamon" ]]; then
+sudo dnf remove gnome-screenshot
+
 dconf write /org/gnome/desktop/background/picture-uri "'file:///home/${USER}/OS_Setup/shared/TCP118v1_by_Tiziano_Consonni.jpg'"
 # theme
 dconf write /org/cinnamon/desktop/interface/gtk-theme "'Adwaita-dark'"
@@ -92,10 +94,11 @@ dconf write /org/cinnamon/sounds/tile-enabled "false"
 dconf write /org/cinnamon/sounds/notification-enabled "false"
 
 dconf write /org/cinnamon/alttab-switcher-style "'icons+preview'"
-dconf write /org/cinnamon/panels-autohide "['1:intel']"
+dconf write /org/cinnamon/panels-autohide "['1:false']"
 dconf write /org/cinnamon/settings-daemon/peripherals/touchscreen/orientation-lock "true"
 dconf write /org/cinnamon/settings-daemon/plugins/power/sleep-display-ac "0"
 dconf write /org/gnome/libgnomekbd/keyboard/options "['caps\tcaps:escape']"
+dconf write /org/cinnamon/desktop/keybindings/wm/show-desktop "['<Primary><Alt>d']"
 
 
 fi
