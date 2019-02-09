@@ -4,4 +4,4 @@
 
 - Has support for vscode, atom and general setup
 
-- Written for use with **git bash** shell for windows 
+- Written for use with **git bash** shell for windows as well as native shells on Linux
