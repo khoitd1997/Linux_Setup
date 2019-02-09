@@ -104,14 +104,13 @@ TRAPALRM() {
 TMOUT=300
 
 bindkey '^ ' autosuggest-accept
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 if [ -f "/etc/debian_version" ]; then
 source /usr/share/autojump/autojump.sh
+else
+source /usr/share/fzf/shell/key-bindings.zsh
 fi
 
-source /usr/share/fzf/shell/key-bindings.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
-
 PATH=$PATH:${GOPATH//://bin:}/bin
