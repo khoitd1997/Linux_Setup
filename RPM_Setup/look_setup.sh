@@ -10,6 +10,9 @@ set -o nounset
 gnome_shell_extensions_list=" top_icon_plus extensions_update_notifier workspace_grid Fedora_Linux_Updates_Indicator "
 
 #------------------------------------------------------------------------
+
+sudo dnf remove gnome-screenshot
+
 if [[ "${DESKTOP_SESSION}" == "gnome" ]]; then
 dconf write /org/gnome/desktop/interface/enable-animations "false"
 
@@ -57,7 +60,11 @@ empty_input_buffer
 read done_signal
 
 elif [[ "${DESKTOP_SESSION}" == "cinnamon" ]]; then
-sudo dnf remove gnome-screenshot
+# customize gnome terminal
+dconf reset -f /org/gnome/terminal/
+gnome-terminal # launch terminal to make sure a profile folder is created
+sleep 4
+dconf load /org/gnome/terminal/ < ~/OS_Setup/gnome/gnome_terminal_backup.txt
 
 dconf write /org/gnome/desktop/background/picture-uri "'file:///home/${USER}/OS_Setup/shared/TCP118v1_by_Tiziano_Consonni.jpg'"
 # theme
