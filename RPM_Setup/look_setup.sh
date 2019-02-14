@@ -68,7 +68,7 @@ dconf load /org/gnome/terminal/ < ~/OS_Setup/gnome/gnome_terminal_backup.txt
 
 dconf write /org/gnome/desktop/background/picture-uri "'file:///home/${USER}/OS_Setup/shared/TCP118v1_by_Tiziano_Consonni.jpg'"
 # theme
-dconf write /org/cinnamon/desktop/interface/gtk-theme "'Adwaita-dark'"
+dconf write /org/cinnamon/desktop/interface/gtk-theme "'Mint-Y-Dark'"
 dconf write /org/cinnamon/desktop/wm/preferences/theme "'Mint-Y-Dark'"
 dconf write /org/cinnamon/theme/name "'Mint-Y-Dark'"
 dconf write /org/cinnamon/settings-daemon/plugins/power/sleep-display-ac "10800"
@@ -100,6 +100,7 @@ dconf write /org/cinnamon/sounds/unmaximize-enabled "false"
 dconf write /org/cinnamon/sounds/tile-enabled "false"
 dconf write /org/cinnamon/sounds/notification-enabled "false"
 
+dconf write /org/cinnamon/desktop/interface/text-scaling-factor "1.3000000000000003"
 dconf write /org/cinnamon/alttab-switcher-style "'icons+preview'"
 dconf write /org/cinnamon/panels-autohide "['1:false']"
 dconf write /org/cinnamon/settings-daemon/peripherals/touchscreen/orientation-lock "true"
