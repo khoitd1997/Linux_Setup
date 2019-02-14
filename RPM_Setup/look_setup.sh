@@ -107,5 +107,5 @@ dconf write /org/cinnamon/settings-daemon/plugins/power/sleep-display-ac "0"
 dconf write /org/gnome/libgnomekbd/keyboard/options "['caps\tcaps:escape']"
 dconf write /org/cinnamon/desktop/keybindings/wm/show-desktop "['<Primary><Alt>d']"
 
-
+python3 ./cinnamon.py
 fi
