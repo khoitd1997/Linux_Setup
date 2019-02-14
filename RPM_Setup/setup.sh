@@ -148,7 +148,7 @@ sudo dnf autoremove -y
 cp ../synapse/config.json ~/.config/synapse/ -v
 
 print_message "Please enable these app on startup: ${software_startup}\n"
-printf "[redshift]\n allowed=true\n system=false\n users=\n\n" | sudo tee -a /etc/geoclue/geoclue.conf
+printf "\n[redshift]\n allowed=true\n system=false\n users=\n\n" | sudo tee -a /etc/geoclue/geoclue.conf
 
 #----------------------------------------------------------------------------------------------------
 # Post installtion messages start here
