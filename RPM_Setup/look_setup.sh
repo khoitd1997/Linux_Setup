@@ -108,5 +108,9 @@ dconf write /org/cinnamon/settings-daemon/plugins/power/sleep-display-ac "0"
 dconf write /org/gnome/libgnomekbd/keyboard/options "['caps\tcaps:escape']"
 dconf write /org/cinnamon/desktop/keybindings/wm/show-desktop "['<Primary><Alt>d']"
 
+dconf write /org/nemo/desktop/computer-icon-visible "false"
+dconf write /org/nemo/desktop/home-icon-visible "false"
+dconf write /org/nemo/desktop/trash-icon-visible "false"
+
 python3 ./cinnamon.py
 fi
