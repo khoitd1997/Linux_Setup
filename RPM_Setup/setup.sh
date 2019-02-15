@@ -10,8 +10,6 @@ software_group=" @development-tools fedora-workstation-repositories "
 
 software_dropped_not_in_repo=" checkinstall build-essential gufw hardinfo "
 
-software_startup=" redshift synapse flameshot "
-
 # list of general utilities without GUI
 software_general_repo_non_gui=" doxygen cmake valgrind \
 gcc clang llvm htop net-tools  minicom screen python3-pip curl \
@@ -147,8 +145,12 @@ sudo dnf autoremove -y
 
 cp ../synapse/config.json ~/.config/synapse/ -v
 
-print_message "Please enable these app on startup: ${software_startup}\n"
+# setup launcher shortcut
+print_message "Setting up application launcher\n"
 printf "\n[redshift]\n allowed=true\n system=false\n users=\n\n" | sudo tee -a /etc/geoclue/geoclue.conf
+sudo rm /usr/share/applications/flameshot.desktop # remove default flameshot launcher
+rm -f ~/.config/autostart/xpad.desktop # don't start xpad on startup
+python3 launcher_app/add_launcher_app.py
 
 #----------------------------------------------------------------------------------------------------
 # Post installtion messages start here
