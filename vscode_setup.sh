@@ -50,7 +50,7 @@ if [ -f "/etc/debian_version" ]; then
     sudo apt-get update
     sudo apt-get install code -y
 else
-    sudo dnf check-update
+    dnf check-update
     sudo dnf install code -y
 fi
 
