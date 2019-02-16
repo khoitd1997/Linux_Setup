@@ -114,3 +114,9 @@ fi
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
 PATH=$PATH:${GOPATH//://bin:}/bin
+
+setopt HIST_IGNORE_DUPS 
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS 
+setopt HIST_IGNORE_ALL_DUPS
+HISTSIZE=999999999
