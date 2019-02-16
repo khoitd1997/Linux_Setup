@@ -26,7 +26,7 @@ software_non_fedora_repo=" lpf-spotify-client "
 
 sudo dnf install flatpak
 flatpak_package=" com.spotify.Client com.discordapp.Discord \
-com.axosoft.GitKraken com.slack.Slack "
+com.slack.Slack "
 flatpak_maybe=" com.jetbrains.IntelliJ-IDEA-Community com.google.AndroidStudio "
 
 # all tool chains and utilities
@@ -50,7 +50,7 @@ SOFTWARE_GENERAL_REPO="${software_general_repo_non_gui}${software_with_gui}"
 sudo passwd -l root
 sudo systemctl status firewalld
 
-sudo dnf update && sudo dnf upgrade -y
+sudo dnf update -y
 sudo dnf install ${software_group} -y
 # got from here: https://rpmfusion.org/Configuration/
 sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
@@ -139,20 +139,7 @@ done
 esac
 done 
 
-sudo timedatectl set-timezone America/Los_Angeles
-timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
-sudo dnf autoremove -y
-
-cp ../synapse/config.json ~/.config/synapse/ -v
-
-# setup launcher shortcut
-print_message "Setting up application launcher\n"
-printf "\n[redshift]\n allowed=true\n system=false\n users=\n\n" | sudo tee -a /etc/geoclue/geoclue.conf
-sudo rm /usr/share/applications/flameshot.desktop # remove default flameshot launcher
-rm -f ~/.config/autostart/xpad.desktop # don't start xpad on startup
-python3 launcher_app/add_launcher_app.py
-
-#----------------------------------------------------------------------------------------------------
-# Post installtion messages start here
 print_message "Basic Software Installation Done\n"
+
+./post-install.sh
 exit 0
