@@ -28,4 +28,6 @@ rm -f ~/.config/autostart/xpad.desktop # don't start xpad on startup
 
 python3 launcher_app/add_launcher_app.py
 
+mkdir -p ~/temp
+
 print_message "Post installation setup done\n"
