@@ -111,6 +111,8 @@ dconf write /org/cinnamon/desktop/keybindings/wm/show-desktop "['<Primary><Alt>d
 dconf write /org/nemo/desktop/computer-icon-visible "false"
 dconf write /org/nemo/desktop/home-icon-visible "false"
 dconf write /org/nemo/desktop/trash-icon-visible "false"
+dconf write /org/cinnamon/desktop/session/idle-delay "uint32 0"
+
 
 python3 ./cinnamon.py
 fi
