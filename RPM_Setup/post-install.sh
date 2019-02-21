@@ -12,9 +12,7 @@ sudo timedatectl set-timezone America/Los_Angeles
 timedatectl set-local-rtc 1 --adjust-system-clock # adjust clock to local
 sudo dnf autoremove -y
 
-synapse&
-sleep 7
-python3 ../synapse/synapse.py # iffy since synapse's json is unpredictable
+../synapse/synapse.sh
 
 # setup launcher shortcut
 print_message "Setting up application launcher\n"
