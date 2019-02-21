@@ -17,10 +17,12 @@ python3-setuptools ranger tldr the_silver_searcher neofetch task autojump \
 google-chrome-stable xorg-x11-drv-nvidia akmod-nvidia fd-find bat fzf hub git \
 nano dnf-automatic openconnect tmux glibc-devel.i686 libnsl "
 
+software_packager_tool=" fedora-packager fedora-review mock "
+
 # list of software with GUI
 software_with_gui=" xclip evince synaptic xpad gparted moserial libncurses* meld \
 bustle d-feet graphviz npm flameshot feh nautilus-dropbox VirtualBox synapse latexmk \
-akmod-VirtualBox baobab kernel-devel kernel-headers pylint liveusb-creator "
+akmod-VirtualBox baobab kernel-devel kernel-headers pylint liveusb-creator bleachbit"
 
 software_non_fedora_repo=" lpf-spotify-client "
 
@@ -37,6 +39,9 @@ texlive-collection-xetex "
 golang_toolchain=" golang golint "
 golang_package=" github.com/ramya-rao-a/go-outline github.com/acroca/go-symbols github.com/mdempsky/gocode github.com/rogpeppe/godef golang.org/x/tools/cmd/godoc github.com/zmb3/gogetdoc golang.org/x/lint/golint github.com/fatih/gomodifytags golang.org/x/tools/cmd/gorename sourcegraph.com/sqs/goreturns golang.org/x/tools/cmd/goimports github.com/cweill/gotests/... golang.org/x/tools/cmd/guru github.com/josharian/impl github.com/haya14busa/goplay/cmd/goplay github.com/uudashr/gopkgs/cmd/gopkgs github.com/davidrjenni/reftools/cmd/fillstruct github.com/alecthomas/gometalinter " # source: https://github.com/Microsoft/vscode-go/wiki/Go-tools-that-the-Go-extension-depends-on
 
+# username usually used on my system
+default_username="kd"
+
 # python pip list
 python_pip_package_list=" pylint autopep8 "
 
@@ -46,7 +51,7 @@ set -o pipefail
 set -o nounset
 #----------------------------------------------------------------------------------------------------
 print_message "Starting Installation of Fedora Machine\n"
-SOFTWARE_GENERAL_REPO="${software_general_repo_non_gui}${software_with_gui}"
+SOFTWARE_GENERAL_REPO="${software_general_repo_non_gui}${software_with_gui}${software_packager_tool}"
 sudo passwd -l root
 sudo systemctl status firewalld
 
@@ -138,6 +143,8 @@ done
     ;;
 esac
 done 
+
+sudo usermod -a -G mock ${default_username}
 
 print_message "Basic Software Installation Done\n"
 
