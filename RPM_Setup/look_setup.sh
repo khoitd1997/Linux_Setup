@@ -66,7 +66,7 @@ gnome-terminal # launch terminal to make sure a profile folder is created
 sleep 4
 dconf load /org/gnome/terminal/ < ~/OS_Setup/gnome/gnome_terminal_backup.txt
 
-dconf write /org/gnome/desktop/background/picture-uri "'file:///home/${USER}/OS_Setup/shared/TCP118v1_by_Tiziano_Consonni.jpg'"
+dconf write /org/cinnamon/desktop/background/picture-uri "'file:///home/${USER}/OS_Setup/shared/TCP118v1_by_Tiziano_Consonni.jpg'"
 # theme
 dconf write /org/cinnamon/desktop/interface/gtk-theme "'Mint-Y-Dark'"
 dconf write /org/cinnamon/desktop/wm/preferences/theme "'Mint-Y-Dark'"
