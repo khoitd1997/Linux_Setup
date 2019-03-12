@@ -1,5 +1,7 @@
 # OS_Setup
 
+**THIS REPO IS NOW DEPRECATED**, I now use ansible for most of os setup.
+
 - Used for setting up windows, Debian or RPM linux
 
 - Has support for vscode, atom and general setup
